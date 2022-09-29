@@ -1,3 +1,5 @@
+package model;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -17,7 +19,8 @@ public class Employee {
     private String Level;
     private String Team_Info;
     private String Position_Title;
-    private String Contact_Info;
+    private String Cell_Phone_Number;
+    private String Email_Address;
 
     public String getName() {
         return Name;
@@ -83,19 +86,20 @@ public class Employee {
         this.Position_Title = Position_Title;
     }
 
-    public String getContact_Info() {
-        return Contact_Info;
+    public String getCell_Phone_Number() {
+        return Cell_Phone_Number;
     }
 
-    public void setContact_Info(String Contact_Info) {
-        this.Contact_Info = Contact_Info;
+    public void setCell_Phone_Number(String Cell_Phone_Number) {
+        this.Cell_Phone_Number = Cell_Phone_Number;
     }
 
-    
+    public String getEmail_Address() {
+        return Email_Address;
+    }
 
+    public void setEmail_Address(String Email_Address) {
+        this.Email_Address = Email_Address;
+    }
 
-    
-    
-    
-    
-}
+}  

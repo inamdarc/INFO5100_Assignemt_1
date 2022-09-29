@@ -59,7 +59,7 @@
                           <Component id="ViewRecordButton" linkSize="1" min="-2" pref="114" max="-2" attributes="0"/>
                           <Component id="CreateRecordButton" linkSize="1" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="37" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -80,6 +80,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Create Record"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CreateRecordButtonActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="ViewRecordButton">
               <Properties>

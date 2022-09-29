@@ -4,6 +4,8 @@
  */
 package ui;
 
+import model.Employee;
+
 /**
  *
  * @author chaitanya
@@ -13,8 +15,16 @@ public class MainJFrame extends javax.swing.JFrame {
     /**
      * Creates new form MainJFrame
      */
+    Employee employee;
+    
+    
+    
     public MainJFrame() {
         initComponents();
+        
+        employee = new Employee();
+        
+        
     }
 
     /**
@@ -35,6 +45,11 @@ public class MainJFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         CreateRecordButton.setText("Create Record");
+        CreateRecordButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CreateRecordButtonActionPerformed(evt);
+            }
+        });
 
         ViewRecordButton.setText("View Record");
         ViewRecordButton.addActionListener(new java.awt.event.ActionListener() {
@@ -52,7 +67,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addGroup(LeftControlPanalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(ViewRecordButton, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(CreateRecordButton))
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         LeftControlPanalLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {CreateRecordButton, ViewRecordButton});
@@ -104,7 +119,19 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void ViewRecordButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewRecordButtonActionPerformed
         // TODO add your handling code here:
+        ViewEmployeeDetails viewEmployeeDetails = new ViewEmployeeDetails(employee);
+        LeftPane.setRightComponent(viewEmployeeDetails);
+        
     }//GEN-LAST:event_ViewRecordButtonActionPerformed
+
+    private void CreateRecordButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateRecordButtonActionPerformed
+        // TODO add your handling code here:
+        CreateEmployeeDetails createEmployeeDetails = new CreateEmployeeDetails(employee);
+        LeftPane.setRightComponent(createEmployeeDetails);
+        
+        
+        
+    }//GEN-LAST:event_CreateRecordButtonActionPerformed
 
     /**
      * @param args the command line arguments

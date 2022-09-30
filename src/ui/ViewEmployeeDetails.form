@@ -16,31 +16,44 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
+          <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="ViewBtn" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+              <Component id="DeleteBtn" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="306" max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="LabelNumber" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="LabelEmpID" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="LabelName" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="LabelStDate" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="LabelLevel" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="LabelTeamInfo" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="LabelPoTitle" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="LabelAge" alignment="1" max="32767" attributes="0"/>
-                              <Component id="LabelGender" alignment="1" max="32767" attributes="0"/>
-                          </Group>
-                          <Component id="LabelEmail" alignment="1" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="153" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="FieldName" alignment="0" pref="159" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="LabelNumber" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="LabelEmpID" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="LabelName" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="LabelStDate" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="LabelLevel" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="LabelTeamInfo" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="LabelPoTitle" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="LabelGender" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="LabelEmail" alignment="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="LabelAge" min="-2" pref="47" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="FieldName" alignment="0" max="32767" attributes="0"/>
                           <Component id="FieldEmpId" alignment="0" max="32767" attributes="0"/>
                           <Component id="FieldAge" alignment="0" max="32767" attributes="0"/>
                           <Component id="FieldGender" alignment="0" max="32767" attributes="0"/>
@@ -48,12 +61,12 @@
                           <Component id="FieldLevel" alignment="0" max="32767" attributes="0"/>
                           <Component id="FieldTeamInfo" alignment="0" max="32767" attributes="0"/>
                           <Component id="FieldPosTitle" alignment="0" max="32767" attributes="0"/>
-                          <Component id="FieldNumber" max="32767" attributes="0"/>
-                          <Component id="FieldEmail" alignment="0" max="32767" attributes="0"/>
+                          <Component id="FieldNumber" alignment="0" max="32767" attributes="0"/>
+                          <Component id="FieldEmail" alignment="0" min="-2" pref="162" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace pref="221" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -62,6 +75,13 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="jScrollPane1" min="-2" pref="104" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="ViewBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="DeleteBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="LabelName" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -112,59 +132,163 @@
                   <Component id="LabelEmail" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="FieldEmail" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="83" max="32767" attributes="0"/>
+              <EmptySpace pref="43" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JTextField" name="FieldGender">
-    </Component>
-    <Component class="javax.swing.JTextField" name="FieldStDate">
-    </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="text" type="java.lang.String" value="View Employee Details"/>
       </Properties>
     </Component>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTable" name="TableEmp">
+          <Properties>
+            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+              <Table columnCount="10" rowCount="4">
+                <Column editable="true" title="Name" type="java.lang.Object"/>
+                <Column editable="true" title="Employee ID" type="java.lang.Object"/>
+                <Column editable="true" title="Age" type="java.lang.Object"/>
+                <Column editable="true" title="Gender" type="java.lang.Object"/>
+                <Column editable="true" title="Start Date" type="java.lang.Object"/>
+                <Column editable="true" title="Level" type="java.lang.Object"/>
+                <Column editable="true" title="Team Information" type="java.lang.Object"/>
+                <Column editable="true" title="Position Title" type="java.lang.Object"/>
+                <Column editable="true" title="Cell Phone Number" type="java.lang.Object"/>
+                <Column editable="true" title="Email ID" type="java.lang.Object"/>
+              </Table>
+            </Property>
+            <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+              <TableColumnModel selectionModel="0">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+              </TableColumnModel>
+            </Property>
+            <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+              <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+            </Property>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.JButton" name="ViewBtn">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="View"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ViewBtnActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="DeleteBtn">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Delete"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DeleteBtnActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="FieldName">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FieldNameActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="FieldEmpId">
+    </Component>
+    <Component class="javax.swing.JTextField" name="FieldAge">
+    </Component>
+    <Component class="javax.swing.JTextField" name="FieldGender">
+    </Component>
+    <Component class="javax.swing.JTextField" name="FieldStDate">
+    </Component>
     <Component class="javax.swing.JTextField" name="FieldLevel">
+    </Component>
+    <Component class="javax.swing.JTextField" name="FieldTeamInfo">
+    </Component>
+    <Component class="javax.swing.JTextField" name="FieldPosTitle">
+    </Component>
+    <Component class="javax.swing.JTextField" name="FieldNumber">
+    </Component>
+    <Component class="javax.swing.JTextField" name="FieldEmail">
     </Component>
     <Component class="javax.swing.JLabel" name="LabelName">
       <Properties>
         <Property name="text" type="java.lang.String" value="Name:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="FieldTeamInfo">
-    </Component>
     <Component class="javax.swing.JLabel" name="LabelEmpID">
       <Properties>
         <Property name="text" type="java.lang.String" value="Employee ID:"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="FieldPosTitle">
     </Component>
     <Component class="javax.swing.JLabel" name="LabelAge">
       <Properties>
         <Property name="text" type="java.lang.String" value="Age:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="FieldNumber">
-    </Component>
     <Component class="javax.swing.JLabel" name="LabelGender">
       <Properties>
         <Property name="text" type="java.lang.String" value="Gender:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="FieldEmail">
-    </Component>
     <Component class="javax.swing.JLabel" name="LabelStDate">
       <Properties>
         <Property name="text" type="java.lang.String" value="Start Date:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="LabelEmail">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Email Address:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="LabelLevel">
@@ -172,28 +296,24 @@
         <Property name="text" type="java.lang.String" value="Level:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="FieldName">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FieldNameActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JLabel" name="LabelTeamInfo">
       <Properties>
         <Property name="text" type="java.lang.String" value="Team Information:"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="FieldEmpId">
     </Component>
     <Component class="javax.swing.JLabel" name="LabelPoTitle">
       <Properties>
         <Property name="text" type="java.lang.String" value="Position Title:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="FieldAge">
-    </Component>
     <Component class="javax.swing.JLabel" name="LabelNumber">
       <Properties>
         <Property name="text" type="java.lang.String" value="Cell Phone Number:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="LabelEmail">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Email Address:"/>
       </Properties>
     </Component>
   </SubComponents>

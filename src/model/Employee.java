@@ -101,5 +101,10 @@ public class Employee {
     public void setEmail_Address(String Email_Address) {
         this.Email_Address = Email_Address;
     }
+    
+    @Override
+    public String toString(){
+        return Name;
+    }
 
 }  

@@ -4,7 +4,7 @@
  */
 package ui;
 
-import model.Employee;
+import model.EmployeeHistory;
 
 /**
  *
@@ -15,14 +15,13 @@ public class MainJFrame extends javax.swing.JFrame {
     /**
      * Creates new form MainJFrame
      */
-    Employee employee;
-    
+    EmployeeHistory history;
     
     
     public MainJFrame() {
         initComponents();
         
-        employee = new Employee();
+        history = new EmployeeHistory();
         
         
     }
@@ -119,14 +118,14 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void ViewRecordButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewRecordButtonActionPerformed
         // TODO add your handling code here:
-        ViewEmployeeDetails viewEmployeeDetails = new ViewEmployeeDetails(employee);
+        ViewEmployeeDetails viewEmployeeDetails = new ViewEmployeeDetails(history);
         LeftPane.setRightComponent(viewEmployeeDetails);
         
     }//GEN-LAST:event_ViewRecordButtonActionPerformed
 
     private void CreateRecordButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateRecordButtonActionPerformed
         // TODO add your handling code here:
-        CreateEmployeeDetails createEmployeeDetails = new CreateEmployeeDetails(employee);
+        CreateEmployeeDetails createEmployeeDetails = new CreateEmployeeDetails(history);
         LeftPane.setRightComponent(createEmployeeDetails);
         
         
@@ -161,10 +160,8 @@ public class MainJFrame extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MainJFrame().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new MainJFrame().setVisible(true);
         });
     }
 

@@ -4,7 +4,10 @@
  */
 package ui;
 
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import model.Employee;
+import model.EmployeeHistory;
 
 /**
  *
@@ -17,12 +20,12 @@ public class ViewEmployeeDetails extends javax.swing.JPanel {
      * Creates new form ViewEmployeeDetails
      */
     
-    Employee employee;
+    EmployeeHistory history;
     
-    public ViewEmployeeDetails(Employee employee) {
+    public ViewEmployeeDetails(EmployeeHistory history) {
         initComponents();
-        this.employee = employee;
-        displayEmployeeDetails();
+        this.history = history;
+        populateTable();
         
         
        
@@ -37,29 +40,66 @@ public class ViewEmployeeDetails extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        TableEmp = new javax.swing.JTable();
+        ViewBtn = new javax.swing.JButton();
+        DeleteBtn = new javax.swing.JButton();
+        FieldName = new javax.swing.JTextField();
+        FieldEmpId = new javax.swing.JTextField();
+        FieldAge = new javax.swing.JTextField();
         FieldGender = new javax.swing.JTextField();
         FieldStDate = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
         FieldLevel = new javax.swing.JTextField();
-        LabelName = new javax.swing.JLabel();
         FieldTeamInfo = new javax.swing.JTextField();
-        LabelEmpID = new javax.swing.JLabel();
         FieldPosTitle = new javax.swing.JTextField();
-        LabelAge = new javax.swing.JLabel();
         FieldNumber = new javax.swing.JTextField();
-        LabelGender = new javax.swing.JLabel();
         FieldEmail = new javax.swing.JTextField();
+        LabelName = new javax.swing.JLabel();
+        LabelEmpID = new javax.swing.JLabel();
+        LabelAge = new javax.swing.JLabel();
+        LabelGender = new javax.swing.JLabel();
         LabelStDate = new javax.swing.JLabel();
-        LabelEmail = new javax.swing.JLabel();
         LabelLevel = new javax.swing.JLabel();
-        FieldName = new javax.swing.JTextField();
         LabelTeamInfo = new javax.swing.JLabel();
-        FieldEmpId = new javax.swing.JTextField();
         LabelPoTitle = new javax.swing.JLabel();
-        FieldAge = new javax.swing.JTextField();
         LabelNumber = new javax.swing.JLabel();
+        LabelEmail = new javax.swing.JLabel();
 
         jLabel1.setText("View Employee Details");
+
+        TableEmp.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Name", "Employee ID", "Age", "Gender", "Start Date", "Level", "Team Information", "Position Title", "Cell Phone Number", "Email ID"
+            }
+        ));
+        jScrollPane1.setViewportView(TableEmp);
+
+        ViewBtn.setText("View");
+        ViewBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ViewBtnActionPerformed(evt);
+            }
+        });
+
+        DeleteBtn.setText("Delete");
+        DeleteBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeleteBtnActionPerformed(evt);
+            }
+        });
+
+        FieldName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FieldNameActionPerformed(evt);
+            }
+        });
 
         LabelName.setText("Name:");
 
@@ -71,15 +111,7 @@ public class ViewEmployeeDetails extends javax.swing.JPanel {
 
         LabelStDate.setText("Start Date:");
 
-        LabelEmail.setText("Email Address:");
-
         LabelLevel.setText("Level:");
-
-        FieldName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FieldNameActionPerformed(evt);
-            }
-        });
 
         LabelTeamInfo.setText("Team Information:");
 
@@ -87,32 +119,44 @@ public class ViewEmployeeDetails extends javax.swing.JPanel {
 
         LabelNumber.setText("Cell Phone Number:");
 
+        LabelEmail.setText("Email Address:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(ViewBtn)
+                .addGap(28, 28, 28)
+                .addComponent(DeleteBtn)
+                .addGap(73, 73, 73))
             .addGroup(layout.createSequentialGroup()
-                .addGap(73, 73, 73)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(109, 109, 109)
+                        .addGap(306, 306, 306)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(LabelNumber)
-                            .addComponent(LabelEmpID)
-                            .addComponent(LabelName)
-                            .addComponent(LabelStDate)
-                            .addComponent(LabelLevel)
-                            .addComponent(LabelTeamInfo)
-                            .addComponent(LabelPoTitle)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(LabelAge, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(LabelGender, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(LabelEmail))
-                        .addGap(46, 46, 46)
+                        .addGap(153, 153, 153)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(FieldName, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(LabelNumber)
+                                    .addComponent(LabelEmpID)
+                                    .addComponent(LabelName)
+                                    .addComponent(LabelStDate)
+                                    .addComponent(LabelLevel)
+                                    .addComponent(LabelTeamInfo)
+                                    .addComponent(LabelPoTitle)
+                                    .addComponent(LabelGender)
+                                    .addComponent(LabelEmail))
+                                .addGap(46, 46, 46))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(LabelAge, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(28, 28, 28)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(FieldName)
                             .addComponent(FieldEmpId)
                             .addComponent(FieldAge)
                             .addComponent(FieldGender)
@@ -121,14 +165,20 @@ public class ViewEmployeeDetails extends javax.swing.JPanel {
                             .addComponent(FieldTeamInfo)
                             .addComponent(FieldPosTitle)
                             .addComponent(FieldNumber)
-                            .addComponent(FieldEmail))))
-                .addContainerGap())
+                            .addComponent(FieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(221, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ViewBtn)
+                    .addComponent(DeleteBtn))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LabelName)
@@ -169,16 +219,66 @@ public class ViewEmployeeDetails extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LabelEmail)
                     .addComponent(FieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(83, Short.MAX_VALUE))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void ViewBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewBtnActionPerformed
+        // TODO add your handling code here:
+        int selectedRowIndex = TableEmp.getSelectedRow();
+        
+        if (selectedRowIndex<0) {
+            JOptionPane.showMessageDialog(this, "Please select a row to view");
+            return;
+                
+        }
+        
+        DefaultTableModel model = (DefaultTableModel) TableEmp.getModel();
+        Employee selectedRecords = (Employee) model.getValueAt(selectedRowIndex, 0);
+
+        FieldName.setText(String.valueOf(selectedRecords.getName()));
+        FieldEmpId.setText(selectedRecords.getEmployee_ID());
+        FieldAge.setText(selectedRecords.getAge());
+        FieldGender.setText(selectedRecords.getGender());
+        FieldStDate.setText(selectedRecords.getStart_Date());
+        FieldLevel.setText(selectedRecords.getLevel());
+        FieldTeamInfo.setText(selectedRecords.getTeam_Info());
+        FieldPosTitle.setText(selectedRecords.getPosition_Title());
+        FieldNumber.setText(selectedRecords.getCell_Phone_Number());
+        FieldEmail.setText(selectedRecords.getEmail_Address()); 
+        
+    }//GEN-LAST:event_ViewBtnActionPerformed
 
     private void FieldNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FieldNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_FieldNameActionPerformed
 
+    private void DeleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteBtnActionPerformed
+        // TODO add your handling code here:
+        
+        int selectedRowIndex = TableEmp.getSelectedRow();
+        
+        if (selectedRowIndex<0) {
+            JOptionPane.showMessageDialog(this, "Please select a row to delete");
+            return;
+                
+        }
+        
+        DefaultTableModel model = (DefaultTableModel) TableEmp.getModel();
+        Employee selectedRecords = (Employee) model.getValueAt(selectedRowIndex, 0);
+
+        history.deleteRecords(selectedRecords);
+
+        JOptionPane.showMessageDialog(this, "Employee record deleted");
+
+        populateTable();
+
+       
+    }//GEN-LAST:event_DeleteBtnActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton DeleteBtn;
     private javax.swing.JTextField FieldAge;
     private javax.swing.JTextField FieldEmail;
     private javax.swing.JTextField FieldEmpId;
@@ -199,25 +299,39 @@ public class ViewEmployeeDetails extends javax.swing.JPanel {
     private javax.swing.JLabel LabelPoTitle;
     private javax.swing.JLabel LabelStDate;
     private javax.swing.JLabel LabelTeamInfo;
+    private javax.swing.JTable TableEmp;
+    private javax.swing.JButton ViewBtn;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 
-    private void displayEmployeeDetails() {
-        FieldName.setText(employee.getName());
-        FieldAge.setText(employee.getAge());
-        FieldEmail.setText(employee.getEmail_Address());
-        FieldEmpId.setText(employee.getEmployee_ID());
-        FieldGender.setText(employee.getGender());
-        FieldLevel.setText(employee.getLevel());
-        FieldNumber.setText(employee.getCell_Phone_Number());
-        FieldPosTitle.setText(employee.getPosition_Title());
-        FieldStDate.setText(employee.getStart_Date());
-        FieldTeamInfo.setText(employee.getTeam_Info());
+    
 
-
-
-          
+    private void populateTable() {
+        
+        DefaultTableModel model = (DefaultTableModel) TableEmp.getModel();
+        model.setRowCount(0);
+        
+        for (Employee e  : history.getHistory()){
+            
+            Object[] row = new Object[10];
+            row[0] = e;
+            row[1] = e.getAge();
+            row[2] = e.getEmail_Address();
+            row[3] = e.getEmployee_ID();
+            row[4] = e.getGender();
+            row[5] = e.getLevel();
+            row[6] = e.getCell_Phone_Number();
+            row[7] = e.getPosition_Title();
+            row[8] = e.getStart_Date();
+            row[9] = e.getTeam_Info();
+            
+            model.addRow(row);
+            
+        
+        }
         
         
+             
     }
 }

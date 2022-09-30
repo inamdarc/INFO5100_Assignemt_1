@@ -4,8 +4,13 @@
  */
 package ui;
 
+import java.awt.Image;
+import java.io.File;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import model.Employee;
+import model.EmployeeHistory;
 
 /**
  *
@@ -16,11 +21,11 @@ public class CreateEmployeeDetails extends javax.swing.JPanel {
     /**
      * Creates new form CreateEmployeeDetails
      */
-    Employee employee;
+    EmployeeHistory history;
    
-    public CreateEmployeeDetails(Employee employee) {
+    public CreateEmployeeDetails(EmployeeHistory history) {
         initComponents();
-        this.employee = employee;
+        this.history = history;
         
     }
 
@@ -33,6 +38,7 @@ public class CreateEmployeeDetails extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jFileChooser1 = new javax.swing.JFileChooser();
         jLabel1 = new javax.swing.JLabel();
         LabelName = new javax.swing.JLabel();
         LabelEmpID = new javax.swing.JLabel();
@@ -55,6 +61,9 @@ public class CreateEmployeeDetails extends javax.swing.JPanel {
         FieldNumber = new javax.swing.JTextField();
         FieldEmail = new javax.swing.JTextField();
         ButtonCreate = new javax.swing.JButton();
+
+        jFileChooser1.setMaximumSize(new java.awt.Dimension(10, 10));
+        jFileChooser1.setMinimumSize(new java.awt.Dimension(5, 5));
 
         jLabel1.setText("Create Employee Details");
 
@@ -101,6 +110,12 @@ public class CreateEmployeeDetails extends javax.swing.JPanel {
                         .addGap(141, 141, 141)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(148, 148, 148)
+                        .addComponent(ButtonCreate)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(32, 32, 32)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(LabelNumber)
@@ -110,26 +125,25 @@ public class CreateEmployeeDetails extends javax.swing.JPanel {
                             .addComponent(LabelLevel)
                             .addComponent(LabelTeamInfo)
                             .addComponent(LabelPoTitle)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(LabelAge, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(LabelGender, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(LabelGender)
                             .addComponent(LabelEmail))
-                        .addGap(46, 46, 46)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(FieldName, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
-                            .addComponent(FieldEmpId)
-                            .addComponent(FieldAge)
-                            .addComponent(FieldGender)
-                            .addComponent(FieldStDate)
-                            .addComponent(FieldLevel)
-                            .addComponent(FieldTeamInfo)
-                            .addComponent(FieldPosTitle)
-                            .addComponent(FieldNumber)
-                            .addComponent(FieldEmail)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(140, 140, 140)
-                        .addComponent(ButtonCreate)))
-                .addContainerGap(44, Short.MAX_VALUE))
+                        .addGap(46, 46, 46))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(LabelAge, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(FieldName, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
+                    .addComponent(FieldEmpId)
+                    .addComponent(FieldAge)
+                    .addComponent(FieldGender)
+                    .addComponent(FieldStDate)
+                    .addComponent(FieldLevel)
+                    .addComponent(FieldTeamInfo)
+                    .addComponent(FieldPosTitle)
+                    .addComponent(FieldNumber)
+                    .addComponent(FieldEmail))
+                .addGap(138, 1144, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -176,9 +190,9 @@ public class CreateEmployeeDetails extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LabelEmail)
                     .addComponent(FieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(64, 64, 64)
                 .addComponent(ButtonCreate)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -189,32 +203,49 @@ public class CreateEmployeeDetails extends javax.swing.JPanel {
     private void ButtonCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCreateActionPerformed
         // TODO add your handling code here:
         
-        employee.setName(FieldName.getText());
-        employee.setAge(FieldAge.getText());
-        employee.setEmail_Address(FieldEmail.getText());
-        employee.setCell_Phone_Number(FieldNumber.getText());
-        employee.setLevel(FieldLevel.getText());
-        employee.setPosition_Title(FieldPosTitle.getText());
-        employee.setStart_Date(FieldStDate.getText());
-        employee.setTeam_Info(FieldTeamInfo.getText());
-        employee.setGender(FieldGender.getText());
-        employee.setEmployee_ID(FieldEmpId.getText());
-       
-
+        
+        String Name = FieldName.getText();
+        String Employee_ID = FieldEmpId.getText();
+        String Age = FieldAge.getText();
+        String Gender = FieldGender.getText();
+        String Start_Date = FieldStDate.getText();
+        String Level = FieldLevel.getText();
+        String Team_Info = FieldTeamInfo.getText();
+        String Position_Title = FieldPosTitle.getText();
+        String Cell_Phone_Number = FieldNumber.getText();
+        String Email_Address = FieldEmail.getText();
+         
+        Employee e = history.addNewRecord();
+        
+        e.setName(Name);
+        e.setAge(Age);
+        e.setEmail_Address(Email_Address);
+        e.setCell_Phone_Number(Cell_Phone_Number);
+        e.setLevel(Level);
+        e.setPosition_Title(Position_Title);
+        e.setStart_Date(Start_Date);
+        e.setTeam_Info(Team_Info);
+        e.setGender(Gender);
+        e.setEmployee_ID(Employee_ID);	
+         
+         
         JOptionPane.showMessageDialog(this, "Employee Information Saved");
+         
+        FieldName.setText("");
+        FieldEmpId.setText("");
+        FieldAge.setText("");
+        FieldGender.setText("");
+        FieldStDate.setText("");
+        FieldLevel.setText("");
+        FieldTeamInfo.setText("");
+        FieldPosTitle.setText("");
+        FieldNumber.setText("");
+        FieldEmail.setText("");         
     }//GEN-LAST:event_ButtonCreateActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel AgeLabel;
-    private javax.swing.JLabel AgeLabel1;
     private javax.swing.JButton ButtonCreate;
-    private javax.swing.JLabel CellPhnLabel;
-    private javax.swing.JLabel CellPhnLabel1;
-    private javax.swing.JLabel EmpDetails;
-    private javax.swing.JLabel EmpDetails1;
-    private javax.swing.JLabel EmpIdLabel;
-    private javax.swing.JLabel EmpIdLabel1;
     private javax.swing.JTextField FieldAge;
     private javax.swing.JTextField FieldEmail;
     private javax.swing.JTextField FieldEmpId;
@@ -225,8 +256,6 @@ public class CreateEmployeeDetails extends javax.swing.JPanel {
     private javax.swing.JTextField FieldPosTitle;
     private javax.swing.JTextField FieldStDate;
     private javax.swing.JTextField FieldTeamInfo;
-    private javax.swing.JLabel GenderLabel;
-    private javax.swing.JLabel GenderLabel1;
     private javax.swing.JLabel LabelAge;
     private javax.swing.JLabel LabelEmail;
     private javax.swing.JLabel LabelEmpID;
@@ -237,22 +266,9 @@ public class CreateEmployeeDetails extends javax.swing.JPanel {
     private javax.swing.JLabel LabelPoTitle;
     private javax.swing.JLabel LabelStDate;
     private javax.swing.JLabel LabelTeamInfo;
-    private javax.swing.JLabel LevelLabel;
-    private javax.swing.JLabel LevelLabel1;
-    private javax.swing.JTextField NameField;
-    private javax.swing.JTextField NameField1;
-    private javax.swing.JLabel NameLabel;
-    private javax.swing.JLabel NameLabel1;
-    private javax.swing.JLabel PosTitleLabel;
-    private javax.swing.JLabel PosTitleLabel1;
-    private javax.swing.JLabel StDateLabel;
-    private javax.swing.JLabel StDateLabel1;
-    private javax.swing.JLabel TeamInfoLabel;
-    private javax.swing.JLabel TeamInfoLabel1;
+    private javax.swing.JFileChooser jFileChooser1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
+
 }
+

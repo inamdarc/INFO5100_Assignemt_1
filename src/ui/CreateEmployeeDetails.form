@@ -30,62 +30,69 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="141" max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="148" max="-2" attributes="0"/>
                       <Component id="ButtonCreate" min="-2" max="-2" attributes="0"/>
                   </Group>
-              </Group>
-              <EmptySpace max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="LabelNumber" min="-2" max="-2" attributes="0"/>
-                          <Component id="LabelEmpID" min="-2" max="-2" attributes="0"/>
-                          <Component id="LabelName" min="-2" max="-2" attributes="0"/>
-                          <Component id="LabelStDate" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="LabelLevel" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="LabelTeamInfo" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="LabelPoTitle" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="LabelGender" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="LabelEmail" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="LabelNumber" min="-2" max="-2" attributes="0"/>
+                                  <Component id="LabelEmpID" min="-2" max="-2" attributes="0"/>
+                                  <Component id="LabelName" min="-2" max="-2" attributes="0"/>
+                                  <Component id="LabelStDate" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="LabelLevel" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="LabelTeamInfo" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="LabelPoTitle" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="LabelGender" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="LabelEmail" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtPhoto" alignment="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="LabelAge" min="-2" pref="47" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="PhotoBtn" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                              <Component id="LabelPhoto" min="-2" pref="50" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="FieldName" alignment="0" pref="162" max="32767" attributes="0"/>
+                              <Component id="FieldEmpId" alignment="0" max="32767" attributes="0"/>
+                              <Component id="FieldAge" alignment="0" max="32767" attributes="0"/>
+                              <Component id="FieldGender" alignment="0" max="32767" attributes="0"/>
+                              <Component id="FieldLevel" alignment="0" max="32767" attributes="0"/>
+                              <Component id="FieldTeamInfo" alignment="0" max="32767" attributes="0"/>
+                              <Component id="FieldPosTitle" alignment="0" max="32767" attributes="0"/>
+                              <Component id="FieldNumber" alignment="0" max="32767" attributes="0"/>
+                              <Component id="FieldEmail" alignment="0" max="32767" attributes="0"/>
+                          </Group>
+                          <Component id="FieldStDate" min="-2" pref="162" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="LabelAge" min="-2" pref="47" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="164" max="-2" attributes="0"/>
+                      <Component id="jLabel1" min="-2" pref="245" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="FieldName" alignment="0" pref="162" max="32767" attributes="0"/>
-                  <Component id="FieldEmpId" alignment="0" max="32767" attributes="0"/>
-                  <Component id="FieldAge" alignment="0" max="32767" attributes="0"/>
-                  <Component id="FieldGender" alignment="0" max="32767" attributes="0"/>
-                  <Component id="FieldStDate" alignment="0" max="32767" attributes="0"/>
-                  <Component id="FieldLevel" alignment="0" max="32767" attributes="0"/>
-                  <Component id="FieldTeamInfo" alignment="0" max="32767" attributes="0"/>
-                  <Component id="FieldPosTitle" alignment="0" max="32767" attributes="0"/>
-                  <Component id="FieldNumber" alignment="0" max="32767" attributes="0"/>
-                  <Component id="FieldEmail" alignment="0" max="32767" attributes="0"/>
-              </Group>
-              <EmptySpace min="138" pref="1144" max="32767" attributes="0"/>
+              <EmptySpace pref="1041" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jLabel1" min="-2" pref="34" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="LabelName" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="FieldName" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -105,12 +112,12 @@
                   <Component id="LabelGender" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="FieldGender" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="LabelStDate" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="FieldStDate" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="LabelLevel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="FieldLevel" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -130,10 +137,16 @@
                   <Component id="LabelNumber" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="FieldNumber" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="LabelEmail" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="FieldEmail" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtPhoto" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="PhotoBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="LabelPhoto" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
               <Component id="ButtonCreate" min="-2" max="-2" attributes="0"/>
@@ -145,7 +158,7 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Create Employee Details"/>
+        <Property name="text" type="java.lang.String" value="CREATE EMPLOYEE RECORD"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="LabelName">
@@ -206,6 +219,9 @@
     <Component class="javax.swing.JTextField" name="FieldEmpId">
     </Component>
     <Component class="javax.swing.JTextField" name="FieldAge">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FieldAgeActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="FieldGender">
     </Component>
@@ -218,8 +234,14 @@
     <Component class="javax.swing.JTextField" name="FieldPosTitle">
     </Component>
     <Component class="javax.swing.JTextField" name="FieldNumber">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FieldNumberActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="FieldEmail">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FieldEmailActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="ButtonCreate">
       <Properties>
@@ -228,6 +250,26 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonCreateActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="txtPhoto">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Photo:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="PhotoBtn">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Upload"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PhotoBtnActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="LabelPhoto">
+      <Properties>
+        <Property name="bounds" type="java.awt.Rectangle" editor="org.netbeans.beaninfo.editors.RectangleEditor">
+          <Rectangle value="[50, 50, 50, 50]"/>
+        </Property>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

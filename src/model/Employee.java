@@ -1,5 +1,14 @@
 package model;
 
+import java.awt.Image;
+import java.io.File;
+import java.time.LocalDate;
+import java.util.Date;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -13,14 +22,15 @@ public class Employee {
     
     private String Name;
     private String Employee_ID;
-    private String Age;
+    private int Age;
     private String Gender;
     private String Start_Date;
     private String Level;
     private String Team_Info;
     private String Position_Title;
-    private String Cell_Phone_Number;
+    private int Cell_Phone_Number;
     private String Email_Address;
+    private ImageIcon Photo;
 
     public String getName() {
         return Name;
@@ -38,11 +48,11 @@ public class Employee {
         this.Employee_ID = Employee_ID;
     }
 
-    public String getAge() {
+    public int getAge() {
         return Age;
     }
 
-    public void setAge(String Age) {
+    public void setAge(int Age) {
         this.Age = Age;
     }
 
@@ -86,11 +96,11 @@ public class Employee {
         this.Position_Title = Position_Title;
     }
 
-    public String getCell_Phone_Number() {
+    public int getCell_Phone_Number() {
         return Cell_Phone_Number;
     }
 
-    public void setCell_Phone_Number(String Cell_Phone_Number) {
+    public void setCell_Phone_Number(int Cell_Phone_Number) {
         this.Cell_Phone_Number = Cell_Phone_Number;
     }
 
@@ -101,6 +111,19 @@ public class Employee {
     public void setEmail_Address(String Email_Address) {
         this.Email_Address = Email_Address;
     }
+
+    public ImageIcon getPhoto() {
+        return Photo;
+    }
+
+    public void setPhoto(ImageIcon Photo) {
+        this.Photo = Photo;
+    }
+
+    
+
+    
+    
     
     @Override
     public String toString(){

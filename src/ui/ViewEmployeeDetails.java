@@ -65,20 +65,28 @@ public class ViewEmployeeDetails extends javax.swing.JPanel {
         LabelPoTitle = new javax.swing.JLabel();
         LabelNumber = new javax.swing.JLabel();
         LabelEmail = new javax.swing.JLabel();
+        UpdateBtn = new javax.swing.JButton();
+        txtPhoto = new javax.swing.JLabel();
+        LabelPhoto = new javax.swing.JLabel();
 
         jLabel1.setText("View Employee Details");
 
         TableEmp.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Name", "Employee ID", "Age", "Gender", "Start Date", "Level", "Team Information", "Position Title", "Cell Phone Number", "Email ID"
+                "Name", "Employee ID", "Age", "Gender", "Start Date", "Level", "Team Information", "Position Title", "Cell Phone Number", "Email ID", "Photo"
             }
         ));
+        TableEmp.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TableEmpMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(TableEmp);
 
         ViewBtn.setText("View");
@@ -121,6 +129,17 @@ public class ViewEmployeeDetails extends javax.swing.JPanel {
 
         LabelEmail.setText("Email Address:");
 
+        UpdateBtn.setText("Update");
+        UpdateBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UpdateBtnActionPerformed(evt);
+            }
+        });
+
+        txtPhoto.setText("Photo:");
+
+        LabelPhoto.setBounds(new java.awt.Rectangle(50, 50, 50, 50));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -128,6 +147,8 @@ public class ViewEmployeeDetails extends javax.swing.JPanel {
             .addComponent(jScrollPane1)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(UpdateBtn)
+                .addGap(18, 18, 18)
                 .addComponent(ViewBtn)
                 .addGap(28, 28, 28)
                 .addComponent(DeleteBtn)
@@ -150,7 +171,8 @@ public class ViewEmployeeDetails extends javax.swing.JPanel {
                                     .addComponent(LabelTeamInfo)
                                     .addComponent(LabelPoTitle)
                                     .addComponent(LabelGender)
-                                    .addComponent(LabelEmail))
+                                    .addComponent(LabelEmail)
+                                    .addComponent(txtPhoto))
                                 .addGap(46, 46, 46))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(LabelAge, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -165,8 +187,9 @@ public class ViewEmployeeDetails extends javax.swing.JPanel {
                             .addComponent(FieldTeamInfo)
                             .addComponent(FieldPosTitle)
                             .addComponent(FieldNumber)
-                            .addComponent(FieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(221, Short.MAX_VALUE))
+                            .addComponent(FieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(LabelPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(274, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -178,7 +201,8 @@ public class ViewEmployeeDetails extends javax.swing.JPanel {
                 .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ViewBtn)
-                    .addComponent(DeleteBtn))
+                    .addComponent(DeleteBtn)
+                    .addComponent(UpdateBtn))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LabelName)
@@ -219,7 +243,11 @@ public class ViewEmployeeDetails extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LabelEmail)
                     .addComponent(FieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtPhoto)
+                    .addComponent(LabelPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -238,14 +266,15 @@ public class ViewEmployeeDetails extends javax.swing.JPanel {
 
         FieldName.setText(String.valueOf(selectedRecords.getName()));
         FieldEmpId.setText(selectedRecords.getEmployee_ID());
-        FieldAge.setText(selectedRecords.getAge());
+        FieldAge.setText(String.valueOf(selectedRecords.getAge()));
         FieldGender.setText(selectedRecords.getGender());
-        FieldStDate.setText(selectedRecords.getStart_Date());
+        FieldStDate.setText(String.valueOf(selectedRecords.getStart_Date()));
         FieldLevel.setText(selectedRecords.getLevel());
         FieldTeamInfo.setText(selectedRecords.getTeam_Info());
         FieldPosTitle.setText(selectedRecords.getPosition_Title());
-        FieldNumber.setText(selectedRecords.getCell_Phone_Number());
-        FieldEmail.setText(selectedRecords.getEmail_Address()); 
+        FieldNumber.setText(String.valueOf(selectedRecords.getCell_Phone_Number()));
+        FieldEmail.setText(selectedRecords.getEmail_Address());   
+        LabelPhoto.setIcon(selectedRecords.getPhoto());
         
     }//GEN-LAST:event_ViewBtnActionPerformed
 
@@ -276,6 +305,53 @@ public class ViewEmployeeDetails extends javax.swing.JPanel {
        
     }//GEN-LAST:event_DeleteBtnActionPerformed
 
+    private void UpdateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateBtnActionPerformed
+        // TODO add your handling code here:
+        int selectedRowIndex = TableEmp.getSelectedRow();
+        
+        if (selectedRowIndex<0) {
+            JOptionPane.showMessageDialog(this, "Please select a row to update");
+            return;
+                
+        }
+        
+        
+        DefaultTableModel model = (DefaultTableModel) TableEmp.getModel();
+        
+        if (selectedRowIndex>=0) {
+            
+            model.setValueAt(FieldName.getText(),selectedRowIndex,0);
+            model.setValueAt(FieldEmpId.getText(),selectedRowIndex,1);
+            model.setValueAt(FieldAge.getText(),selectedRowIndex,2);
+            model.setValueAt(FieldGender.getText(),selectedRowIndex,3);
+            model.setValueAt(FieldStDate.getText(),selectedRowIndex,4);
+            model.setValueAt(FieldLevel.getText(),selectedRowIndex,5);
+            model.setValueAt(FieldTeamInfo.getText(),selectedRowIndex,6);
+            model.setValueAt(FieldPosTitle.getText(),selectedRowIndex,7);
+            model.setValueAt(FieldNumber.getText(),selectedRowIndex,8);
+            model.setValueAt(FieldEmail.getText(),selectedRowIndex,9);
+
+            
+
+        
+        }
+         
+        JOptionPane.showMessageDialog(this, "Employee Information Updated");
+        
+        populateTable();
+        
+        
+        
+        
+         
+         
+        
+    }//GEN-LAST:event_UpdateBtnActionPerformed
+
+    private void TableEmpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TableEmpMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TableEmpMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton DeleteBtn;
@@ -296,25 +372,29 @@ public class ViewEmployeeDetails extends javax.swing.JPanel {
     private javax.swing.JLabel LabelLevel;
     private javax.swing.JLabel LabelName;
     private javax.swing.JLabel LabelNumber;
+    private javax.swing.JLabel LabelPhoto;
     private javax.swing.JLabel LabelPoTitle;
     private javax.swing.JLabel LabelStDate;
     private javax.swing.JLabel LabelTeamInfo;
     private javax.swing.JTable TableEmp;
+    private javax.swing.JButton UpdateBtn;
     private javax.swing.JButton ViewBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel txtPhoto;
     // End of variables declaration//GEN-END:variables
 
     
 
     private void populateTable() {
         
+        int selectedRowIndex = TableEmp.getSelectedRow();
+
         DefaultTableModel model = (DefaultTableModel) TableEmp.getModel();
         model.setRowCount(0);
-        
         for (Employee e  : history.getHistory()){
             
-            Object[] row = new Object[10];
+            Object[] row = new Object[11];
             row[0] = e;
             row[1] = e.getAge();
             row[2] = e.getEmail_Address();
@@ -325,13 +405,23 @@ public class ViewEmployeeDetails extends javax.swing.JPanel {
             row[7] = e.getPosition_Title();
             row[8] = e.getStart_Date();
             row[9] = e.getTeam_Info();
-            
+            row[10] =e.getPhoto();
             model.addRow(row);
             
         
         }
         
+    }
+        
+    
+        
+    
+        
+        
+    
         
              
     }
-}
+
+
+

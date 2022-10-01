@@ -6,6 +6,7 @@ package model;
 
 
 import java.util.ArrayList;
+import java.util.function.UnaryOperator;
 
 /**
  *
@@ -45,6 +46,16 @@ public class EmployeeHistory {
     public void deleteRecords(Employee e){
     
         history.remove(e);
+        
+    }
+    
+    
+    
+    public Employee updateNewRecord(){
+        
+        Employee updateRecord = new Employee();
+        history.replaceAll((UnaryOperator<Employee>) updateRecord);
+        return updateRecord;
         
     }
     

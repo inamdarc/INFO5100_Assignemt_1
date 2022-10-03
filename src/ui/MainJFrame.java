@@ -43,18 +43,20 @@ public class MainJFrame extends javax.swing.JFrame {
         ViewRecordButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         LeftWorkArea = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         LeftPane.setBackground(new java.awt.Color(204, 204, 204));
+        LeftPane.setForeground(new java.awt.Color(204, 204, 204));
 
-        LeftControlPanal.setBackground(new java.awt.Color(0, 153, 255));
+        LeftControlPanal.setBackground(new java.awt.Color(255, 255, 255));
         LeftControlPanal.setBorder(new javax.swing.border.MatteBorder(null));
 
         CreateRecordButton.setBackground(new java.awt.Color(0, 0, 0));
         CreateRecordButton.setForeground(new java.awt.Color(255, 255, 255));
         CreateRecordButton.setText("Create Record");
-        CreateRecordButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        CreateRecordButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         CreateRecordButton.setOpaque(true);
         CreateRecordButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,7 +75,7 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("/Users/chaitanya/Desktop/admin1.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("/Users/chaitanya/Desktop/chai2.jpeg")); // NOI18N
 
         javax.swing.GroupLayout LeftControlPanalLayout = new javax.swing.GroupLayout(LeftControlPanal);
         LeftControlPanal.setLayout(LeftControlPanalLayout);
@@ -82,14 +84,14 @@ public class MainJFrame extends javax.swing.JFrame {
             .addGroup(LeftControlPanalLayout.createSequentialGroup()
                 .addGroup(LeftControlPanalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(LeftControlPanalLayout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(jLabel1))
-                    .addGroup(LeftControlPanalLayout.createSequentialGroup()
                         .addGap(72, 72, 72)
                         .addGroup(LeftControlPanalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(ViewRecordButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(CreateRecordButton, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE))))
-                .addContainerGap(40, Short.MAX_VALUE))
+                            .addComponent(CreateRecordButton, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)))
+                    .addGroup(LeftControlPanalLayout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(jLabel1)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         LeftControlPanalLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {CreateRecordButton, ViewRecordButton});
@@ -97,31 +99,35 @@ public class MainJFrame extends javax.swing.JFrame {
         LeftControlPanalLayout.setVerticalGroup(
             LeftControlPanalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(LeftControlPanalLayout.createSequentialGroup()
-                .addGap(38, 38, 38)
+                .addGap(54, 54, 54)
                 .addComponent(jLabel1)
-                .addGap(62, 62, 62)
+                .addGap(79, 79, 79)
                 .addComponent(CreateRecordButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(63, 63, 63)
                 .addComponent(ViewRecordButton, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(415, Short.MAX_VALUE))
+                .addContainerGap(411, Short.MAX_VALUE))
         );
 
         LeftControlPanalLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {CreateRecordButton, ViewRecordButton});
 
         LeftPane.setLeftComponent(LeftControlPanal);
 
-        LeftWorkArea.setBackground(new java.awt.Color(0, 153, 255));
+        LeftWorkArea.setBackground(new java.awt.Color(204, 204, 204));
         LeftWorkArea.setBorder(new javax.swing.border.MatteBorder(null));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon("/Users/chaitanya/Desktop/chai.jpeg")); // NOI18N
 
         javax.swing.GroupLayout LeftWorkAreaLayout = new javax.swing.GroupLayout(LeftWorkArea);
         LeftWorkArea.setLayout(LeftWorkAreaLayout);
         LeftWorkAreaLayout.setHorizontalGroup(
             LeftWorkAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 608, Short.MAX_VALUE)
+            .addGroup(LeftWorkAreaLayout.createSequentialGroup()
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 970, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         LeftWorkAreaLayout.setVerticalGroup(
             LeftWorkAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 932, Short.MAX_VALUE)
+            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 928, Short.MAX_VALUE)
         );
 
         LeftPane.setRightComponent(LeftWorkArea);
@@ -199,5 +205,6 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JPanel LeftWorkArea;
     private javax.swing.JButton ViewRecordButton;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }

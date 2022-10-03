@@ -24,7 +24,7 @@ public class Employee {
     private String Employee_ID;
     private int Age;
     private String Gender;
-    private String Start_Date;
+    private Date Emp_Start_Date;
     private String Level;
     private String Team_Info;
     private String Position_Title;
@@ -126,4 +126,14 @@ public class Employee {
         return Name;
     }
 
+    public Date getEmp_Start_Date() {
+        return Emp_Start_Date;
+    }
+
+    public void setEmp_Start_Date(Date Emp_Start_Date) {
+        this.Emp_Start_Date = Emp_Start_Date;
+    }
+    
+    
+    private String Start_Date;
 }  

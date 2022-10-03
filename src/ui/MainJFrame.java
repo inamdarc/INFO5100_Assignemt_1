@@ -46,6 +46,7 @@ public class MainJFrame extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1402, 930));
 
         LeftPane.setBackground(new java.awt.Color(204, 204, 204));
         LeftPane.setForeground(new java.awt.Color(204, 204, 204));
@@ -84,14 +85,14 @@ public class MainJFrame extends javax.swing.JFrame {
             .addGroup(LeftControlPanalLayout.createSequentialGroup()
                 .addGroup(LeftControlPanalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(LeftControlPanalLayout.createSequentialGroup()
-                        .addGap(72, 72, 72)
-                        .addGroup(LeftControlPanalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(ViewRecordButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(CreateRecordButton, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)))
+                        .addGap(14, 14, 14)
+                        .addComponent(jLabel1))
                     .addGroup(LeftControlPanalLayout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(jLabel1)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(57, 57, 57)
+                        .addGroup(LeftControlPanalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ViewRecordButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(CreateRecordButton, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE))))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         LeftControlPanalLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {CreateRecordButton, ViewRecordButton});
@@ -99,13 +100,13 @@ public class MainJFrame extends javax.swing.JFrame {
         LeftControlPanalLayout.setVerticalGroup(
             LeftControlPanalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(LeftControlPanalLayout.createSequentialGroup()
-                .addGap(54, 54, 54)
+                .addGap(53, 53, 53)
                 .addComponent(jLabel1)
-                .addGap(79, 79, 79)
+                .addGap(118, 118, 118)
                 .addComponent(CreateRecordButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(63, 63, 63)
+                .addGap(112, 112, 112)
                 .addComponent(ViewRecordButton, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(411, Short.MAX_VALUE))
+                .addContainerGap(324, Short.MAX_VALUE))
         );
 
         LeftControlPanalLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {CreateRecordButton, ViewRecordButton});
@@ -114,16 +115,15 @@ public class MainJFrame extends javax.swing.JFrame {
 
         LeftWorkArea.setBackground(new java.awt.Color(204, 204, 204));
         LeftWorkArea.setBorder(new javax.swing.border.MatteBorder(null));
+        LeftWorkArea.setPreferredSize(new java.awt.Dimension(1140, 930));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("/Users/chaitanya/Desktop/chai.jpeg")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon("/Users/chaitanya/Desktop/new.jpeg")); // NOI18N
 
         javax.swing.GroupLayout LeftWorkAreaLayout = new javax.swing.GroupLayout(LeftWorkArea);
         LeftWorkArea.setLayout(LeftWorkAreaLayout);
         LeftWorkAreaLayout.setHorizontalGroup(
             LeftWorkAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(LeftWorkAreaLayout.createSequentialGroup()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 970, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1138, Short.MAX_VALUE)
         );
         LeftWorkAreaLayout.setVerticalGroup(
             LeftWorkAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -138,7 +138,7 @@ public class MainJFrame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(LeftPane))
+                .addComponent(LeftPane, javax.swing.GroupLayout.PREFERRED_SIZE, 1318, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

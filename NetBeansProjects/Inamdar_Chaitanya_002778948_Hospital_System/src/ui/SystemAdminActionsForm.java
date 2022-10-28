@@ -4,17 +4,26 @@
  */
 package ui;
 
+import Model.CreateHospitalHistory;
+import Model.CreatePersonHistory;
+
 /**
  *
  * @author chaitanya
  */
-public class DoctorActionsForm extends javax.swing.JFrame {
+public class SystemAdminActionsForm extends javax.swing.JFrame {
 
     /**
-     * Creates new form DoctorActionsForm
+     * Creates new form SystemAdminActionsForm
      */
-    public DoctorActionsForm() {
+    CreatePersonHistory createPersonHistory;
+    CreateHospitalHistory createHospitalHistory;
+
+    public SystemAdminActionsForm() {
         initComponents();
+        createPersonHistory = new CreatePersonHistory();
+        createHospitalHistory = new CreateHospitalHistory();
+
     }
 
     /**
@@ -28,10 +37,11 @@ public class DoctorActionsForm extends javax.swing.JFrame {
 
         jSplitPane = new javax.swing.JSplitPane();
         ControlPane = new javax.swing.JPanel();
-        btnCreate = new javax.swing.JButton();
+        btnCreatePerson = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
         btnView = new javax.swing.JButton();
         btnSearch = new javax.swing.JButton();
+        BtnCreateHospital = new javax.swing.JButton();
         WorkArea = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -39,10 +49,10 @@ public class DoctorActionsForm extends javax.swing.JFrame {
 
         ControlPane.setBackground(new java.awt.Color(191, 191, 156));
 
-        btnCreate.setText("Create/View");
-        btnCreate.addActionListener(new java.awt.event.ActionListener() {
+        btnCreatePerson.setText("Create/View Person");
+        btnCreatePerson.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCreateActionPerformed(evt);
+                btnCreatePersonActionPerformed(evt);
             }
         });
 
@@ -67,27 +77,37 @@ public class DoctorActionsForm extends javax.swing.JFrame {
             }
         });
 
+        BtnCreateHospital.setText("Create/View Hospital");
+        BtnCreateHospital.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnCreateHospitalActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout ControlPaneLayout = new javax.swing.GroupLayout(ControlPane);
         ControlPane.setLayout(ControlPaneLayout);
         ControlPaneLayout.setHorizontalGroup(
             ControlPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnCreate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnCreatePerson, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)
             .addComponent(btnUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnView, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(BtnCreateHospital, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         ControlPaneLayout.setVerticalGroup(
             ControlPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ControlPaneLayout.createSequentialGroup()
-                .addGap(89, 89, 89)
-                .addComponent(btnCreate)
-                .addGap(38, 38, 38)
+                .addGap(92, 92, 92)
+                .addComponent(btnCreatePerson)
+                .addGap(27, 27, 27)
+                .addComponent(BtnCreateHospital)
+                .addGap(42, 42, 42)
                 .addComponent(btnUpdate)
-                .addGap(45, 45, 45)
+                .addGap(35, 35, 35)
                 .addComponent(btnView)
-                .addGap(43, 43, 43)
+                .addGap(31, 31, 31)
                 .addComponent(btnSearch)
-                .addContainerGap(413, Short.MAX_VALUE))
+                .addContainerGap(378, Short.MAX_VALUE))
         );
 
         jSplitPane.setLeftComponent(ControlPane);
@@ -96,7 +116,7 @@ public class DoctorActionsForm extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("WELCOME DOCTOR!");
+        jLabel1.setText("WELCOME SYSTEM ADMIN");
 
         javax.swing.GroupLayout WorkAreaLayout = new javax.swing.GroupLayout(WorkArea);
         WorkArea.setLayout(WorkAreaLayout);
@@ -128,11 +148,11 @@ public class DoctorActionsForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
+    private void btnCreatePersonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreatePersonActionPerformed
         // TODO add your handling code here:
-        CreateViewDoctorJPanel createPane = new CreateViewDoctorJPanel();
-        jSplitPane.setRightComponent(createPane);
-    }//GEN-LAST:event_btnCreateActionPerformed
+        CreatViewPersonSystemAdminJPanel creatViewPersonSystemAdminJPanel = new CreatViewPersonSystemAdminJPanel(createPersonHistory);
+        jSplitPane.setRightComponent(creatViewPersonSystemAdminJPanel);
+    }//GEN-LAST:event_btnCreatePersonActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
@@ -152,6 +172,12 @@ public class DoctorActionsForm extends javax.swing.JFrame {
         jSplitPane.setRightComponent(searchPane);
     }//GEN-LAST:event_btnSearchActionPerformed
 
+    private void BtnCreateHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCreateHospitalActionPerformed
+        // TODO add your handling code here:
+        CreateViewHospitalSystemAdminJPanel creatViewHospitalSystemAdminJPanel = new CreateViewHospitalSystemAdminJPanel(createHospitalHistory);
+        jSplitPane.setRightComponent(creatViewHospitalSystemAdminJPanel);
+    }//GEN-LAST:event_BtnCreateHospitalActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -169,28 +195,29 @@ public class DoctorActionsForm extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(DoctorActionsForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SystemAdminActionsForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(DoctorActionsForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SystemAdminActionsForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(DoctorActionsForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SystemAdminActionsForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(DoctorActionsForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SystemAdminActionsForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new DoctorActionsForm().setVisible(true);
+                new SystemAdminActionsForm().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnCreateHospital;
     private javax.swing.JPanel ControlPane;
     private javax.swing.JPanel WorkArea;
-    private javax.swing.JButton btnCreate;
+    private javax.swing.JButton btnCreatePerson;
     private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JButton btnView;

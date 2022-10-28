@@ -52,35 +52,38 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="btnCreate" alignment="0" max="32767" attributes="0"/>
+                  <Component id="btnCreatePerson" alignment="0" pref="217" max="32767" attributes="0"/>
                   <Component id="btnUpdate" alignment="0" max="32767" attributes="0"/>
                   <Component id="btnView" alignment="0" max="32767" attributes="0"/>
                   <Component id="btnSearch" alignment="0" max="32767" attributes="0"/>
+                  <Component id="BtnCreateHospital" alignment="0" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
-                      <Component id="btnCreate" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
+                      <Component id="btnCreatePerson" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                      <Component id="BtnCreateHospital" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                       <Component id="btnUpdate" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                       <Component id="btnView" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                       <Component id="btnSearch" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="413" max="32767" attributes="0"/>
+                      <EmptySpace pref="378" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="btnCreate">
+            <Component class="javax.swing.JButton" name="btnCreatePerson">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Create/View"/>
+                <Property name="text" type="java.lang.String" value="Create/View Person"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCreateActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCreatePersonActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnUpdate">
@@ -105,6 +108,14 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSearchActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="BtnCreateHospital">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Create/View Hospital"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnCreateHospitalActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
@@ -144,7 +155,7 @@
                   <Font name="Tahoma" size="24" style="1"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="WELCOME DOCTOR!"/>
+                <Property name="text" type="java.lang.String" value="WELCOME SYSTEM ADMIN"/>
               </Properties>
             </Component>
           </SubComponents>

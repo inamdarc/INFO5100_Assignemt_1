@@ -68,8 +68,8 @@
                                   </Group>
                                   <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jTextField1" min="-2" pref="194" max="-2" attributes="0"/>
-                                      <Component id="jTextField2" min="-2" pref="194" max="-2" attributes="0"/>
+                                      <Component id="SysAdminUsernameLbl" min="-2" pref="194" max="-2" attributes="0"/>
+                                      <Component id="SysAdminPasswordLbl" min="-2" pref="194" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Component id="jButton2" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -92,12 +92,12 @@
                           <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
                           <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="jTextField1" alignment="1" min="-2" pref="38" max="-2" attributes="0"/>
+                      <Component id="SysAdminUsernameLbl" alignment="1" min="-2" pref="38" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField2" min="-2" pref="38" max="-2" attributes="0"/>
+                      <Component id="SysAdminPasswordLbl" min="-2" pref="38" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
                   <Component id="jButton1" min="-2" pref="42" max="-2" attributes="0"/>
@@ -132,9 +132,12 @@
             <Property name="text" type="java.lang.String" value="PASSWORD:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField1">
+        <Component class="javax.swing.JTextField" name="SysAdminUsernameLbl">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SysAdminUsernameLblActionPerformed"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField2">
+        <Component class="javax.swing.JTextField" name="SysAdminPasswordLbl">
         </Component>
         <Component class="javax.swing.JButton" name="jButton1">
           <Properties>
@@ -143,6 +146,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="SUBMIT"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButton2">
           <Properties>

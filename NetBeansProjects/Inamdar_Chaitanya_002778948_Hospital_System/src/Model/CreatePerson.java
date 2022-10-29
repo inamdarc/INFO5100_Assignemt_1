@@ -129,7 +129,9 @@ public class CreatePerson {
         this.HouseNo = HouseNo;
     }
     
-    
-    
+     @Override
+    public String toString(){
+        return Role;
+    }
     
 }

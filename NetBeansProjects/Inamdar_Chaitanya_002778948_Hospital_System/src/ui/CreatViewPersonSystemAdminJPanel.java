@@ -9,7 +9,6 @@ import Model.CreatePersonHistory;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.DefaultComboBoxModel;
-import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -127,6 +126,12 @@ public class CreatViewPersonSystemAdminJPanel extends javax.swing.JPanel {
         });
 
         lblPersonId.setText("Unique Id:");
+
+        FieldUniqueID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FieldUniqueIDActionPerformed(evt);
+            }
+        });
 
         lblAddress.setText("Address:");
 
@@ -374,12 +379,12 @@ public class CreatViewPersonSystemAdminJPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void displayPersonTableInformation() {
+   private void displayPersonTableInformation() {
         //btnSave.setVisible(false);
         DefaultTableModel model=(DefaultTableModel) PersonTable.getModel();
         model.setRowCount(0);
         for(CreatePerson e : createPersonHistory.getHistory()){
-            Object[] row =new Object[5];
+            Object[] row =new Object[6];
             row[0]=e.getRole();
             row[1]=e.getFName() + ", " + e.getLName() ;
             row[2]=e.getAge();
@@ -388,7 +393,7 @@ public class CreatViewPersonSystemAdminJPanel extends javax.swing.JPanel {
             row[5]=e.getPassword();
             model.addRow(row);
         }
-    }   
+}
     
     private void FieldZipCodeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_FieldZipCodeKeyReleased
         // TODO add your handling code here:
@@ -512,10 +517,9 @@ public class CreatViewPersonSystemAdminJPanel extends javax.swing.JPanel {
             e.setHouseNo(HouseNo);
             
         
-        JOptionPane.showMessageDialog(this, "Person Information Saved");
+        JOptionPane.showMessageDialog(this, "New Hospital is created.");
         
             displayPersonTableInformation();
-            
             FieldRole.setSelectedItem("");
             FieldFName.setText("");
             FieldLName.setText("");
@@ -585,6 +589,18 @@ public class CreatViewPersonSystemAdminJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_FieldHouseNoActionPerformed
 
+    private void FieldUniqueIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FieldUniqueIDActionPerformed
+        // TODO add your handling code here:
+        
+        boolean test = false;
+        for (CreatePerson element : createPersonHistory.getHistory()) {
+            if (element.getUniqueId() == Integer.parseInt(FieldUniqueID.getText())) {
+                test = true;
+                JOptionPane.showMessageDialog(null, "ID already Exists", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+    }//GEN-LAST:event_FieldUniqueIDActionPerformed
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel CreatePanel;

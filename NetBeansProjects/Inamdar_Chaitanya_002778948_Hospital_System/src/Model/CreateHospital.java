@@ -55,6 +55,10 @@ public class CreateHospital {
     public void setHospNo(int HospNo) {
         this.HospNo = HospNo;
     }
+   @Override
+    public String toString(){
+        return HospitalName;
+    }
     
     
 }

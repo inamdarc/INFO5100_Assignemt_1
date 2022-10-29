@@ -42,6 +42,7 @@ public class SystemAdminActionsForm extends javax.swing.JFrame {
         btnView = new javax.swing.JButton();
         btnSearch = new javax.swing.JButton();
         BtnCreateHospital = new javax.swing.JButton();
+        btnUpdateHospital = new javax.swing.JButton();
         WorkArea = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -56,7 +57,7 @@ public class SystemAdminActionsForm extends javax.swing.JFrame {
             }
         });
 
-        btnUpdate.setText("Update");
+        btnUpdate.setText("Update Person");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateActionPerformed(evt);
@@ -84,6 +85,13 @@ public class SystemAdminActionsForm extends javax.swing.JFrame {
             }
         });
 
+        btnUpdateHospital.setText("Update Hospital");
+        btnUpdateHospital.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateHospitalActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout ControlPaneLayout = new javax.swing.GroupLayout(ControlPane);
         ControlPane.setLayout(ControlPaneLayout);
         ControlPaneLayout.setHorizontalGroup(
@@ -93,6 +101,7 @@ public class SystemAdminActionsForm extends javax.swing.JFrame {
             .addComponent(btnView, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(BtnCreateHospital, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnUpdateHospital, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         ControlPaneLayout.setVerticalGroup(
             ControlPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -101,13 +110,15 @@ public class SystemAdminActionsForm extends javax.swing.JFrame {
                 .addComponent(btnCreatePerson)
                 .addGap(27, 27, 27)
                 .addComponent(BtnCreateHospital)
-                .addGap(42, 42, 42)
+                .addGap(18, 18, 18)
                 .addComponent(btnUpdate)
-                .addGap(35, 35, 35)
+                .addGap(29, 29, 29)
+                .addComponent(btnUpdateHospital)
+                .addGap(41, 41, 41)
                 .addComponent(btnView)
-                .addGap(31, 31, 31)
+                .addGap(30, 30, 30)
                 .addComponent(btnSearch)
-                .addContainerGap(378, Short.MAX_VALUE))
+                .addContainerGap(345, Short.MAX_VALUE))
         );
 
         jSplitPane.setLeftComponent(ControlPane);
@@ -156,8 +167,8 @@ public class SystemAdminActionsForm extends javax.swing.JFrame {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
-        UpdateJPanel updatePane = new UpdateJPanel(personDirectory,patientDirectory,encounterHistory);
-        jSplitPane.setRightComponent(updatePane);
+        UpdatePersonSystemAdminJPanel updatePersonSystemAdminJPanel = new UpdatePersonSystemAdminJPanel(createPersonHistory);
+        jSplitPane.setRightComponent(updatePersonSystemAdminJPanel);
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
@@ -177,6 +188,13 @@ public class SystemAdminActionsForm extends javax.swing.JFrame {
         CreateViewHospitalSystemAdminJPanel creatViewHospitalSystemAdminJPanel = new CreateViewHospitalSystemAdminJPanel(createHospitalHistory);
         jSplitPane.setRightComponent(creatViewHospitalSystemAdminJPanel);
     }//GEN-LAST:event_BtnCreateHospitalActionPerformed
+
+    private void btnUpdateHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateHospitalActionPerformed
+        // TODO add your handling code here:
+        
+        UpdateHospitalSystemAdminJPanel updateHospitalSystemAdminJPanel = new UpdateHospitalSystemAdminJPanel(createHospitalHistory);
+        jSplitPane.setRightComponent(updateHospitalSystemAdminJPanel);
+    }//GEN-LAST:event_btnUpdateHospitalActionPerformed
 
     /**
      * @param args the command line arguments
@@ -220,6 +238,7 @@ public class SystemAdminActionsForm extends javax.swing.JFrame {
     private javax.swing.JButton btnCreatePerson;
     private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnUpdate;
+    private javax.swing.JButton btnUpdateHospital;
     private javax.swing.JButton btnView;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JSplitPane jSplitPane;

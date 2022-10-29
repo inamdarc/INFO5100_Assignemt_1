@@ -6,6 +6,7 @@ package ui;
 
 import Model.CreatePerson;
 import Model.CreatePersonHistory;
+import Model.UserDirectory;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -18,13 +19,18 @@ public class UpdatePersonSystemAdminJPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form UpdatePersonSystemAdminJPanel
+     *
      */
+
     CreatePersonHistory createPersonHistory;
+    
 
     public UpdatePersonSystemAdminJPanel(CreatePersonHistory createPersonHistory) {
         initComponents();
         this.createPersonHistory = createPersonHistory;
+        
         displayPersonTableInformation();
+
     }
 
     /**
@@ -457,7 +463,7 @@ public class UpdatePersonSystemAdminJPanel extends javax.swing.JPanel {
 
         createPersonHistory.deleteRecords(selectedRecords);
 
-        JOptionPane.showMessageDialog(this, "Employee record deleted");
+        JOptionPane.showMessageDialog(this, "Person record deleted");
 
         displayPersonTableInformation();
         

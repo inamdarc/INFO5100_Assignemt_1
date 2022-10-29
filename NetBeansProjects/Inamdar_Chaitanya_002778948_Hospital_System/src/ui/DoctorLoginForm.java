@@ -4,6 +4,10 @@
  */
 package ui;
 
+import Model.CreatePerson;
+import Model.CreatePersonHistory;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author chaitanya
@@ -15,6 +19,10 @@ public class DoctorLoginForm extends javax.swing.JFrame {
      */
     public DoctorLoginForm() {
         initComponents();
+    }
+
+    private DoctorLoginForm() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     /**
@@ -30,9 +38,9 @@ public class DoctorLoginForm extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        FieldDocAdminUsername = new javax.swing.JTextField();
+        LblDocAdminPass = new javax.swing.JTextField();
+        BtnDocAdminLogin = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -51,11 +59,17 @@ public class DoctorLoginForm extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 24)); // NOI18N
         jLabel2.setText("PASSWORD:");
 
-        jButton1.setFont(new java.awt.Font("Helvetica Neue", 1, 24)); // NOI18N
-        jButton1.setText("SUBMIT");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        FieldDocAdminUsername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                FieldDocAdminUsernameActionPerformed(evt);
+            }
+        });
+
+        BtnDocAdminLogin.setFont(new java.awt.Font("Helvetica Neue", 1, 24)); // NOI18N
+        BtnDocAdminLogin.setText("SUBMIT");
+        BtnDocAdminLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnDocAdminLoginActionPerformed(evt);
             }
         });
 
@@ -72,7 +86,7 @@ public class DoctorLoginForm extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(654, 654, 654)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BtnDocAdminLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -88,8 +102,8 @@ public class DoctorLoginForm extends javax.swing.JFrame {
                                     .addComponent(jLabel1))
                                 .addGap(49, 49, 49)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(FieldDocAdminUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(LblDocAdminPass, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jButton2))
                         .addGap(0, 396, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -104,13 +118,13 @@ public class DoctorLoginForm extends javax.swing.JFrame {
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(76, 76, 76)
                         .addComponent(jLabel1))
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(FieldDocAdminUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(LblDocAdminPass, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(79, 79, 79)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BtnDocAdminLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(313, Short.MAX_VALUE))
         );
 
@@ -135,12 +149,22 @@ public class DoctorLoginForm extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void BtnDocAdminLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnDocAdminLoginActionPerformed
         // TODO add your handling code here:
-        DoctorActionsForm DAF = new DoctorActionsForm();
-        DAF.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+        
+        
+        
+        
+
+        
+        
+    }//GEN-LAST:event_BtnDocAdminLoginActionPerformed
+    
+    private void FieldDocAdminUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FieldDocAdminUsernameActionPerformed
+        // TODO add your handling code here:
+        
+        
+    }//GEN-LAST:event_FieldDocAdminUsernameActionPerformed
 
     /**
      * @param args the command line arguments
@@ -178,13 +202,13 @@ public class DoctorLoginForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton BtnDocAdminLogin;
+    private javax.swing.JTextField FieldDocAdminUsername;
+    private javax.swing.JTextField LblDocAdminPass;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 }

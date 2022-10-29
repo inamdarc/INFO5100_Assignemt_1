@@ -58,12 +58,19 @@
                   <Component id="btnSearch" alignment="0" max="32767" attributes="0"/>
                   <Component id="BtnCreateHospital" alignment="0" max="32767" attributes="0"/>
                   <Component id="btnUpdateHospital" alignment="0" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="SysAdminMainPageBtn" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="SysAdminMainPageBtn" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
                       <Component id="btnCreatePerson" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                       <Component id="BtnCreateHospital" min="-2" max="-2" attributes="0"/>
@@ -127,6 +134,14 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnUpdateHospitalActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="SysAdminMainPageBtn">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Main Page"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SysAdminMainPageBtnActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

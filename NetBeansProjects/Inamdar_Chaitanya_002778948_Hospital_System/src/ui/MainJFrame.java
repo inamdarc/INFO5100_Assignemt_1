@@ -4,6 +4,10 @@
  */
 package ui;
 
+import Model.CreatePerson;
+import Model.CreatePersonHistory;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author chaitanya
@@ -13,8 +17,13 @@ public class MainJFrame extends javax.swing.JFrame {
     /**
      * Creates new form MainJFrame
      */
+     CreatePersonHistory createPersonHistory;
+
+
     public MainJFrame() {
         initComponents();
+        createPersonHistory = new CreatePersonHistory();
+
     }
 
     /**
@@ -111,7 +120,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void SystemAdminBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SystemAdminBtnActionPerformed
         // TODO add your handling code here:
-        SystemAdminLoginForm SA = new SystemAdminLoginForm();
+        SystemAdminLoginForm SA = new SystemAdminLoginForm(createPersonHistory);
         SA.setVisible(true);
         this.dispose();
         
@@ -149,6 +158,7 @@ public class MainJFrame extends javax.swing.JFrame {
         
     }//GEN-LAST:event_PatientBtnActionPerformed
 
+    
     /**
      * @param args the command line arguments
      */

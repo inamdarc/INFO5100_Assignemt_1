@@ -6,6 +6,7 @@ package ui;
 
 import Model.CreatePerson;
 import Model.CreatePersonHistory;
+import Model.UserDirectory;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.DefaultComboBoxModel;
@@ -25,6 +26,9 @@ public class CreatViewPersonSystemAdminJPanel extends javax.swing.JPanel {
     public CreatViewPersonSystemAdminJPanel(CreatePersonHistory createPersonHistory) {
         initComponents();
         this.createPersonHistory = createPersonHistory;
+        
+        
+
         
     }
 
@@ -500,7 +504,8 @@ public class CreatViewPersonSystemAdminJPanel extends javax.swing.JPanel {
         int ZipCode = Integer.parseInt(FieldZipCode.getText());
         int HouseNo = Integer.parseInt(FieldHouseNo.getSelectedItem().toString());
         
-        CreatePerson e = createPersonHistory.addNewPerson();
+        
+            CreatePerson e = createPersonHistory.addNewPerson();
 
             e.setRole(Role);
             e.setFName(FName);
@@ -517,7 +522,12 @@ public class CreatViewPersonSystemAdminJPanel extends javax.swing.JPanel {
             e.setHouseNo(HouseNo);
             
         
-        JOptionPane.showMessageDialog(this, "New Hospital is created.");
+        
+        
+            JOptionPane.showMessageDialog(this, "New Person is created.");
+        
+        
+        
         
             displayPersonTableInformation();
             FieldRole.setSelectedItem("");
@@ -592,14 +602,9 @@ public class CreatViewPersonSystemAdminJPanel extends javax.swing.JPanel {
     private void FieldUniqueIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FieldUniqueIDActionPerformed
         // TODO add your handling code here:
         
-        boolean test = false;
-        for (CreatePerson element : createPersonHistory.getHistory()) {
-            if (element.getUniqueId() == Integer.parseInt(FieldUniqueID.getText())) {
-                test = true;
-                JOptionPane.showMessageDialog(null, "ID already Exists", "Error", JOptionPane.ERROR_MESSAGE);
-            }
+        
     }//GEN-LAST:event_FieldUniqueIDActionPerformed
-    }
+    
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -4,6 +4,9 @@
  */
 package ui;
 
+import Model.CreateHospitalHistory;
+import Model.CreatePerson;
+import Model.CreatePersonHistory;
 import javax.swing.JOptionPane;
 
 /**
@@ -14,9 +17,13 @@ public class SystemAdminLoginForm extends javax.swing.JFrame {
 
     /**
      * Creates new form LoginForm
+     * 
      */
-    public SystemAdminLoginForm() {
+       CreatePersonHistory createPersonHistory;
+    public SystemAdminLoginForm(CreatePersonHistory createPersonHistory) {
         initComponents();
+        this.createPersonHistory = createPersonHistory;
+
     }
 
     /**
@@ -32,9 +39,9 @@ public class SystemAdminLoginForm extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        SysAdminUsernameLbl = new javax.swing.JTextField();
-        SysAdminPasswordLbl = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        FieldSysAdminUsername = new javax.swing.JTextField();
+        FieldSysAdminPassword = new javax.swing.JTextField();
+        BtnSysAdminLogin = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -53,17 +60,17 @@ public class SystemAdminLoginForm extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 24)); // NOI18N
         jLabel2.setText("PASSWORD:");
 
-        SysAdminUsernameLbl.addActionListener(new java.awt.event.ActionListener() {
+        FieldSysAdminUsername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SysAdminUsernameLblActionPerformed(evt);
+                FieldSysAdminUsernameActionPerformed(evt);
             }
         });
 
-        jButton1.setFont(new java.awt.Font("Helvetica Neue", 1, 24)); // NOI18N
-        jButton1.setText("SUBMIT");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        BtnSysAdminLogin.setFont(new java.awt.Font("Helvetica Neue", 1, 24)); // NOI18N
+        BtnSysAdminLogin.setText("SUBMIT");
+        BtnSysAdminLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                BtnSysAdminLoginActionPerformed(evt);
             }
         });
 
@@ -80,7 +87,7 @@ public class SystemAdminLoginForm extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(654, 654, 654)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BtnSysAdminLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -96,8 +103,8 @@ public class SystemAdminLoginForm extends javax.swing.JFrame {
                                     .addComponent(jLabel1))
                                 .addGap(49, 49, 49)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(SysAdminUsernameLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(SysAdminPasswordLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(FieldSysAdminUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(FieldSysAdminPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jButton2))
                         .addGap(0, 484, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -112,13 +119,13 @@ public class SystemAdminLoginForm extends javax.swing.JFrame {
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(76, 76, 76)
                         .addComponent(jLabel1))
-                    .addComponent(SysAdminUsernameLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(FieldSysAdminUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel2)
-                    .addComponent(SysAdminPasswordLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(FieldSysAdminPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(79, 79, 79)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BtnSysAdminLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(313, Short.MAX_VALUE))
         );
 
@@ -143,12 +150,12 @@ public class SystemAdminLoginForm extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void BtnSysAdminLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSysAdminLoginActionPerformed
         // TODO add your handling code here:
-        if (SysAdminUsernameLbl.getText().equals("sysadmin1") && SysAdminPasswordLbl.getText().equals("sysadmin@123")){
+        if (FieldSysAdminUsername.getText().equals("sysadmin1") && FieldSysAdminPassword.getText().equals("sysadmin@123")){
 
         
-         SystemAdminActionsForm SAAF = new SystemAdminActionsForm();
+         SystemAdminActionsForm SAAF = new SystemAdminActionsForm(createPersonHistory);
          SAAF.setVisible(true);
          this.dispose();
         }
@@ -157,53 +164,34 @@ public class SystemAdminLoginForm extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Please enter correct username and password", "Error", JOptionPane.ERROR_MESSAGE);
 
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void SysAdminUsernameLblActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SysAdminUsernameLblActionPerformed
+        
+       
+        
+        
+ 
+        
+        
+        
+         
+       
+        
+    }//GEN-LAST:event_BtnSysAdminLoginActionPerformed
+        
+    
+    private void FieldSysAdminUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FieldSysAdminUsernameActionPerformed
         // TODO add your handling code here:
         
             
-    }//GEN-LAST:event_SysAdminUsernameLblActionPerformed
+    }//GEN-LAST:event_FieldSysAdminUsernameActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(SystemAdminLoginForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(SystemAdminLoginForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(SystemAdminLoginForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(SystemAdminLoginForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new SystemAdminLoginForm().setVisible(true);
-            }
-        });
-    }
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField SysAdminPasswordLbl;
-    private javax.swing.JTextField SysAdminUsernameLbl;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton BtnSysAdminLogin;
+    private javax.swing.JTextField FieldSysAdminPassword;
+    private javax.swing.JTextField FieldSysAdminUsername;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

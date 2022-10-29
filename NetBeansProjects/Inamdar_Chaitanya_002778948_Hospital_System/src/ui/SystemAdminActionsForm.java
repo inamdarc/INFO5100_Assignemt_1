@@ -6,6 +6,7 @@ package ui;
 
 import Model.CreateHospitalHistory;
 import Model.CreatePersonHistory;
+import Model.UserDirectory;
 
 /**
  *
@@ -16,15 +17,26 @@ public class SystemAdminActionsForm extends javax.swing.JFrame {
     /**
      * Creates new form SystemAdminActionsForm
      */
+    
     CreatePersonHistory createPersonHistory;
-    CreateHospitalHistory createHospitalHistory;
-
-    public SystemAdminActionsForm() {
+    
+    
+    
+    
+        
+    public SystemAdminActionsForm(CreatePersonHistory createPersonHistory) {
         initComponents();
-        createPersonHistory = new CreatePersonHistory();
-        createHospitalHistory = new CreateHospitalHistory();
+       
+    
+        
+        this.createPersonHistory = createPersonHistory;
+        
+        
+        
 
+    
     }
+        
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -43,6 +55,7 @@ public class SystemAdminActionsForm extends javax.swing.JFrame {
         btnSearch = new javax.swing.JButton();
         BtnCreateHospital = new javax.swing.JButton();
         btnUpdateHospital = new javax.swing.JButton();
+        SysAdminMainPageBtn = new javax.swing.JButton();
         WorkArea = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -92,6 +105,13 @@ public class SystemAdminActionsForm extends javax.swing.JFrame {
             }
         });
 
+        SysAdminMainPageBtn.setText("Main Page");
+        SysAdminMainPageBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SysAdminMainPageBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout ControlPaneLayout = new javax.swing.GroupLayout(ControlPane);
         ControlPane.setLayout(ControlPaneLayout);
         ControlPaneLayout.setHorizontalGroup(
@@ -102,11 +122,17 @@ public class SystemAdminActionsForm extends javax.swing.JFrame {
             .addComponent(btnSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(BtnCreateHospital, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnUpdateHospital, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(ControlPaneLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(SysAdminMainPageBtn)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         ControlPaneLayout.setVerticalGroup(
             ControlPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ControlPaneLayout.createSequentialGroup()
-                .addGap(92, 92, 92)
+                .addContainerGap()
+                .addComponent(SysAdminMainPageBtn)
+                .addGap(63, 63, 63)
                 .addComponent(btnCreatePerson)
                 .addGap(27, 27, 27)
                 .addComponent(BtnCreateHospital)
@@ -161,12 +187,14 @@ public class SystemAdminActionsForm extends javax.swing.JFrame {
 
     private void btnCreatePersonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreatePersonActionPerformed
         // TODO add your handling code here:
+
         CreatViewPersonSystemAdminJPanel creatViewPersonSystemAdminJPanel = new CreatViewPersonSystemAdminJPanel(createPersonHistory);
         jSplitPane.setRightComponent(creatViewPersonSystemAdminJPanel);
     }//GEN-LAST:event_btnCreatePersonActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
+
         UpdatePersonSystemAdminJPanel updatePersonSystemAdminJPanel = new UpdatePersonSystemAdminJPanel(createPersonHistory);
         jSplitPane.setRightComponent(updatePersonSystemAdminJPanel);
     }//GEN-LAST:event_btnUpdateActionPerformed
@@ -196,44 +224,22 @@ public class SystemAdminActionsForm extends javax.swing.JFrame {
         jSplitPane.setRightComponent(updateHospitalSystemAdminJPanel);
     }//GEN-LAST:event_btnUpdateHospitalActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(SystemAdminActionsForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(SystemAdminActionsForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(SystemAdminActionsForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(SystemAdminActionsForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void SysAdminMainPageBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SysAdminMainPageBtnActionPerformed
+        // TODO add your handling code here:
+        
+        this.setVisible(false);
+        SystemAdminLoginForm SLF = new SystemAdminLoginForm(createPersonHistory);
+        SLF.setVisible(true);
+        
+    }//GEN-LAST:event_SysAdminMainPageBtnActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new SystemAdminActionsForm().setVisible(true);
-            }
-        });
-    }
+   
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnCreateHospital;
     private javax.swing.JPanel ControlPane;
+    private javax.swing.JButton SysAdminMainPageBtn;
     private javax.swing.JPanel WorkArea;
     private javax.swing.JButton btnCreatePerson;
     private javax.swing.JButton btnSearch;

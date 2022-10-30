@@ -25,10 +25,10 @@ public class Patient extends CreatePerson{
     
     public Patient(String Role,String FName,
             String LName, String Email, int Age, String Gender,int UniqueId,
-            String Password,Housing housing,int ZipCode,VitalSigns vs){
+            String Password,Housing housing,int ZipCode,int AppointStat, VitalSigns vs){
         super( Role, FName,
              LName,  Email,  Age,  Gender, UniqueId,
-             Password, housing, ZipCode);
+             Password, housing, ZipCode,AppointStat);
         this.vs = vs;
     }
 

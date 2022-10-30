@@ -14,26 +14,27 @@ import Model.PatientDirectory;
  *
  * @author chaitanya
  */
-public class DoctorActionsForm extends javax.swing.JFrame {
+public class PatientActionForm extends javax.swing.JFrame {
 
     /**
-     * Creates new form DoctorActionsForm
-     * 
+     * Creates new form PatientActionForm
      */
     CreatePersonHistory createPersonHistory;
     PatientDirectory patientDirectory;
     EncounterHistory encounterHistory;
     CreateHospitalHistory createHospitalHistory;
-    CreateCommunityHistory createCommunityHistory;
+         CreateCommunityHistory createCommunityHistory;
+         
 
-    public DoctorActionsForm(CreatePersonHistory createPersonHistory,PatientDirectory patientDirectory,EncounterHistory encounterHistory,
-            CreateHospitalHistory createHospitalHistory,CreateCommunityHistory createCommunityHistory) {
+    public PatientActionForm(CreatePersonHistory createPersonHistory,PatientDirectory patientDirectory,EncounterHistory encounterHistory,
+            CreateHospitalHistory createHospitalHistory,     CreateCommunityHistory createCommunityHistory) {
         initComponents();
         this.createPersonHistory = createPersonHistory;
         this.patientDirectory=patientDirectory;
         this.encounterHistory=encounterHistory;
         this.createHospitalHistory = createHospitalHistory;
-        this.createCommunityHistory = createCommunityHistory;
+                this.createCommunityHistory = createCommunityHistory;
+
     }
 
     /**
@@ -47,9 +48,8 @@ public class DoctorActionsForm extends javax.swing.JFrame {
 
         jSplitPane = new javax.swing.JSplitPane();
         ControlPane = new javax.swing.JPanel();
-        btnCreate = new javax.swing.JButton();
+        ViewEncounterBtn = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
-        btnView = new javax.swing.JButton();
         btnSearch = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         WorkArea = new javax.swing.JPanel();
@@ -59,24 +59,17 @@ public class DoctorActionsForm extends javax.swing.JFrame {
 
         ControlPane.setBackground(new java.awt.Color(191, 191, 156));
 
-        btnCreate.setText("Check Up");
-        btnCreate.addActionListener(new java.awt.event.ActionListener() {
+        ViewEncounterBtn.setText("View Encounter");
+        ViewEncounterBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCreateActionPerformed(evt);
+                ViewEncounterBtnActionPerformed(evt);
             }
         });
 
-        btnUpdate.setText("Update");
+        btnUpdate.setText("Book Apointment");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateActionPerformed(evt);
-            }
-        });
-
-        btnView.setText("History");
-        btnView.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnViewActionPerformed(evt);
             }
         });
 
@@ -98,9 +91,8 @@ public class DoctorActionsForm extends javax.swing.JFrame {
         ControlPane.setLayout(ControlPaneLayout);
         ControlPaneLayout.setHorizontalGroup(
             ControlPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnCreate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(ViewEncounterBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btnView, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(ControlPaneLayout.createSequentialGroup()
                 .addComponent(jButton1)
@@ -111,14 +103,12 @@ public class DoctorActionsForm extends javax.swing.JFrame {
             .addGroup(ControlPaneLayout.createSequentialGroup()
                 .addComponent(jButton1)
                 .addGap(66, 66, 66)
-                .addComponent(btnCreate)
+                .addComponent(ViewEncounterBtn)
                 .addGap(38, 38, 38)
                 .addComponent(btnUpdate)
-                .addGap(45, 45, 45)
-                .addComponent(btnView)
-                .addGap(43, 43, 43)
+                .addGap(34, 34, 34)
                 .addComponent(btnSearch)
-                .addContainerGap(413, Short.MAX_VALUE))
+                .addContainerGap(490, Short.MAX_VALUE))
         );
 
         jSplitPane.setLeftComponent(ControlPane);
@@ -133,7 +123,7 @@ public class DoctorActionsForm extends javax.swing.JFrame {
         WorkArea.setLayout(WorkAreaLayout);
         WorkAreaLayout.setHorizontalGroup(
             WorkAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1204, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1262, Short.MAX_VALUE)
         );
         WorkAreaLayout.setVerticalGroup(
             WorkAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -159,48 +149,40 @@ public class DoctorActionsForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
-    
-    private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
+    private void ViewEncounterBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewEncounterBtnActionPerformed
         // TODO add your handling code here:
-        CheckUpDoctorJPanel checkUpDoctorJPanel = new CheckUpDoctorJPanel(createPersonHistory,patientDirectory,encounterHistory);
-        jSplitPane.setRightComponent(checkUpDoctorJPanel);
-        
-          
-    }//GEN-LAST:event_btnCreateActionPerformed
+        PatientViewEncounter patientViewEncounter = new PatientViewEncounter(patientDirectory,createPersonHistory);
+        jSplitPane.setRightComponent(patientViewEncounter);
+
+    }//GEN-LAST:event_ViewEncounterBtnActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
-       
+        PatietBookAppointment patietBookAppointment = new PatietBookAppointment(createPersonHistory,createHospitalHistory);
+        jSplitPane.setRightComponent(patietBookAppointment);
     }//GEN-LAST:event_btnUpdateActionPerformed
-
-    private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_btnViewActionPerformed
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         // TODO add your handling code here:
-     
+
     }//GEN-LAST:event_btnSearchActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        
+
         this.setVisible(false);
-        DoctorLoginForm DLF = new DoctorLoginForm(createPersonHistory,patientDirectory,encounterHistory,createCommunityHistory,createHospitalHistory);
-        DLF.setVisible(true);
+        PatientLoginForm PLF = new PatientLoginForm(createPersonHistory,patientDirectory,encounterHistory,createHospitalHistory,createCommunityHistory);
+        PLF.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel ControlPane;
+    private javax.swing.JButton ViewEncounterBtn;
     private javax.swing.JPanel WorkArea;
-    private javax.swing.JButton btnCreate;
     private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnUpdate;
-    private javax.swing.JButton btnView;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JSplitPane jSplitPane;

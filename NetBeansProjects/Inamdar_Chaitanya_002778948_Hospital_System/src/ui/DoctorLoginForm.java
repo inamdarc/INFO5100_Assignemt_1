@@ -172,7 +172,7 @@ public class DoctorLoginForm extends javax.swing.JFrame {
         
 
         
-         DoctorActionsForm SAAF = new DoctorActionsForm(createPersonHistory,patientDirectory,encounterHistory);
+         DoctorActionsForm SAAF = new DoctorActionsForm(createPersonHistory,patientDirectory,encounterHistory,createHospitalHistory,createCommunityHistory);
          SAAF.setVisible(true);
          this.dispose();
         

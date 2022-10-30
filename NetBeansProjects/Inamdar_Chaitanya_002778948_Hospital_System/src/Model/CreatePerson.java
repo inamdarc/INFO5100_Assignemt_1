@@ -21,12 +21,23 @@ public class CreatePerson {
     private String Password;
     Housing housing;
     private int ZipCode;
+    private int AppointStat;
+
+    public int getAppointStat() {
+        return AppointStat;
+    }
+
+    public void setAppointStat(int AppointStat) {
+        this.AppointStat = AppointStat;
+    }
+
+    
 
     
     
     public CreatePerson(String Role,String FName,
             String LName, String Email, int Age, String Gender,int UniqueId,
-            String Password,Housing housing,int ZipCode )
+            String Password,Housing housing,int ZipCode,int AppointSta )
     {
         this.Role = Role;
         this.FName = FName;
@@ -38,12 +49,9 @@ public class CreatePerson {
         this.Password = Password;
         this.housing = housing;
         this.ZipCode = ZipCode;
+        this.AppointStat = AppointSta;
 
-        
-        
-        
-        
-        
+         
     
     }
             
@@ -127,6 +135,8 @@ public class CreatePerson {
     public void setHousing(Housing housing) {
         this.housing = housing;
     }
+    
+    
     
     
     

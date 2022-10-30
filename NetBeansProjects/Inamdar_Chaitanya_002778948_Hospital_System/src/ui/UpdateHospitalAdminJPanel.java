@@ -6,7 +6,6 @@ package ui;
 
 import Model.CreateHospital;
 import Model.CreateHospitalHistory;
-import Model.CreatePerson;
 import Model.Housing;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
@@ -16,19 +15,33 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author chaitanya
  */
-public class UpdateHospitalSystemAdminJPanel extends javax.swing.JPanel {
+public class UpdateHospitalAdminJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form UpdateHospitalSystemAdminJPanel
+     * Creates new form UpdateHospitalAdminJPanel
      */
     CreateHospitalHistory createHospitalHistory;
-
-    public UpdateHospitalSystemAdminJPanel(CreateHospitalHistory createHospitalHistory) {
+    public UpdateHospitalAdminJPanel(CreateHospitalHistory createHospitalHistory) {
         initComponents();
         this.createHospitalHistory = createHospitalHistory;
         displayHospitalTableInformation();
-
     }
+    private void displayHospitalTableInformation() {
+        //btnSave.setVisible(false);
+        DefaultTableModel model=(DefaultTableModel) HospTable.getModel();
+        model.setRowCount(0);
+        for(CreateHospital h : createHospitalHistory.getHospHistory()){
+            Object[] row =new Object[5];
+            row[0]=h;
+            row[1]=h.getHospNo() ;
+            row[2]=h.getHousing().getCityname();
+            row[3]= h.getHousing().getCommunityName(); 
+            row[4]=h.getHousing().getZipcode(); 
+            
+            
+            model.addRow(row);
+        }
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -166,11 +179,8 @@ public class UpdateHospitalSystemAdminJPanel extends javax.swing.JPanel {
                             .addComponent(lblCity1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(FieldHospNo, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(0, 788, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
-
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {FieldHospCity, FieldHospCommunity, FieldHospName, FieldHospNo, FieldHospZipCode});
-
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -208,11 +218,8 @@ public class UpdateHospitalSystemAdminJPanel extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(FieldHospZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(284, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {FieldHospCity, FieldHospCommunity, FieldHospName, FieldHospNo, FieldHospZipCode});
-
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
@@ -227,12 +234,8 @@ public class UpdateHospitalSystemAdminJPanel extends javax.swing.JPanel {
         CreateHospital selectedHosp=createHospitalHistory.getHospHistory().get(selectedRowIndex);
         DefaultTableModel model = (DefaultTableModel) HospTable.getModel();
 
-       
-
         if (selectedRowIndex>=0) {
 
-            
-            
             selectedHosp.setHospitalName(FieldHospName.getText());
             selectedHosp.setHospNo(Integer.parseInt(FieldHospNo.getText()));
             Housing house = new Housing();
@@ -240,10 +243,9 @@ public class UpdateHospitalSystemAdminJPanel extends javax.swing.JPanel {
             house.setCommunityName(FieldHospCommunity.getText());
             house.setZipcode(Integer.parseInt(FieldHospZipCode.getText()));
             selectedHosp.setHousing(house);
-            
 
         }
-        JOptionPane.showMessageDialog(this, "Hospital Information Updated");
+        JOptionPane.showMessageDialog(this, "Person Information Updated");
         displayHospitalTableInformation();
 
         FieldHospName.setText("");
@@ -251,7 +253,6 @@ public class UpdateHospitalSystemAdminJPanel extends javax.swing.JPanel {
         FieldHospCity.setText("");
         FieldHospZipCode.setText("");
         FieldHospCommunity.setText("");
-
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
@@ -261,21 +262,18 @@ public class UpdateHospitalSystemAdminJPanel extends javax.swing.JPanel {
         {
             CreateHospital selecteHosp=createHospitalHistory.getHospHistory().get(selectedRowIndex);
             DefaultComboBoxModel model = new DefaultComboBoxModel();
-            
-            
-        FieldHospName.setText(selecteHosp.getHospitalName());
-        FieldHospNo.setText(String.valueOf(selecteHosp.getHospNo()));
-        FieldHospCity.setText(selecteHosp.getHousing().getCityname());
-        FieldHospZipCode.setText(String.valueOf(selecteHosp.getHousing().getZipcode()));
-        FieldHospCommunity.setText(selecteHosp.getHousing().getCommunityName());
-            
-            }
+
+            FieldHospName.setText(selecteHosp.getHospitalName());
+            FieldHospNo.setText(String.valueOf(selecteHosp.getHospNo()));
+            FieldHospCity.setText(selecteHosp.getHousing().getCityname());
+            FieldHospZipCode.setText(String.valueOf(selecteHosp.getHousing().getZipcode()));
+            FieldHospCommunity.setText(selecteHosp.getHousing().getCommunityName());
+
+        }
         else
         {
             JOptionPane.showMessageDialog(this, "Please select one Person Information to view all details");
         }
-
-
 
     }//GEN-LAST:event_btnViewActionPerformed
 
@@ -285,49 +283,31 @@ public class UpdateHospitalSystemAdminJPanel extends javax.swing.JPanel {
         if(selectedRowIndex >= 0)
         {
             CreateHospital selectedPerson=createHospitalHistory.getHospHistory().get(selectedRowIndex);
-        
+
             createHospitalHistory.deleteHospRecords(selectedRowIndex);
             displayHospitalTableInformation();
-            
+
         }
         else
         {
             JOptionPane.showMessageDialog(this, "Please select one Hospital to Delete all details");
         }
-
     }//GEN-LAST:event_btnDeleteActionPerformed
 
-    
-    private void displayHospitalTableInformation() {
-        //btnSave.setVisible(false);
-        DefaultTableModel model=(DefaultTableModel) HospTable.getModel();
-        model.setRowCount(0);
-        for(CreateHospital h : createHospitalHistory.getHospHistory()){
-            Object[] row =new Object[5];
-            row[0]=h;
-            row[1]=h.getHospNo() ;
-            row[2]=h.getHousing().getCityname();
-            row[3]= h.getHousing().getCommunityName(); 
-            row[4]=h.getHousing().getZipcode(); 
-            
-            
-            model.addRow(row);
-        }
-}
     private void FieldHospNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FieldHospNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_FieldHospNameActionPerformed
 
     private void FieldHospNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FieldHospNoActionPerformed
         // TODO add your handling code here:
-        
+
         boolean test = false;
         for (CreateHospital element : createHospitalHistory.getHospHistory()) {
             if (element.getHospNo() == Integer.parseInt(FieldHospNo.getText())) {
                 test = true;
                 JOptionPane.showMessageDialog(null, "ID already Exists", "Error", JOptionPane.ERROR_MESSAGE);
             }
-    }        
+        }
     }//GEN-LAST:event_FieldHospNoActionPerformed
 
 

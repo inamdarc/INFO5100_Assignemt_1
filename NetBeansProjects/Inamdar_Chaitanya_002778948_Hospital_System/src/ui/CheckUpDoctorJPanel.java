@@ -53,7 +53,7 @@ public class CheckUpDoctorJPanel extends javax.swing.JPanel {
         {           
             
 
-            if ("Patient".equals(e.getRole())){
+            if ("Patient".equals(e.getRole()) && e.getAppointStat() == 1){
             displayPersonTableInformation();
             }
         }
@@ -200,11 +200,11 @@ public class CheckUpDoctorJPanel extends javax.swing.JPanel {
                 {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Patient Id", "Name", "Age", "City", "Community", "House No", "Blood Pressure", "Is Normal"
+                "Patient Id", "Name", "Age", "Blood Pressure", "Tempreture", "Blood Group", "Pulse", "Is Normal"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false
+                false, false, false, false, true, true, true, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -215,17 +215,17 @@ public class CheckUpDoctorJPanel extends javax.swing.JPanel {
 
         PersonTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Role", "First Name", "Last Name", "Age", "Email", "Gender", "City", "Community", "Hosing No.", "Zip Code"
+                "Role", "Appoint. Status", "First Name", "Last Name", "Age", "Email", "Gender", "City", "Community", "Hosing No.", "Zip Code"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                true, false, true, false, true, true, true, true, true, true
+                true, true, false, true, false, true, true, true, true, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -311,8 +311,8 @@ public class CheckUpDoctorJPanel extends javax.swing.JPanel {
                                             .addGap(27, 27, 27)
                                             .addComponent(lblBP, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(txtBP, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(0, 0, Short.MAX_VALUE))))
+                                            .addComponent(txtBP, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGap(0, 0, Short.MAX_VALUE))
                                 .addGroup(layout.createSequentialGroup()
                                     .addGap(736, 736, 736)
                                     .addComponent(lblPulse, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -425,7 +425,7 @@ public class CheckUpDoctorJPanel extends javax.swing.JPanel {
         DefaultTableModel model=(DefaultTableModel) PersonTable.getModel();
         model.setRowCount(0);
         for(CreatePerson e : createPersonHistory.getHistory()){
-            if ("Patient".equals(e.getRole()))ß{
+            if ("Patient".equals(e.getRole())){
             Object[] row =new Object[10];
             row[0]=e;
             row[1]=e.getFName() ;
@@ -626,48 +626,55 @@ public class CheckUpDoctorJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         
         int selectedRowIndex = PersonTable.getSelectedRow();
-        if(txtBP.getText() != "")
-        {
+        
             CreatePerson selectedPerson=createPersonHistory.getHistory().get(selectedRowIndex);
             int bloodPressure = Integer.parseInt(txtBP.getText());
+            int tempreture = Integer.parseInt(txTemp.getText());
+            int Pulse = Integer.parseInt(txPulse.getText());
+            String bloodGroup = txtBloodGrp.getText();
+            
             VitalSigns vs = new VitalSigns();
             vs.setBloodPressure(bloodPressure);
+            vs.setTempreture(tempreture);
+            vs.setPulese(Pulse);
+            vs.setBloodGroup(bloodGroup);
             Housing housing = new Housing();
-            Patient pe = new Patient("","","","",0,"",0,"",housing,0,vs);
-            boolean isNormal = pe.isPatientNormal(selectedPerson.getAge());
+            for (CreatePerson CP : createPersonHistory.getHistory()){
+                if(CP.getRole() == "Patient"){
+                Patient pe = new Patient("","","","",0,"",0,"",housing,0,0,vs);
+                boolean isNormal = pe.isPatientNormal(selectedPerson.getAge());
 
-            if(patientDirectory.getPatientList().stream().filter(a -> a.getFName() == selectedPerson.getFName()).collect(Collectors.toList()).size()== 0)
-            {
-                patientDirectory.AddPatient(pe);
-                int PatientId = getPatientId();
-                pe.setUniqueId(selectedPerson.getUniqueId());
-                pe.setAge(selectedPerson.getAge());
-                pe.setFName(selectedPerson.getFName());
-                pe.setHousing(selectedPerson.getHousing());
-                pe.setIsNormal(isNormal);
-                pe.setPatientId(PatientId);
-                pe.setVs(vs);
-                displayPatientTableInfo();
+                if(patientDirectory.getPatientList().stream().filter(a -> a.getFName() == selectedPerson.getFName()).collect(Collectors.toList()).isEmpty())
+                {
+                    patientDirectory.AddPatient(pe);
+                    int PatientId = getPatientId();
+                    pe.setUniqueId(selectedPerson.getUniqueId());
+                    pe.setAge(selectedPerson.getAge());
+                    pe.setFName(selectedPerson.getFName());
+                    pe.setHousing(selectedPerson.getHousing());
+                    pe.setIsNormal(isNormal);
+                    pe.setPatientId(PatientId);
+                    pe.setVs(vs);
+                    displayPatientTableInfo();
+                }
+                else
+                {
+                    pe = patientDirectory.getPatientList().stream().filter(a -> (a.getFName() == null ? selectedPerson.getFName() == null : a.getFName().equals(selectedPerson.getFName()))).collect(Collectors.toList()).get(0);
+                    pe.setIsNormal(isNormal);
+                    pe.setVs(vs);
+                    displayPatientTableInfo();
+                }
+
+                Encounter encounter = new Encounter(vs);
+                encounterHistory.AddEncounter(encounter);
+                encounter.setPatientId(pe.getPatientId());
+                encounter.setVisitingDate(LocalDateTime.now());
+                encounter.setIsPatientNormal(pe.isIsNormal());
+                encounter.setVs(vs);
+
             }
-            else
-            {
-                pe = patientDirectory.getPatientList().stream().filter(a -> a.getFName() == selectedPerson.getFName()).collect(Collectors.toList()).get(0);
-                pe.setIsNormal(isNormal);
-                pe.setVs(vs);
-                displayPatientTableInfo();
             }
 
-            Encounter encounter = new Encounter(vs);
-            encounterHistory.AddEncounter(encounter);
-            encounter.setPatientId(pe.getPatientId());
-            encounter.setVisitingDate(LocalDateTime.now());
-            encounter.setIsPatientNormal(pe.isIsNormal());
-            encounter.setVs(vs);
-        }
-        else
-        {
-            JOptionPane.showMessageDialog(this, "Please enter Blood Pressure rate");
-        }
         
 
     }//GEN-LAST:event_btnCheckActionPerformed
@@ -678,6 +685,7 @@ public class CheckUpDoctorJPanel extends javax.swing.JPanel {
         model.addElement("Rural");
         model.addElement("Urban");
         model.addElement("Suburban");
+        
         jCommunityCombo.setModel(model);
     }//GEN-LAST:event_jCityComboActionPerformed
 
@@ -761,21 +769,22 @@ public class CheckUpDoctorJPanel extends javax.swing.JPanel {
         for(Patient p : patientDirectory.getPatientList()){
             Object[] row =new Object[10];
             row[0]=p.getPatientId();
-            row[1]=p.getFName();
+            row[1]=p.getFName ();
             row[2]=p.getAge();
-            row[3]=p.getHousing().getCityname(); 
-            row[4]=p.getHousing().getCommunityName(); 
-            row[5]=p.getHousing().getHouseNo(); 
-            row[6]=p.getVs().getBloodPressure();
+            row[3]=p.getVs().getBloodPressure(); 
+            row[4]=p.getVs().getTempreture(); 
+            row[5]=p.getVs().getPulese(); 
+            row[6]=p.getVs().getBloodGroup();
             row[7]=p.isIsNormal()? "Normal" : "Abnormal";
             model.addRow(row);
+        
         }
     }
     
     private int getPatientId()
      {
          int PatientId=1;
-         if(patientDirectory.getPatientList().size() > 0)
+         if(!patientDirectory.getPatientList().isEmpty())
          {
              ArrayList<Integer> patientIdArr = new ArrayList<Integer>();
             for(int i=0; i<patientDirectory.getPatientList().size() ; i++ )

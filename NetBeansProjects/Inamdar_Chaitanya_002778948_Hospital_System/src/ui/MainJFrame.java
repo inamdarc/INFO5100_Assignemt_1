@@ -140,7 +140,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void HospAdminBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HospAdminBtnActionPerformed
         // TODO add your handling code here:
-        HospitalAdminLoginForm HA = new HospitalAdminLoginForm();
+        HospitalAdminLoginForm HA = new HospitalAdminLoginForm(createPersonHistory,patientDirectory,encounterHistory,createHospitalHistory,createCommunityHistory);
         HA.setVisible(true);
         this.dispose();
         
@@ -164,7 +164,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void PatientBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PatientBtnActionPerformed
         // TODO add your handling code here:
-        PatientLoginForm PF = new PatientLoginForm();
+        PatientLoginForm PF = new PatientLoginForm(createPersonHistory,patientDirectory,encounterHistory,createHospitalHistory,createCommunityHistory);
         PF.setVisible(true);
         this.dispose();
         

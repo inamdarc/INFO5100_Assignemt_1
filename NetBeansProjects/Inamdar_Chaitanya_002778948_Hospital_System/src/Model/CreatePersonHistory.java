@@ -32,12 +32,12 @@ public class CreatePersonHistory {
     
     public CreatePerson addNewPerson(){
         Housing housing= new Housing();
-        CreatePerson newRecord = new CreatePerson("","","","",0,"",0,"",housing,0);
+        CreatePerson newRecord = new CreatePerson("","","","",0,"",0,"",housing,0,0);
         createPersonHistory.add(newRecord);
         return newRecord;
         
     }
-    
+   
     /**
      *
      * @param index

@@ -4,6 +4,8 @@
  */
 package ui;
 
+import Model.CreateCommunity;
+import Model.CreateCommunityHistory;
 import Model.CreatePerson;
 
 import Model.CreatePersonHistory;
@@ -25,9 +27,11 @@ public class CreatViewPersonSystemAdminJPanel extends javax.swing.JPanel {
      * Creates new form CreatViewSystemAdminJPanel
      */
     CreatePersonHistory createPersonHistory;
-    public CreatViewPersonSystemAdminJPanel(CreatePersonHistory createPersonHistory) {
+    CreateCommunityHistory createCommunityHistory;
+    public CreatViewPersonSystemAdminJPanel(CreatePersonHistory createPersonHistory,CreateCommunityHistory createCommunityHistory) {
         initComponents();
         this.createPersonHistory = createPersonHistory;
+        this.createCommunityHistory = createCommunityHistory;
         displayPersonTableInformation();
         
         
@@ -430,6 +434,7 @@ public class CreatViewPersonSystemAdminJPanel extends javax.swing.JPanel {
     private void FieldCommunityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FieldCommunityActionPerformed
         // TODO add your handling code here:
         DefaultComboBoxModel model = new DefaultComboBoxModel();
+        
         if(FieldCommunity.getSelectedItem()!= null)
         {
             model.addElement("--Select House No--");
@@ -438,18 +443,27 @@ public class CreatViewPersonSystemAdminJPanel extends javax.swing.JPanel {
                 model.addElement("1011");
                 model.addElement("1012");
                 model.addElement("1013");
+                for(CreateCommunity c : createCommunityHistory.getCommHistory()){
+                   model.addElement(c.getHousing().getHouseNo());
+                   }
             }
             else if(FieldCommunity.getSelectedItem().toString() == "Huntington")
             {
                 model.addElement("2011");
                 model.addElement("2012");
                 model.addElement("2013");
+                for(CreateCommunity c : createCommunityHistory.getCommHistory()){
+                   model.addElement(c.getHousing().getHouseNo());
+                   }
             }
             else if(FieldCommunity.getSelectedItem().toString() == "Fenway")
             {
                 model.addElement("3011");
                 model.addElement("3012");
                 model.addElement("3013");
+                for(CreateCommunity c : createCommunityHistory.getCommHistory()){
+                   model.addElement(c.getHousing().getHouseNo());
+                   }
             }
         }
         FieldHouseNo.setModel(model);
@@ -517,6 +531,7 @@ public class CreatViewPersonSystemAdminJPanel extends javax.swing.JPanel {
             e.setGender(FieldGender.getText());
             e.setUniqueId(Integer.parseInt(FieldUniqueID.getText()));
             e.setPassword(FieldPassword.getText());
+            e.setAppointStat(0);
             house.setCityname(FieldCity.getSelectedItem().toString());
             house.setCommunityName(FieldCommunity.getSelectedItem().toString());
             house.setHouseNo(Integer.parseInt(FieldHouseNo.getSelectedItem().toString()));
@@ -610,10 +625,15 @@ public class CreatViewPersonSystemAdminJPanel extends javax.swing.JPanel {
     private void FieldCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FieldCityActionPerformed
         // TODO add your handling code here:
         DefaultComboBoxModel model = new DefaultComboBoxModel();
+        
         model.addElement("--Select Community--");
         model.addElement("Park Drive");
         model.addElement("Huntington");
         model.addElement("Fenway");
+        for(CreateCommunity c : createCommunityHistory.getCommHistory()){
+        model.addElement(c.getHousing().getCommunityName());
+        }
+        
         FieldCommunity.setModel(model);
     }//GEN-LAST:event_FieldCityActionPerformed
 

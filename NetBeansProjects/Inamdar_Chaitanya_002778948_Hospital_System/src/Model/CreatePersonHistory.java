@@ -5,7 +5,7 @@
 package Model;
 
 import java.util.ArrayList;
-import java.util.function.UnaryOperator;
+
 
 /**
  *
@@ -31,8 +31,8 @@ public class CreatePersonHistory {
     }
     
     public CreatePerson addNewPerson(){
-        
-        CreatePerson newRecord = new CreatePerson();
+        Housing housing= new Housing();
+        CreatePerson newRecord = new CreatePerson("","","","",0,"",0,"",housing,0);
         createPersonHistory.add(newRecord);
         return newRecord;
         
@@ -40,23 +40,14 @@ public class CreatePersonHistory {
     
     /**
      *
-     * @param e44
+     * @param index
      */
-    public void deleteRecords(CreatePerson e){
+    public void deleteRecords(int index){
     
-        createPersonHistory.remove(e);
+        createPersonHistory.remove(index);
         
     }
-    
-    
-    
-    public CreatePerson updateNewRecord(){
-        
-        CreatePerson updateRecord = new CreatePerson();
-        createPersonHistory.replaceAll((UnaryOperator<CreatePerson>) updateRecord);
-        return updateRecord;
-        
-    }
+   
       
     
     

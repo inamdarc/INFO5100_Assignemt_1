@@ -69,7 +69,7 @@
                                   <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="FieldDocAdminUsername" alignment="0" min="-2" pref="194" max="-2" attributes="0"/>
-                                      <Component id="LblDocAdminPass" alignment="0" min="-2" pref="194" max="-2" attributes="0"/>
+                                      <Component id="FieldDocAdminPassword" alignment="0" min="-2" pref="194" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Component id="jButton2" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -97,7 +97,7 @@
                   <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Component id="jLabel2" alignment="1" min="-2" max="-2" attributes="0"/>
-                      <Component id="LblDocAdminPass" alignment="1" min="-2" pref="38" max="-2" attributes="0"/>
+                      <Component id="FieldDocAdminPassword" alignment="1" min="-2" pref="38" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
                   <Component id="BtnDocAdminLogin" min="-2" pref="42" max="-2" attributes="0"/>
@@ -137,7 +137,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FieldDocAdminUsernameActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="LblDocAdminPass">
+        <Component class="javax.swing.JTextField" name="FieldDocAdminPassword">
         </Component>
         <Component class="javax.swing.JButton" name="BtnDocAdminLogin">
           <Properties>

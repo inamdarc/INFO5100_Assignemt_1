@@ -6,7 +6,11 @@ package ui;
 
 import Model.CreatePerson;
 import Model.CreatePersonHistory;
+import Model.Housing;
 import Model.UserDirectory;
+import java.util.List;
+import java.util.stream.Collectors;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -67,13 +71,13 @@ public class UpdatePersonSystemAdminJPanel extends javax.swing.JPanel {
         FieldUniqueID = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         FieldGender = new javax.swing.JTextField();
-        FieldCity = new javax.swing.JTextField();
-        FieldCommunity = new javax.swing.JTextField();
-        FieldHouseNo = new javax.swing.JTextField();
         lblCity1 = new javax.swing.JLabel();
         FieldRole = new javax.swing.JTextField();
         lblFirstName1 = new javax.swing.JLabel();
         FieldPassword = new javax.swing.JTextField();
+        jCityCombo = new javax.swing.JComboBox<>();
+        jCommunityCombo = new javax.swing.JComboBox<>();
+        jHousingCombo = new javax.swing.JComboBox<>();
 
         PersonTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -176,12 +180,6 @@ public class UpdatePersonSystemAdminJPanel extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         jLabel2.setText("Gender:");
 
-        FieldCity.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FieldCityActionPerformed(evt);
-            }
-        });
-
         lblCity1.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         lblCity1.setText("Role:");
 
@@ -195,6 +193,19 @@ public class UpdatePersonSystemAdminJPanel extends javax.swing.JPanel {
         lblFirstName1.setText("Password:");
 
         FieldPassword.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+
+        jCityCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-- Select City --", "Boston" }));
+        jCityCombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCityComboActionPerformed(evt);
+            }
+        });
+
+        jCommunityCombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCommunityComboActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -213,15 +224,15 @@ public class UpdatePersonSystemAdminJPanel extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lblHouseNo, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(FieldHouseNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jHousingCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lblCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(FieldCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jCommunityCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lblCity, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(FieldCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jCityCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lblZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -280,7 +291,7 @@ public class UpdatePersonSystemAdminJPanel extends javax.swing.JPanel {
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {FieldAge, FieldEmail, FieldFName, FieldLName, FieldPassword, FieldUniqueID});
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {FieldCity, FieldCommunity, FieldGender, FieldHouseNo, FieldRole, FieldZipCode, jLabel2, lblCity, lblCommunity, lblHouseNo, lblZipCode});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {FieldGender, FieldRole, FieldZipCode, jCityCombo, jCommunityCombo, jHousingCombo, jLabel2, lblCity, lblCommunity, lblHouseNo, lblZipCode});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -328,20 +339,20 @@ public class UpdatePersonSystemAdminJPanel extends javax.swing.JPanel {
                             .addComponent(FieldUniqueID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(6, 6, 6))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblCity, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jCityCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblCity, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(lblCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(FieldCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jCommunityCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(lblHouseNo, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(FieldHouseNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(35, 35, 35))
+                                    .addComponent(jHousingCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(46, 46, 46))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(FieldCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(lblZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -350,10 +361,10 @@ public class UpdatePersonSystemAdminJPanel extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
                             .addComponent(FieldGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(274, Short.MAX_VALUE))
+                .addContainerGap(269, Short.MAX_VALUE))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {FieldCity, FieldCommunity, FieldGender, FieldHouseNo, FieldRole, FieldZipCode, jLabel2, lblCity, lblCommunity, lblHouseNo, lblZipCode});
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {FieldGender, FieldRole, FieldZipCode, jCityCombo, jCommunityCombo, jHousingCombo, jLabel2, lblCity, lblCommunity, lblHouseNo, lblZipCode});
 
     }// </editor-fold>//GEN-END:initComponents
 
@@ -367,35 +378,63 @@ public class UpdatePersonSystemAdminJPanel extends javax.swing.JPanel {
                 
         }
         
-       DefaultTableModel model = (DefaultTableModel) PersonTable.getModel();
-       CreatePerson CP = (CreatePerson) model.getValueAt(selectedRowIndex, 0);
        
-       boolean test = false;
-        for (CreatePerson element : createPersonHistory.getHistory()) {
-            if (element.getUniqueId() == Integer.parseInt(FieldUniqueID.getText())) {
-                test = true;
-                JOptionPane.showMessageDialog(null, "ID already Exists", "Error", JOptionPane.ERROR_MESSAGE);
-            }
-    }        
         
         if (selectedRowIndex>=0) {
             
-            CP.setFName(FieldFName.getText());
-            CP.setLName(FieldLName.getText());
-            CP.setEmail(FieldLName.getText());
-            CP.setAge(Integer.parseInt(FieldAge.getText()));
-            CP.setGender(FieldGender.getText());
-            CP.setUniqueId(Integer.parseInt(FieldUniqueID.getText()));
-            CP.setCity(FieldCity.getText());
-            CP.setCommunity(FieldCommunity.getText());
-            CP.setZipCode(Integer.parseInt(FieldZipCode.getText()));
-            CP.setHouseNo(Integer.parseInt(FieldHouseNo.getText()));
-            CP.setRole(FieldRole.getText());
-            CP.setPassword(FieldPassword.getText());
-            
-        }
-            JOptionPane.showMessageDialog(this, "Person Information Updated");
+            CreatePerson selectedPerson=createPersonHistory.getHistory().get(selectedRowIndex);
+            DefaultComboBoxModel model = new DefaultComboBoxModel();
+            model.addElement("Boston");
+            jCityCombo.setModel(model);
+            jCityCombo.setSelectedItem(selectedPerson.getHousing().getCityname());
+
+            DefaultComboBoxModel Communitymodel = new DefaultComboBoxModel();
+            Communitymodel.addElement("Rural");
+            Communitymodel.addElement("Urban");
+            Communitymodel.addElement("Suburban");
+            jCommunityCombo.setModel(Communitymodel);
+            jCommunityCombo.setSelectedItem(selectedPerson.getHousing().getCommunityName());
+
+            DefaultComboBoxModel Housingmodel = new DefaultComboBoxModel();
+            if(jCommunityCombo.getSelectedItem().toString() == "Rural")
+            { 
+                Housingmodel.addElement("1011");
+                Housingmodel.addElement("1012");
+                Housingmodel.addElement("1013"); 
+            }
+            else if("Urban".equals(jCommunityCombo.getSelectedItem().toString()))
+            {
+                Housingmodel.addElement("2011");
+                Housingmodel.addElement("2012");
+                Housingmodel.addElement("2013"); 
+            }
+            else if(jCommunityCombo.getSelectedItem().toString() == "Suburban")
+            {
+                Housingmodel.addElement("3011");
+                Housingmodel.addElement("3012");
+                Housingmodel.addElement("3013"); 
+            }
+            jHousingCombo.setModel(Housingmodel);
+            jHousingCombo.setSelectedItem(String.valueOf(selectedPerson.getHousing().getHouseNo()));
+
+            selectedPerson.setFName(FieldFName.getText());
+            selectedPerson.setLName(FieldLName.getText());
+            selectedPerson.setEmail(FieldLName.getText());
+            selectedPerson.setAge(Integer.parseInt(FieldAge.getText()));
+            selectedPerson.setGender(FieldGender.getText());
+            selectedPerson.setUniqueId(Integer.parseInt(FieldUniqueID.getText()));
+            Housing house = new Housing();
+            house.setCityname(jCityCombo.getSelectedItem().toString());
+            house.setCommunityName(jCommunityCombo.getSelectedItem().toString());
+            selectedPerson.setZipCode(Integer.parseInt(FieldZipCode.getText()));
+            house.setHouseNo(Integer.parseInt(jHousingCombo.getSelectedItem().toString()));
+            selectedPerson.setRole(FieldRole.getText());
+            selectedPerson.setPassword(FieldPassword.getText());
             displayPersonTableInformation();
+
+        }
+        
+            JOptionPane.showMessageDialog(this, "Person Information Updated");
 
         FieldFName.setText("");
         FieldLName.setText("");
@@ -403,44 +442,73 @@ public class UpdatePersonSystemAdminJPanel extends javax.swing.JPanel {
         FieldAge.setText("");
         FieldGender.setText("");
         FieldUniqueID.setText("");
-        FieldCity.setText("");
-        FieldCommunity.setText("");  
-        FieldZipCode.setText(""); 
-        FieldHouseNo.setText(""); 
+        jHousingCombo.setSelectedItem(null);
+        jCityCombo.setSelectedItem(null);
+        jCommunityCombo.setSelectedItem(null);
         FieldRole.setText("");
-        FieldPassword.setText(""); 
+        FieldPassword.setText("");
+        FieldZipCode.setText(""); 
+
 
         
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
         // TODO add your handling code here:
-       int selectedRowIndex = PersonTable.getSelectedRow();
-        
-        if (selectedRowIndex<0) {
-            JOptionPane.showMessageDialog(this, "Please select a row to view");
-            return;
-                
+        int selectedRowIndex = PersonTable.getSelectedRow();
+        if(selectedRowIndex >= 0)
+        {
+            CreatePerson selectedPerson=createPersonHistory.getHistory().get(selectedRowIndex);
+            DefaultComboBoxModel model = new DefaultComboBoxModel();
+            model.addElement("Boston");
+            jCityCombo.setModel(model);
+            jCityCombo.setSelectedItem(selectedPerson.getHousing().getCityname());
+
+            DefaultComboBoxModel Communitymodel = new DefaultComboBoxModel();
+            Communitymodel.addElement("Rural");
+            Communitymodel.addElement("Urban");
+            Communitymodel.addElement("Suburban");
+            jCommunityCombo.setModel(Communitymodel);
+            jCommunityCombo.setSelectedItem(selectedPerson.getHousing().getCommunityName());
+
+            DefaultComboBoxModel Housingmodel = new DefaultComboBoxModel();
+            if(jCommunityCombo.getSelectedItem().toString() == "Rural")
+            { 
+                Housingmodel.addElement("1011");
+                Housingmodel.addElement("1012");
+                Housingmodel.addElement("1013"); 
+            }
+            else if(jCommunityCombo.getSelectedItem().toString() == "Urban")
+            {
+                Housingmodel.addElement("2011");
+                Housingmodel.addElement("2012");
+                Housingmodel.addElement("2013"); 
+            }
+            else if(jCommunityCombo.getSelectedItem().toString() == "Suburban")
+            {
+                Housingmodel.addElement("3011");
+                Housingmodel.addElement("3012");
+                Housingmodel.addElement("3013"); 
+            }
+            jHousingCombo.setModel(Housingmodel);
+            jHousingCombo.setSelectedItem(String.valueOf(selectedPerson.getHousing().getHouseNo()));
+            
+            
+            FieldFName.setText(String.valueOf(selectedPerson.getFName()));
+            FieldLName.setText(String.valueOf(selectedPerson.getLName()));
+            FieldEmail.setText(selectedPerson.getEmail());
+            FieldAge.setText(String.valueOf(selectedPerson.getAge()));
+            FieldGender.setText(selectedPerson.getGender());
+            FieldUniqueID.setText(String.valueOf(selectedPerson.getUniqueId()));
+            FieldZipCode.setText(String.valueOf(selectedPerson.getZipCode())); 
+            FieldRole.setText(selectedPerson.getRole());
+            FieldPassword.setText(selectedPerson.getPassword());
+            
+            }
+        else
+        {
+            JOptionPane.showMessageDialog(this, "Please select one Person Information to view all details");
         }
-        
-        
-        
-        DefaultTableModel model = (DefaultTableModel) PersonTable.getModel();
-        CreatePerson selectedRecords = (CreatePerson) model.getValueAt(selectedRowIndex, 0);
-
-
-        FieldFName.setText(String.valueOf(selectedRecords.getFName()));
-        FieldLName.setText(String.valueOf(selectedRecords.getLName()));
-        FieldEmail.setText(selectedRecords.getEmail());
-        FieldAge.setText(String.valueOf(selectedRecords.getAge()));
-        FieldGender.setText(selectedRecords.getGender());
-        FieldUniqueID.setText(String.valueOf(selectedRecords.getUniqueId()));
-        FieldCity.setText(selectedRecords.getCity());
-        FieldCommunity.setText(selectedRecords.getCommunity());  
-        FieldZipCode.setText(String.valueOf(selectedRecords.getZipCode())); 
-        FieldHouseNo.setText(String.valueOf(selectedRecords.getHouseNo())); 
-        FieldRole.setText(selectedRecords.getRole());
-        FieldPassword.setText(selectedRecords.getPassword()); 
 
 
         
@@ -451,34 +519,22 @@ public class UpdatePersonSystemAdminJPanel extends javax.swing.JPanel {
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
         int selectedRowIndex = PersonTable.getSelectedRow();
+        if(selectedRowIndex >= 0)
+        {
+            CreatePerson selectedPerson=createPersonHistory.getHistory().get(selectedRowIndex);
         
-        if (selectedRowIndex<0) {
-            JOptionPane.showMessageDialog(this, "Please select a row to delete");
-            return;
-                
+            createPersonHistory.deleteRecords(selectedRowIndex);
+            displayPersonTableInformation();
+            
         }
+        else
+        {
+            JOptionPane.showMessageDialog(this, "Please select one Person to Delete all details");
+        }
+
         
-        DefaultTableModel model = (DefaultTableModel) PersonTable.getModel();
-        CreatePerson selectedRecords = (CreatePerson) model.getValueAt(selectedRowIndex, 0);
-
-        createPersonHistory.deleteRecords(selectedRecords);
-
-        JOptionPane.showMessageDialog(this, "Person record deleted");
-
-        displayPersonTableInformation();
         
-        FieldFName.setText("");
-        FieldLName.setText("");
-        FieldEmail.setText("");
-        FieldAge.setText("");
-        FieldGender.setText("");
-        FieldUniqueID.setText("");
-        FieldCity.setText("");
-        FieldCommunity.setText("");  
-        FieldZipCode.setText(""); 
-        FieldHouseNo.setText(""); 
-        FieldRole.setText("");
-        FieldPassword.setText(""); 
+   
         
     }//GEN-LAST:event_btnDeleteActionPerformed
 
@@ -493,13 +549,45 @@ public class UpdatePersonSystemAdminJPanel extends javax.swing.JPanel {
 
     }//GEN-LAST:event_FieldEmailKeyReleased
 
-    private void FieldCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FieldCityActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_FieldCityActionPerformed
-
     private void FieldRoleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FieldRoleActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_FieldRoleActionPerformed
+
+    private void jCityComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCityComboActionPerformed
+        // TODO add your handling code here:
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        model.addElement("Rural");
+        model.addElement("Urban");
+        model.addElement("Suburban");
+        jCommunityCombo.setModel(model);
+    }//GEN-LAST:event_jCityComboActionPerformed
+
+    private void jCommunityComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCommunityComboActionPerformed
+        // TODO add your handling code here:
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        if(jCommunityCombo.getSelectedItem() != null)
+        {
+            if(jCommunityCombo.getSelectedItem().toString() == "Rural")
+            {
+                model.addElement("1011");
+                model.addElement("1012");
+                model.addElement("1013");
+            }
+            else if(jCommunityCombo.getSelectedItem().toString() == "Urban")
+            {
+                model.addElement("2011");
+                model.addElement("2012");
+                model.addElement("2013");
+            }
+            else if(jCommunityCombo.getSelectedItem().toString() == "Suburban")
+            {
+                model.addElement("301");
+                model.addElement("302");
+                model.addElement("303");
+            }
+            jHousingCombo.setModel(model);
+        }
+    }//GEN-LAST:event_jCommunityComboActionPerformed
 
 private void displayPersonTableInformation() {
         //btnSave.setVisible(false);
@@ -515,9 +603,9 @@ private void displayPersonTableInformation() {
             row[5]=e.getUniqueId();
             row[6]=e.getPassword();
             row[7]=e.getGender() ;
-            row[8]=e.getCity();
-            row[9]= e.getCommunity(); 
-            row[10]=e.getHouseNo(); 
+            row[8]=e.getHousing().getCityname();
+            row[9]= e.getHousing().getCommunityName(); 
+            row[10]=e.getHousing().getHouseNo(); 
             row[11]=e.getZipCode();
             
             model.addRow(row);
@@ -525,12 +613,9 @@ private void displayPersonTableInformation() {
 }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField FieldAge;
-    private javax.swing.JTextField FieldCity;
-    private javax.swing.JTextField FieldCommunity;
     private javax.swing.JTextField FieldEmail;
     private javax.swing.JTextField FieldFName;
     private javax.swing.JTextField FieldGender;
-    private javax.swing.JTextField FieldHouseNo;
     private javax.swing.JTextField FieldLName;
     private javax.swing.JTextField FieldPassword;
     private javax.swing.JTextField FieldRole;
@@ -541,6 +626,9 @@ private void displayPersonTableInformation() {
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JButton btnView;
+    private javax.swing.JComboBox<String> jCityCombo;
+    private javax.swing.JComboBox<String> jCommunityCombo;
+    private javax.swing.JComboBox<String> jHousingCombo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;

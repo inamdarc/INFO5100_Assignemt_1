@@ -6,6 +6,7 @@ package ui;
 
 import Model.CreatePerson;
 import Model.CreatePersonHistory;
+import Model.Housing;
 import Model.UserDirectory;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -26,6 +27,7 @@ public class CreatViewPersonSystemAdminJPanel extends javax.swing.JPanel {
     public CreatViewPersonSystemAdminJPanel(CreatePersonHistory createPersonHistory) {
         initComponents();
         this.createPersonHistory = createPersonHistory;
+        displayPersonTableInformation();
         
         
 
@@ -383,6 +385,9 @@ public class CreatViewPersonSystemAdminJPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    
+
    private void displayPersonTableInformation() {
         //btnSave.setVisible(false);
         DefaultTableModel model=(DefaultTableModel) PersonTable.getModel();
@@ -392,7 +397,7 @@ public class CreatViewPersonSystemAdminJPanel extends javax.swing.JPanel {
             row[0]=e.getRole();
             row[1]=e.getFName() + ", " + e.getLName() ;
             row[2]=e.getAge();
-            row[3]= e.getHouseNo() + ", " + e.getCommunity() + ", " + e.getCity() + ", " + e.getZipCode(); 
+            row[3]= e.getHousing().getHouseNo() + ", " + e.getHousing().getCommunityName() + ", " + e.getHousing().getCityname() + ", " + e.getZipCode(); 
             row[4]=e.getUniqueId(); 
             row[5]=e.getPassword();
             model.addRow(row);
@@ -415,16 +420,6 @@ public class CreatViewPersonSystemAdminJPanel extends javax.swing.JPanel {
             }
         }
     }//GEN-LAST:event_FieldZipCodeKeyReleased
-
-    private void FieldCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FieldCityActionPerformed
-        // TODO add your handling code here:
-        DefaultComboBoxModel model = new DefaultComboBoxModel();
-        model.addElement("--Select Community--");
-        model.addElement("Park Drive");
-        model.addElement("Huntington");
-        model.addElement("Fenway");
-        FieldCommunity.setModel(model);
-    }//GEN-LAST:event_FieldCityActionPerformed
 
     private void FieldCommunityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FieldCommunityActionPerformed
         // TODO add your handling code here:
@@ -506,20 +501,21 @@ public class CreatViewPersonSystemAdminJPanel extends javax.swing.JPanel {
         
         
             CreatePerson e = createPersonHistory.addNewPerson();
+            Housing house = new Housing();
 
-            e.setRole(Role);
-            e.setFName(FName);
-            e.setLName(LName);
-            e.setEmail(Email);
-            e.setAge(Age);
-            e.setGender(Gender);
-            e.setUniqueId(UniqueID);
-            e.setPassword(Password);
-            e.setCity(City);
-            e.setCommunity(Community);
-            e.setAddress(Address);
+            e.setRole(FieldRole.getSelectedItem().toString());
+            e.setFName(FieldFName.getText());
+            e.setLName(FieldLName.getText());
+            e.setEmail(FieldEmail.getText());
+            e.setAge(Integer.parseInt(FieldAge.getText()));
+            e.setGender(FieldGender.getText());
+            e.setUniqueId(Integer.parseInt(FieldUniqueID.getText()));
+            e.setPassword(FieldPassword.getText());
+            house.setCityname(FieldCity.getSelectedItem().toString());
+            house.setCommunityName(FieldCommunity.getSelectedItem().toString());
+            house.setHouseNo(Integer.parseInt(FieldHouseNo.getSelectedItem().toString()));
+            e.setHousing(house);
             e.setZipCode(ZipCode);
-            e.setHouseNo(HouseNo);
             
         
         
@@ -604,6 +600,16 @@ public class CreatViewPersonSystemAdminJPanel extends javax.swing.JPanel {
         
         
     }//GEN-LAST:event_FieldUniqueIDActionPerformed
+
+    private void FieldCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FieldCityActionPerformed
+        // TODO add your handling code here:
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        model.addElement("--Select Community--");
+        model.addElement("Park Drive");
+        model.addElement("Huntington");
+        model.addElement("Fenway");
+        FieldCommunity.setModel(model);
+    }//GEN-LAST:event_FieldCityActionPerformed
     
     
 

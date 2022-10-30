@@ -19,11 +19,35 @@ public class CreatePerson {
     private String Gender;
     private int UniqueId;
     private String Password;
-    private String City;
-    private String Community;
-    private String Address;
+    Housing housing;
     private int ZipCode;
-    private int HouseNo;
+
+    
+    
+    public CreatePerson(String Role,String FName,
+            String LName, String Email, int Age, String Gender,int UniqueId,
+            String Password,Housing housing,int ZipCode )
+    {
+        this.Role = Role;
+        this.FName = FName;
+        this.LName = LName;
+        this.Email = Email;
+        this.Age = Age;
+        this.Gender = Gender;
+        this.UniqueId = UniqueId;
+        this.Password = Password;
+        this.housing = housing;
+        this.ZipCode = ZipCode;
+
+        
+        
+        
+        
+        
+    
+    }
+            
+           
 
     public String getRole() {
         return Role;
@@ -89,30 +113,6 @@ public class CreatePerson {
         this.Password = Password;
     }
 
-    public String getCity() {
-        return City;
-    }
-
-    public void setCity(String City) {
-        this.City = City;
-    }
-
-    public String getCommunity() {
-        return Community;
-    }
-
-    public void setCommunity(String Community) {
-        this.Community = Community;
-    }
-
-    public String getAddress() {
-        return Address;
-    }
-
-    public void setAddress(String Address) {
-        this.Address = Address;
-    }
-
     public int getZipCode() {
         return ZipCode;
     }
@@ -120,14 +120,15 @@ public class CreatePerson {
     public void setZipCode(int ZipCode) {
         this.ZipCode = ZipCode;
     }
-
-    public int getHouseNo() {
-        return HouseNo;
+    public Housing getHousing() {
+        return housing;
     }
 
-    public void setHouseNo(int HouseNo) {
-        this.HouseNo = HouseNo;
+    public void setHousing(Housing housing) {
+        this.housing = housing;
     }
+    
+    
     
      @Override
     public String toString(){

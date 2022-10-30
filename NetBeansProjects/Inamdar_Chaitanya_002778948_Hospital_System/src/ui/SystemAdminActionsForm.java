@@ -5,6 +5,7 @@
 package ui;
 
 import Model.CreateHospitalHistory;
+import Model.CreatePerson;
 import Model.CreatePersonHistory;
 import Model.UserDirectory;
 
@@ -36,6 +37,9 @@ public class SystemAdminActionsForm extends javax.swing.JFrame {
 
     
     }
+    
+    
+    
         
 
     /**
@@ -185,11 +189,13 @@ public class SystemAdminActionsForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+   
     private void btnCreatePersonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreatePersonActionPerformed
         // TODO add your handling code here:
 
         CreatViewPersonSystemAdminJPanel creatViewPersonSystemAdminJPanel = new CreatViewPersonSystemAdminJPanel(createPersonHistory);
         jSplitPane.setRightComponent(creatViewPersonSystemAdminJPanel);
+        
     }//GEN-LAST:event_btnCreatePersonActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed

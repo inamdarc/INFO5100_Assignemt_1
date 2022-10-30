@@ -17,13 +17,15 @@ public class DoctorLoginForm extends javax.swing.JFrame {
     /**
      * Creates new form DoctorLoginForm
      */
-    public DoctorLoginForm() {
+    CreatePersonHistory createPersonHistory;
+    public DoctorLoginForm(CreatePersonHistory createPersonHistory) {
         initComponents();
+        
+        this.createPersonHistory = createPersonHistory;
+        
     }
-
-    private DoctorLoginForm() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -39,7 +41,7 @@ public class DoctorLoginForm extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         FieldDocAdminUsername = new javax.swing.JTextField();
-        LblDocAdminPass = new javax.swing.JTextField();
+        FieldDocAdminPassword = new javax.swing.JTextField();
         BtnDocAdminLogin = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
@@ -103,7 +105,7 @@ public class DoctorLoginForm extends javax.swing.JFrame {
                                 .addGap(49, 49, 49)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(FieldDocAdminUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(LblDocAdminPass, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(FieldDocAdminPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jButton2))
                         .addGap(0, 396, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -122,7 +124,7 @@ public class DoctorLoginForm extends javax.swing.JFrame {
                 .addGap(35, 35, 35)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel2)
-                    .addComponent(LblDocAdminPass, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(FieldDocAdminPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(79, 79, 79)
                 .addComponent(BtnDocAdminLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(313, Short.MAX_VALUE))
@@ -144,7 +146,7 @@ public class DoctorLoginForm extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        MainJFrame MF = new MainJFrame();
+        MainJFrame MF = new MainJFrame(createPersonHistory);
         MF.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -152,6 +154,11 @@ public class DoctorLoginForm extends javax.swing.JFrame {
     private void BtnDocAdminLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnDocAdminLoginActionPerformed
         // TODO add your handling code here:
         
+
+        
+         DoctorActionsForm SAAF = new DoctorActionsForm(createPersonHistory);
+         SAAF.setVisible(true);
+         this.dispose();
         
         
         
@@ -166,45 +173,13 @@ public class DoctorLoginForm extends javax.swing.JFrame {
         
     }//GEN-LAST:event_FieldDocAdminUsernameActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(DoctorLoginForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(DoctorLoginForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(DoctorLoginForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(DoctorLoginForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new DoctorLoginForm().setVisible(true);
-            }
-        });
-    }
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnDocAdminLogin;
+    private javax.swing.JTextField FieldDocAdminPassword;
     private javax.swing.JTextField FieldDocAdminUsername;
-    private javax.swing.JTextField LblDocAdminPass;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

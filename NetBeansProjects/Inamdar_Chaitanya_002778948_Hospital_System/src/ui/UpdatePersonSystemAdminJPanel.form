@@ -29,17 +29,17 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="lblHouseNo" linkSize="2" min="-2" pref="163" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="FieldHouseNo" linkSize="2" min="-2" max="-2" attributes="0"/>
+                              <Component id="jHousingCombo" linkSize="2" min="-2" pref="155" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="lblCommunity" linkSize="2" min="-2" pref="155" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="FieldCommunity" linkSize="2" min="-2" max="-2" attributes="0"/>
+                              <Component id="jCommunityCombo" linkSize="2" min="-2" pref="155" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="lblCity" linkSize="2" min="-2" pref="155" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="FieldCity" linkSize="2" min="-2" max="-2" attributes="0"/>
+                              <Component id="jCityCombo" linkSize="2" min="-2" pref="155" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="lblZipCode" linkSize="2" min="-2" pref="163" max="-2" attributes="0"/>
@@ -172,23 +172,24 @@
                       <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lblCity" linkSize="3" min="-2" pref="22" max="-2" attributes="0"/>
+                          <Component id="jCityCombo" linkSize="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="lblCity" linkSize="3" min="-2" pref="22" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="lblCommunity" linkSize="3" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
-                                  <Component id="FieldCommunity" linkSize="3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jCommunityCombo" linkSize="3" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="lblHouseNo" linkSize="3" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
-                                  <Component id="FieldHouseNo" linkSize="3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jHousingCombo" linkSize="3" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="35" pref="35" max="-2" attributes="0"/>
+                              <EmptySpace min="46" pref="46" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="FieldCity" linkSize="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
                               <EmptySpace max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="lblZipCode" linkSize="3" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
@@ -203,7 +204,7 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="274" max="32767" attributes="0"/>
+              <EmptySpace pref="269" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -478,15 +479,6 @@
     </Component>
     <Component class="javax.swing.JTextField" name="FieldGender">
     </Component>
-    <Component class="javax.swing.JTextField" name="FieldCity">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FieldCityActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JTextField" name="FieldCommunity">
-    </Component>
-    <Component class="javax.swing.JTextField" name="FieldHouseNo">
-    </Component>
     <Component class="javax.swing.JLabel" name="lblCity1">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -514,6 +506,45 @@
           <Font name="Helvetica Neue" size="18" style="0"/>
         </Property>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="jCityCombo">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="2">
+            <StringItem index="0" value="-- Select City --"/>
+            <StringItem index="1" value="Boston"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCityComboActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="jCommunityCombo">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="0"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCommunityComboActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="jHousingCombo">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="0"/>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

@@ -4,8 +4,12 @@
  */
 package ui;
 
+import Model.CreateCommunityHistory;
+import Model.CreateHospitalHistory;
 import Model.CreatePerson;
 import Model.CreatePersonHistory;
+import Model.EncounterHistory;
+import Model.PatientDirectory;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -18,11 +22,19 @@ public class MainJFrame extends javax.swing.JFrame {
      * Creates new form MainJFrame
      */
      CreatePersonHistory createPersonHistory;
+     PatientDirectory patientDirectory;
+     EncounterHistory encounterHistory;
+     CreateHospitalHistory createHospitalHistory;
+     CreateCommunityHistory createCommunityHistory;
 
 
-    public MainJFrame(CreatePersonHistory createPersonHistory) {
+    public MainJFrame( CreateCommunityHistory createCommunityHistory,CreatePersonHistory createPersonHistory,PatientDirectory patientDirectory,EncounterHistory encounterHistory,CreateHospitalHistory createHospitalHistory) {
         initComponents();
         this.createPersonHistory = createPersonHistory;
+        this.patientDirectory=patientDirectory;
+        this.encounterHistory=encounterHistory;
+        this.createHospitalHistory = createHospitalHistory;
+        this.createCommunityHistory = createCommunityHistory;
 
     }
 
@@ -120,7 +132,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void SystemAdminBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SystemAdminBtnActionPerformed
         // TODO add your handling code here:
-        SystemAdminLoginForm SA = new SystemAdminLoginForm(createPersonHistory);
+        SystemAdminLoginForm SA = new SystemAdminLoginForm(createPersonHistory,patientDirectory,encounterHistory,createHospitalHistory,createCommunityHistory);
         SA.setVisible(true);
         this.dispose();
         
@@ -136,7 +148,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void CommAdminBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CommAdminBtnActionPerformed
         // TODO add your handling code here:
-        CommunityAdminLoginForm CA = new CommunityAdminLoginForm();
+        CommunityAdminLoginForm CA = new CommunityAdminLoginForm(createCommunityHistory,createPersonHistory,patientDirectory,encounterHistory,createHospitalHistory);
         CA.setVisible(true);
         this.dispose();
         
@@ -144,7 +156,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void DoctorBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DoctorBtnActionPerformed
         // TODO add your handling code here:
-        DoctorLoginForm DF = new DoctorLoginForm(createPersonHistory);
+        DoctorLoginForm DF = new DoctorLoginForm(createPersonHistory,patientDirectory,encounterHistory,createCommunityHistory,createHospitalHistory);
         DF.setVisible(true);
         this.dispose();
         

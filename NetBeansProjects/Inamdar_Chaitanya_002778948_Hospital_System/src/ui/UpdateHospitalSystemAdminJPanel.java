@@ -6,6 +6,9 @@ package ui;
 
 import Model.CreateHospital;
 import Model.CreateHospitalHistory;
+import Model.CreatePerson;
+import Model.Housing;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -42,8 +45,6 @@ public class UpdateHospitalSystemAdminJPanel extends javax.swing.JPanel {
         btnUpdate = new javax.swing.JButton();
         btnView = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
-        txtBP = new javax.swing.JTextField();
-        btnCheck = new javax.swing.JButton();
         lblCity = new javax.swing.JLabel();
         lblCommunity = new javax.swing.JLabel();
         lblHouseNo = new javax.swing.JLabel();
@@ -102,13 +103,6 @@ public class UpdateHospitalSystemAdminJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnCheck.setText("Check");
-        btnCheck.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCheckActionPerformed(evt);
-            }
-        });
-
         lblCity.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         lblCity.setText("Hospital Name");
 
@@ -150,12 +144,7 @@ public class UpdateHospitalSystemAdminJPanel extends javax.swing.JPanel {
                 .addComponent(btnView)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnDelete)
-                        .addGap(231, 231, 231)
-                        .addComponent(txtBP, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnCheck, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnDelete)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                             .addComponent(lblZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -177,7 +166,7 @@ public class UpdateHospitalSystemAdminJPanel extends javax.swing.JPanel {
                             .addComponent(lblCity1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(FieldHospNo, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(0, 532, Short.MAX_VALUE))
+                .addGap(0, 788, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {FieldHospCity, FieldHospCommunity, FieldHospName, FieldHospNo, FieldHospZipCode});
@@ -193,9 +182,7 @@ public class UpdateHospitalSystemAdminJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnUpdate)
                     .addComponent(btnView)
-                    .addComponent(btnDelete)
-                    .addComponent(txtBP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCheck))
+                    .addComponent(btnDelete))
                 .addGap(65, 65, 65)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
@@ -237,19 +224,22 @@ public class UpdateHospitalSystemAdminJPanel extends javax.swing.JPanel {
             return;
 
         }
-
+        CreateHospital selectedHosp=createHospitalHistory.getHospHistory().get(selectedRowIndex);
         DefaultTableModel model = (DefaultTableModel) HospTable.getModel();
-        CreateHospital CH = (CreateHospital) model.getValueAt(selectedRowIndex, 0);
 
        
 
         if (selectedRowIndex>=0) {
 
-            CH.setHospitalName(FieldHospName.getText());
-            CH.setHospNo(Integer.parseInt(FieldHospNo.getText()));
-            CH.setHospCity(FieldHospCity.getText());
-            CH.setHospCommunity(FieldHospCommunity.getText());
-            CH.setHospZipCode(Integer.parseInt(FieldHospZipCode.getText()));
+            
+            
+            selectedHosp.setHospitalName(FieldHospName.getText());
+            selectedHosp.setHospNo(Integer.parseInt(FieldHospNo.getText()));
+            Housing house = new Housing();
+            house.setCityname(FieldHospCity.getText());
+            house.setCommunityName(FieldHospCommunity.getText());
+            house.setZipcode(Integer.parseInt(FieldHospZipCode.getText()));
+            selectedHosp.setHousing(house);
             
 
         }
@@ -267,49 +257,43 @@ public class UpdateHospitalSystemAdminJPanel extends javax.swing.JPanel {
     private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
         // TODO add your handling code here:
         int selectedRowIndex = HospTable.getSelectedRow();
-
-        if (selectedRowIndex<0) {
-            JOptionPane.showMessageDialog(this, "Please select a row to view");
-            return;
-
+        if(selectedRowIndex >= 0)
+        {
+            CreateHospital selecteHosp=createHospitalHistory.getHospHistory().get(selectedRowIndex);
+            DefaultComboBoxModel model = new DefaultComboBoxModel();
+            
+            
+        FieldHospName.setText(selecteHosp.getHospitalName());
+        FieldHospNo.setText(String.valueOf(selecteHosp.getHospNo()));
+        FieldHospCity.setText(selecteHosp.getHousing().getCityname());
+        FieldHospZipCode.setText(String.valueOf(selecteHosp.getHousing().getZipcode()));
+        FieldHospCommunity.setText(selecteHosp.getHousing().getCommunityName());
+            
+            }
+        else
+        {
+            JOptionPane.showMessageDialog(this, "Please select one Person Information to view all details");
         }
 
-        DefaultTableModel model = (DefaultTableModel) HospTable.getModel();
-        CreateHospital selectedRecords = (CreateHospital) model.getValueAt(selectedRowIndex, 0);
 
-        
-        FieldHospName.setText(selectedRecords.getHospitalName());
-        FieldHospCity.setText(selectedRecords.getHospCity());
-        FieldHospZipCode.setText(String.valueOf(selectedRecords.getHospZipCode()));
-        FieldHospCommunity.setText(selectedRecords.getHospCommunity());
-        FieldHospNo.setText(String.valueOf(selectedRecords.getHospNo()));
 
     }//GEN-LAST:event_btnViewActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
         int selectedRowIndex = HospTable.getSelectedRow();
-
-        if (selectedRowIndex<0) {
-            JOptionPane.showMessageDialog(this, "Please select a row to delete");
-            return;
-
+        if(selectedRowIndex >= 0)
+        {
+            CreateHospital selectedPerson=createHospitalHistory.getHospHistory().get(selectedRowIndex);
+        
+            createHospitalHistory.deleteHospRecords(selectedRowIndex);
+            displayHospitalTableInformation();
+            
         }
-
-        DefaultTableModel model = (DefaultTableModel) HospTable.getModel();
-        CreateHospital selectedRecords = (CreateHospital) model.getValueAt(selectedRowIndex, 0);
-
-        createHospitalHistory.deleteHospRecords(selectedRecords);
-
-        JOptionPane.showMessageDialog(this, "Hospital record deleted");
-
-        displayHospitalTableInformation();
-
-        FieldHospName.setText("");
-        FieldHospNo.setText("");
-        FieldHospCity.setText("");
-        FieldHospZipCode.setText("");
-        FieldHospCommunity.setText("");
+        else
+        {
+            JOptionPane.showMessageDialog(this, "Please select one Hospital to Delete all details");
+        }
 
     }//GEN-LAST:event_btnDeleteActionPerformed
 
@@ -322,19 +306,14 @@ public class UpdateHospitalSystemAdminJPanel extends javax.swing.JPanel {
             Object[] row =new Object[5];
             row[0]=h;
             row[1]=h.getHospNo() ;
-            row[2]=h.getHospCity();
-            row[3]= h.getHospCommunity(); 
-            row[4]=h.getHospZipCode(); 
+            row[2]=h.getHousing().getCityname();
+            row[3]= h.getHousing().getCommunityName(); 
+            row[4]=h.getHousing().getZipcode(); 
             
             
             model.addRow(row);
         }
 }
-    private void btnCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckActionPerformed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_btnCheckActionPerformed
-
     private void FieldHospNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FieldHospNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_FieldHospNameActionPerformed
@@ -359,7 +338,6 @@ public class UpdateHospitalSystemAdminJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField FieldHospNo;
     private javax.swing.JTextField FieldHospZipCode;
     private javax.swing.JTable HospTable;
-    private javax.swing.JButton btnCheck;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JButton btnView;
@@ -370,6 +348,5 @@ public class UpdateHospitalSystemAdminJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblCommunity;
     private javax.swing.JLabel lblHouseNo;
     private javax.swing.JLabel lblZipCode;
-    private javax.swing.JTextField txtBP;
     // End of variables declaration//GEN-END:variables
 }

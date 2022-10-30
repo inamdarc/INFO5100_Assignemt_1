@@ -7,6 +7,7 @@ package ui;
 import Model.CreateHospital;
 import Model.CreateHospitalHistory;
 import Model.CreatePerson;
+import Model.Housing;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.DefaultComboBoxModel;
@@ -53,14 +54,19 @@ public class CreateViewHospitalSystemAdminJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         lblTitle = new javax.swing.JLabel();
         lblHouseNo = new javax.swing.JLabel();
+        FieldHospNo = new javax.swing.JTextField();
         FieldHospCity = new javax.swing.JTextField();
         FieldHospCommunity = new javax.swing.JTextField();
-        FieldHospNo = new javax.swing.JTextField();
 
         CreatePanel.setBackground(new java.awt.Color(158, 174, 204));
 
         lblCity.setText("City:");
 
+        FieldHospZipCode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FieldHospZipCodeActionPerformed(evt);
+            }
+        });
         FieldHospZipCode.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 FieldHospZipCodeKeyReleased(evt);
@@ -133,43 +139,44 @@ public class CreateViewHospitalSystemAdminJPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(CreatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(CreatePanelLayout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 778, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 529, Short.MAX_VALUE))
+                    .addGroup(CreatePanelLayout.createSequentialGroup()
                         .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addContainerGap())
-                    .addGroup(CreatePanelLayout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 778, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 529, Short.MAX_VALUE))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CreatePanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(CreatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(CreatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(CreatePanelLayout.createSequentialGroup()
-                            .addComponent(btnCreate)
-                            .addGap(51, 51, 51))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CreatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, CreatePanelLayout.createSequentialGroup()
-                                .addComponent(lblHouseNo, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(FieldHospNo))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, CreatePanelLayout.createSequentialGroup()
-                                .addComponent(lblZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(FieldHospZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(CreatePanelLayout.createSequentialGroup()
-                        .addComponent(lblFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(FieldHospName, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)
-                        .addComponent(lblFirstNameError, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(CreatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(CreatePanelLayout.createSequentialGroup()
-                            .addComponent(lblCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(FieldHospCommunity, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, CreatePanelLayout.createSequentialGroup()
-                            .addComponent(lblCity, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(FieldHospCity))))
-                .addGap(291, 291, 291))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CreatePanelLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(CreatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CreatePanelLayout.createSequentialGroup()
+                                .addGroup(CreatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(CreatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, CreatePanelLayout.createSequentialGroup()
+                                            .addComponent(lblHouseNo, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(FieldHospNo))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, CreatePanelLayout.createSequentialGroup()
+                                            .addComponent(lblZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(FieldHospZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(CreatePanelLayout.createSequentialGroup()
+                                        .addComponent(lblFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(FieldHospName, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, 0)
+                                        .addComponent(lblFirstNameError, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(CreatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(CreatePanelLayout.createSequentialGroup()
+                                            .addComponent(lblCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(FieldHospCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(CreatePanelLayout.createSequentialGroup()
+                                            .addComponent(lblCity, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(FieldHospCity, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(258, 258, 258))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CreatePanelLayout.createSequentialGroup()
+                                .addComponent(btnCreate)
+                                .addGap(593, 593, 593))))))
         );
         CreatePanelLayout.setVerticalGroup(
             CreatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -201,9 +208,9 @@ public class CreateViewHospitalSystemAdminJPanel extends javax.swing.JPanel {
                 .addGroup(CreatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblHouseNo, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(FieldHospNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(27, 27, 27)
                 .addComponent(btnCreate)
-                .addGap(81, 81, 81)
+                .addGap(72, 72, 72)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -252,9 +259,9 @@ public class CreateViewHospitalSystemAdminJPanel extends javax.swing.JPanel {
         DefaultTableModel model=(DefaultTableModel) HospTable.getModel();
         model.setRowCount(0);
         for(CreateHospital h : createHospitalHistory.getHospHistory()){
-            Object[] row =new Object[3];
-            row[0]=h.getHospitalName();
-            row[1]= h.getHospNo() + ", " + h.getHospCommunity() + ", " + h.getHospCity() + ", " + h.getHospZipCode(); 
+            Object[] row =new Object[2];
+            row[0]= h.getHospitalName();
+            row[1]= h.getHospNo() + ", " + h.getHousing().getCommunityName() + ", " + h.getHousing().getCityname() + ", " + h.getHousing().getZipcode(); 
             model.addRow(row);
         }
     }   
@@ -283,30 +290,27 @@ public class CreateViewHospitalSystemAdminJPanel extends javax.swing.JPanel {
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         // TODO add your handling code here:
-        String HospitalName = FieldHospName.getText();
-        String HospCity = FieldHospCity.getText();
-        String HospCommunity = FieldHospCommunity.getText();
-        int HospZipCode = Integer.parseInt(FieldHospZipCode.getText());
-        int HospNo = Integer.parseInt(FieldHospNo.getText());
+        
         
         CreateHospital h = createHospitalHistory.addNewHosp();
+        Housing house = new Housing();
 
-            h.setHospitalName(HospitalName);
-            h.setHospCity(HospCity);
-            h.setHospCommunity(HospCommunity);
-            h.setHospZipCode(HospZipCode);
-            h.setHospNo(HospNo);
-            
+            h.setHospitalName(FieldHospName.getText());
+            house.setCityname(FieldHospCity.getText());
+            house.setCommunityName(FieldHospCommunity.getText());
+            house.setZipcode(Integer.parseInt(FieldHospZipCode.getText()));
+            h.setHospNo(Integer.parseInt(FieldHospNo.getText()));
+            h.setHousing(house);
             
         
-        JOptionPane.showMessageDialog(this, "Person Information Saved");
+        JOptionPane.showMessageDialog(this, "New Hospital Created!");
         
             displayHospitalTableInformation();
             
             FieldHospName.setText("");
             FieldHospZipCode.setText("");
             FieldHospCity.setText("");
-            FieldHospNo.setText("");
+            FieldHospNo.setText("") ;
             FieldHospCommunity.setText("");
             
             
@@ -324,6 +328,10 @@ public class CreateViewHospitalSystemAdminJPanel extends javax.swing.JPanel {
             }
     }        
     }//GEN-LAST:event_FieldHospNoActionPerformed
+
+    private void FieldHospZipCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FieldHospZipCodeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_FieldHospZipCodeActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

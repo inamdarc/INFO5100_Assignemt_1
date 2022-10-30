@@ -5,7 +5,6 @@
 package Model;
 
 import java.util.ArrayList;
-import java.util.function.UnaryOperator;
 
 /**
  *
@@ -31,8 +30,8 @@ public class CreateHospitalHistory {
     }
     
     public CreateHospital addNewHosp(){
-        
-        CreateHospital newHospRecord = new CreateHospital();
+         Housing housing= new Housing();
+        CreateHospital newHospRecord = new CreateHospital("",housing,0);
         createHospitalHistory.add(newHospRecord);
         return newHospRecord;
         
@@ -40,22 +39,16 @@ public class CreateHospitalHistory {
     
     /**
      *
-     * @param h
+     * @param index
      */
-    public void deleteHospRecords(CreateHospital h){
+    public void deleteHospRecords(int index){
     
-        createHospitalHistory.remove(h);
+        createHospitalHistory.remove(index);
         
     }
     
     
     
-    public CreatePerson updateHospRecord(){
-        
-        CreatePerson updateHospRecord = new CreatePerson();
-        createHospitalHistory.replaceAll((UnaryOperator<CreateHospital>) updateHospRecord);
-        return updateHospRecord;
-        
-    }
+   
     
 }

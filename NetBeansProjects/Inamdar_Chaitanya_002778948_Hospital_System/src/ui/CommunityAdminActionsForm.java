@@ -4,6 +4,8 @@
  */
 package ui;
 
+import Model.CreateCommunityHistory;
+import Model.CreateHospitalHistory;
 import Model.CreatePersonHistory;
 import Model.EncounterHistory;
 import Model.PatientDirectory;
@@ -12,21 +14,25 @@ import Model.PatientDirectory;
  *
  * @author chaitanya
  */
-public class DoctorActionsForm extends javax.swing.JFrame {
+public class CommunityAdminActionsForm extends javax.swing.JFrame {
 
     /**
-     * Creates new form DoctorActionsForm
-     * 
+     * Creates new form CommunityAdminActionsForm
      */
+    CreateCommunityHistory createCommunityHistory;
     CreatePersonHistory createPersonHistory;
     PatientDirectory patientDirectory;
     EncounterHistory encounterHistory;
-
-    public DoctorActionsForm(CreatePersonHistory createPersonHistory,PatientDirectory patientDirectory,EncounterHistory encounterHistory) {
+    CreateHospitalHistory createHospitalHistory;
+    
+    public CommunityAdminActionsForm(CreateCommunityHistory createCommunityHistory,CreatePersonHistory createPersonHistory,PatientDirectory patientDirectory,EncounterHistory encounterHistory,CreateHospitalHistory createHospitalHistory) {
         initComponents();
+        this.createCommunityHistory = createCommunityHistory;
         this.createPersonHistory = createPersonHistory;
         this.patientDirectory=patientDirectory;
         this.encounterHistory=encounterHistory;
+        this.createHospitalHistory = createHospitalHistory;
+        
     }
 
     /**
@@ -40,11 +46,9 @@ public class DoctorActionsForm extends javax.swing.JFrame {
 
         jSplitPane = new javax.swing.JSplitPane();
         ControlPane = new javax.swing.JPanel();
-        btnCreate = new javax.swing.JButton();
-        btnUpdate = new javax.swing.JButton();
-        btnView = new javax.swing.JButton();
-        btnSearch = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        BtnCreateCommunity = new javax.swing.JButton();
+        btnUpdateCommunity = new javax.swing.JButton();
+        SysAdminMainPageBtn = new javax.swing.JButton();
         WorkArea = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -52,38 +56,24 @@ public class DoctorActionsForm extends javax.swing.JFrame {
 
         ControlPane.setBackground(new java.awt.Color(191, 191, 156));
 
-        btnCreate.setText("Check Up");
-        btnCreate.addActionListener(new java.awt.event.ActionListener() {
+        BtnCreateCommunity.setText("Create/View Community");
+        BtnCreateCommunity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCreateActionPerformed(evt);
+                BtnCreateCommunityActionPerformed(evt);
             }
         });
 
-        btnUpdate.setText("Update");
-        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+        btnUpdateCommunity.setText("Update Hospital");
+        btnUpdateCommunity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUpdateActionPerformed(evt);
+                btnUpdateCommunityActionPerformed(evt);
             }
         });
 
-        btnView.setText("History");
-        btnView.addActionListener(new java.awt.event.ActionListener() {
+        SysAdminMainPageBtn.setText("Main Page");
+        SysAdminMainPageBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnViewActionPerformed(evt);
-            }
-        });
-
-        btnSearch.setText("Search");
-        btnSearch.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSearchActionPerformed(evt);
-            }
-        });
-
-        jButton1.setText("Log Out");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                SysAdminMainPageBtnActionPerformed(evt);
             }
         });
 
@@ -91,27 +81,23 @@ public class DoctorActionsForm extends javax.swing.JFrame {
         ControlPane.setLayout(ControlPaneLayout);
         ControlPaneLayout.setHorizontalGroup(
             ControlPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnCreate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btnUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btnView, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btnSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(BtnCreateCommunity, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
+            .addComponent(btnUpdateCommunity, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(ControlPaneLayout.createSequentialGroup()
-                .addComponent(jButton1)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(SysAdminMainPageBtn)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         ControlPaneLayout.setVerticalGroup(
             ControlPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ControlPaneLayout.createSequentialGroup()
-                .addComponent(jButton1)
-                .addGap(66, 66, 66)
-                .addComponent(btnCreate)
-                .addGap(38, 38, 38)
-                .addComponent(btnUpdate)
-                .addGap(45, 45, 45)
-                .addComponent(btnView)
-                .addGap(43, 43, 43)
-                .addComponent(btnSearch)
-                .addContainerGap(413, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(SysAdminMainPageBtn)
+                .addGap(113, 113, 113)
+                .addComponent(BtnCreateCommunity)
+                .addGap(58, 58, 58)
+                .addComponent(btnUpdateCommunity)
+                .addContainerGap(474, Short.MAX_VALUE))
         );
 
         jSplitPane.setLeftComponent(ControlPane);
@@ -120,13 +106,13 @@ public class DoctorActionsForm extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("WELCOME DOCTOR!");
+        jLabel1.setText("WELCOME SYSTEM ADMIN");
 
         javax.swing.GroupLayout WorkAreaLayout = new javax.swing.GroupLayout(WorkArea);
         WorkArea.setLayout(WorkAreaLayout);
         WorkAreaLayout.setHorizontalGroup(
             WorkAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1204, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         WorkAreaLayout.setVerticalGroup(
             WorkAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -142,7 +128,7 @@ public class DoctorActionsForm extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane)
+            .addComponent(jSplitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1426, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -152,49 +138,36 @@ public class DoctorActionsForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
-    
-    private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
+    private void BtnCreateCommunityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCreateCommunityActionPerformed
         // TODO add your handling code here:
-        CheckUpDoctorJPanel checkUpDoctorJPanel = new CheckUpDoctorJPanel(createPersonHistory,patientDirectory,encounterHistory);
-        jSplitPane.setRightComponent(checkUpDoctorJPanel);
-        
-          
-    }//GEN-LAST:event_btnCreateActionPerformed
+        CreateViewCommSystemPanel createViewCommSystemPanel = new CreateViewCommSystemPanel(createCommunityHistory);
+        jSplitPane.setRightComponent(createViewCommSystemPanel);
+    }//GEN-LAST:event_BtnCreateCommunityActionPerformed
 
-    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+    private void btnUpdateCommunityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateCommunityActionPerformed
         // TODO add your handling code here:
-       
-    }//GEN-LAST:event_btnUpdateActionPerformed
 
-    private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_btnViewActionPerformed
+        UpdateCommunityPanel updateCommunityPanel = new UpdateCommunityPanel(createCommunityHistory);
+        jSplitPane.setRightComponent(updateCommunityPanel);
+    }//GEN-LAST:event_btnUpdateCommunityActionPerformed
 
-    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+    private void SysAdminMainPageBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SysAdminMainPageBtnActionPerformed
         // TODO add your handling code here:
-     
-    }//GEN-LAST:event_btnSearchActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        
         this.setVisible(false);
-        DoctorActionsForm DAF = new DoctorActionsForm(createPersonHistory,patientDirectory,encounterHistory);
-        DAF.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+        CommunityAdminLoginForm CLF = new CommunityAdminLoginForm(createCommunityHistory,createPersonHistory,patientDirectory,encounterHistory,createHospitalHistory);
+        CLF.setVisible(true);
+
+    }//GEN-LAST:event_SysAdminMainPageBtnActionPerformed
 
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnCreateCommunity;
     private javax.swing.JPanel ControlPane;
+    private javax.swing.JButton SysAdminMainPageBtn;
     private javax.swing.JPanel WorkArea;
-    private javax.swing.JButton btnCreate;
-    private javax.swing.JButton btnSearch;
-    private javax.swing.JButton btnUpdate;
-    private javax.swing.JButton btnView;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnUpdateCommunity;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JSplitPane jSplitPane;
     // End of variables declaration//GEN-END:variables

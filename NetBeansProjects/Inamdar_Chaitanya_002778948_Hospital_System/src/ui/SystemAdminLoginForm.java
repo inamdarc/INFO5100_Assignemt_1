@@ -4,9 +4,12 @@
  */
 package ui;
 
+import Model.CreateCommunityHistory;
 import Model.CreateHospitalHistory;
 import Model.CreatePerson;
 import Model.CreatePersonHistory;
+import Model.EncounterHistory;
+import Model.PatientDirectory;
 import javax.swing.JOptionPane;
 
 /**
@@ -20,10 +23,19 @@ public class SystemAdminLoginForm extends javax.swing.JFrame {
      * 
      */
        CreatePersonHistory createPersonHistory;
-    public SystemAdminLoginForm(CreatePersonHistory createPersonHistory) {
+       PatientDirectory patientDirectory;
+       EncounterHistory encounterHistory;
+       CreateHospitalHistory createHospitalHistory;
+       CreateCommunityHistory createCommunityHistory;
+    public SystemAdminLoginForm(CreatePersonHistory createPersonHistory,PatientDirectory patientDirectory,EncounterHistory encounterHistory,
+            CreateHospitalHistory createHospitalHistory,CreateCommunityHistory createCommunityHistory) {
         initComponents();
         this.createPersonHistory = createPersonHistory;
-
+        this.patientDirectory=patientDirectory;
+        this.encounterHistory=encounterHistory;
+        this.createHospitalHistory = createHospitalHistory;
+        this.createCommunityHistory = createCommunityHistory;
+      
     }
 
     /**
@@ -145,7 +157,7 @@ public class SystemAdminLoginForm extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        MainJFrame MF = new MainJFrame(createPersonHistory);
+        MainJFrame MF = new MainJFrame(createCommunityHistory,createPersonHistory,patientDirectory,encounterHistory,createHospitalHistory);
         MF.setVisible(true);
         
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -155,7 +167,7 @@ public class SystemAdminLoginForm extends javax.swing.JFrame {
         if (FieldSysAdminUsername.getText().equals("sysadmin1") && FieldSysAdminPassword.getText().equals("sysadmin@123")){
 
         
-         SystemAdminActionsForm SAAF = new SystemAdminActionsForm(createPersonHistory);
+         SystemAdminActionsForm SAAF = new SystemAdminActionsForm(createPersonHistory,patientDirectory,encounterHistory,createHospitalHistory,createCommunityHistory);
          SAAF.setVisible(true);
          this.dispose();
         }

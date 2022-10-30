@@ -430,6 +430,7 @@ public class UpdatePersonSystemAdminJPanel extends javax.swing.JPanel {
             house.setHouseNo(Integer.parseInt(jHousingCombo.getSelectedItem().toString()));
             selectedPerson.setRole(FieldRole.getText());
             selectedPerson.setPassword(FieldPassword.getText());
+            selectedPerson.setHousing(house);
             displayPersonTableInformation();
 
         }

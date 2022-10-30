@@ -4,9 +4,12 @@
  */
 package ui;
 
+import Model.CreateCommunityHistory;
 import Model.CreateHospitalHistory;
 import Model.CreatePerson;
 import Model.CreatePersonHistory;
+import Model.EncounterHistory;
+import Model.PatientDirectory;
 import Model.UserDirectory;
 
 /**
@@ -20,17 +23,29 @@ public class SystemAdminActionsForm extends javax.swing.JFrame {
      */
     
     CreatePersonHistory createPersonHistory;
+    PatientDirectory patientDirectory;
+    EncounterHistory encounterHistory;
+    CreateHospitalHistory createHospitalHistory;
+    CreateCommunityHistory createCommunityHistory;
+    
     
     
     
     
         
-    public SystemAdminActionsForm(CreatePersonHistory createPersonHistory) {
+    public SystemAdminActionsForm(CreatePersonHistory createPersonHistory,PatientDirectory patientDirectory,
+            EncounterHistory encounterHistory,
+            CreateHospitalHistory createHospitalHistory,CreateCommunityHistory createCommunityHistory) {
         initComponents();
        
     
         
         this.createPersonHistory = createPersonHistory;
+        this.patientDirectory=patientDirectory;
+        this.encounterHistory=encounterHistory;
+        this.createHospitalHistory = createHospitalHistory;
+        this.createCommunityHistory = createCommunityHistory; 
+
         
         
         
@@ -187,6 +202,7 @@ public class SystemAdminActionsForm extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
    
@@ -234,7 +250,7 @@ public class SystemAdminActionsForm extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         this.setVisible(false);
-        SystemAdminLoginForm SLF = new SystemAdminLoginForm(createPersonHistory);
+        SystemAdminLoginForm SLF = new SystemAdminLoginForm(createPersonHistory,patientDirectory,encounterHistory,createHospitalHistory,createCommunityHistory);
         SLF.setVisible(true);
         
     }//GEN-LAST:event_SysAdminMainPageBtnActionPerformed

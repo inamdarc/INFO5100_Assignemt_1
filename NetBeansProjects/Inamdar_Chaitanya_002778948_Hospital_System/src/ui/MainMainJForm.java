@@ -4,7 +4,11 @@
  */
 package ui;
 
+import Model.CreateCommunityHistory;
+import Model.CreateHospitalHistory;
 import Model.CreatePersonHistory;
+import Model.EncounterHistory;
+import Model.PatientDirectory;
 
 /**
  *
@@ -17,9 +21,18 @@ public class MainMainJForm extends javax.swing.JFrame {
      * Creates new form MainMainJForm
      */
     CreatePersonHistory createPersonHistory;
+    PatientDirectory patientDirectory;
+    EncounterHistory encounterHistory;
+    CreateHospitalHistory createHospitalHistory;
+    CreateCommunityHistory createCommunityHistory;
+
     public MainMainJForm() {
         initComponents();
         createPersonHistory = new CreatePersonHistory();
+        patientDirectory = new PatientDirectory();
+        encounterHistory = new EncounterHistory();
+        createHospitalHistory = new CreateHospitalHistory();
+        createCommunityHistory = new CreateCommunityHistory();
     }
 
     /**
@@ -87,7 +100,7 @@ public class MainMainJForm extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
 
-        MainJFrame MF = new MainJFrame(createPersonHistory);
+        MainJFrame MF = new MainJFrame(createCommunityHistory,createPersonHistory,patientDirectory,encounterHistory,createHospitalHistory);
         MF.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 

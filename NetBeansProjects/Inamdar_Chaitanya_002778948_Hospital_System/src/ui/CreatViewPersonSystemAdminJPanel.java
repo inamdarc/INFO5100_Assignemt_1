@@ -5,6 +5,7 @@
 package ui;
 
 import Model.CreatePerson;
+
 import Model.CreatePersonHistory;
 import Model.Housing;
 import Model.UserDirectory;
@@ -86,6 +87,11 @@ public class CreatViewPersonSystemAdminJPanel extends javax.swing.JPanel {
 
         lblCity.setText("City:");
 
+        FieldZipCode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FieldZipCodeActionPerformed(evt);
+            }
+        });
         FieldZipCode.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 FieldZipCodeKeyReleased(evt);
@@ -610,6 +616,10 @@ public class CreatViewPersonSystemAdminJPanel extends javax.swing.JPanel {
         model.addElement("Fenway");
         FieldCommunity.setModel(model);
     }//GEN-LAST:event_FieldCityActionPerformed
+
+    private void FieldZipCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FieldZipCodeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_FieldZipCodeActionPerformed
     
     
 

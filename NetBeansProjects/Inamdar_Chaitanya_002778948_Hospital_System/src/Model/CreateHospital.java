@@ -11,41 +11,15 @@ package Model;
 public class CreateHospital {
     
     private String HospitalName;
-    private String HospCity;
-    private String HospCommunity;
-    private int HospZipCode;
+    Housing housing;
     private int HospNo;
-
-    public String getHospitalName() {
-        return HospitalName;
-    }
-
-    public void setHospitalName(String HospitalName) {
-        this.HospitalName = HospitalName;
-    }
-
-    public String getHospCity() {
-        return HospCity;
-    }
-
-    public void setHospCity(String HospCity) {
-        this.HospCity = HospCity;
-    }
-
-    public String getHospCommunity() {
-        return HospCommunity;
-    }
-
-    public void setHospCommunity(String HospCommunity) {
-        this.HospCommunity = HospCommunity;
-    }
-
-    public int getHospZipCode() {
-        return HospZipCode;
-    }
-
-    public void setHospZipCode(int HospZipCode) {
-        this.HospZipCode = HospZipCode;
+    
+    
+    public CreateHospital(String HospitalName,Housing housing,int HospNo)
+    {
+            this.HospitalName = HospitalName;
+            this.housing = housing;
+            this.HospNo = HospNo;
     }
 
     public int getHospNo() {
@@ -55,6 +29,27 @@ public class CreateHospital {
     public void setHospNo(int HospNo) {
         this.HospNo = HospNo;
     }
+
+    public String getHospitalName() {
+        return HospitalName;
+    }
+
+    public void setHospitalName(String HospitalName) {
+        this.HospitalName = HospitalName;
+    }
+     public Housing getHousing() {
+        return housing;
+    }
+
+    public void setHousing(Housing housing) {
+        this.housing = housing;
+    }
+    
+
+   
+
+    
+    
    @Override
     public String toString(){
         return HospitalName;

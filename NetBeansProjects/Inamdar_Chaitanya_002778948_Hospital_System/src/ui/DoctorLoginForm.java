@@ -4,8 +4,12 @@
  */
 package ui;
 
+import Model.CreateCommunityHistory;
+import Model.CreateHospitalHistory;
 import Model.CreatePerson;
 import Model.CreatePersonHistory;
+import Model.EncounterHistory;
+import Model.PatientDirectory;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,10 +22,22 @@ public class DoctorLoginForm extends javax.swing.JFrame {
      * Creates new form DoctorLoginForm
      */
     CreatePersonHistory createPersonHistory;
-    public DoctorLoginForm(CreatePersonHistory createPersonHistory) {
+    PatientDirectory patientDirectory;
+    EncounterHistory encounterHistory;
+    CreateCommunityHistory createCommunityHistory;
+    CreateHospitalHistory createHospitalHistory;
+
+    public DoctorLoginForm(CreatePersonHistory createPersonHistory,PatientDirectory patientDirectory,EncounterHistory encounterHistory,
+            CreateCommunityHistory createCommunityHistory, 
+            CreateHospitalHistory createHospitalHistory) {
         initComponents();
         
         this.createPersonHistory = createPersonHistory;
+        this.patientDirectory=patientDirectory;
+        this.encounterHistory=encounterHistory;
+        this.createCommunityHistory = createCommunityHistory;
+        this.createHospitalHistory = createHospitalHistory;
+
         
     }
     
@@ -146,7 +162,7 @@ public class DoctorLoginForm extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        MainJFrame MF = new MainJFrame(createPersonHistory);
+        MainJFrame MF = new MainJFrame(createCommunityHistory,createPersonHistory,patientDirectory,encounterHistory,createHospitalHistory);
         MF.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -156,7 +172,7 @@ public class DoctorLoginForm extends javax.swing.JFrame {
         
 
         
-         DoctorActionsForm SAAF = new DoctorActionsForm(createPersonHistory);
+         DoctorActionsForm SAAF = new DoctorActionsForm(createPersonHistory,patientDirectory,encounterHistory);
          SAAF.setVisible(true);
          this.dispose();
         

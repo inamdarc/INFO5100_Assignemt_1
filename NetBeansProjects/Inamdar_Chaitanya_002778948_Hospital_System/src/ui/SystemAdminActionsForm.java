@@ -70,7 +70,6 @@ public class SystemAdminActionsForm extends javax.swing.JFrame {
         ControlPane = new javax.swing.JPanel();
         btnCreatePerson = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
-        btnSearch = new javax.swing.JButton();
         BtnCreateHospital = new javax.swing.JButton();
         btnUpdateHospital = new javax.swing.JButton();
         SysAdminMainPageBtn = new javax.swing.JButton();
@@ -92,13 +91,6 @@ public class SystemAdminActionsForm extends javax.swing.JFrame {
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateActionPerformed(evt);
-            }
-        });
-
-        btnSearch.setText("Search");
-        btnSearch.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSearchActionPerformed(evt);
             }
         });
 
@@ -129,7 +121,6 @@ public class SystemAdminActionsForm extends javax.swing.JFrame {
             ControlPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(btnCreatePerson, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)
             .addComponent(btnUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btnSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(BtnCreateHospital, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnUpdateHospital, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(ControlPaneLayout.createSequentialGroup()
@@ -150,9 +141,7 @@ public class SystemAdminActionsForm extends javax.swing.JFrame {
                 .addComponent(btnUpdate)
                 .addGap(29, 29, 29)
                 .addComponent(btnUpdateHospital)
-                .addGap(42, 42, 42)
-                .addComponent(btnSearch)
-                .addContainerGap(397, Short.MAX_VALUE))
+                .addContainerGap(401, Short.MAX_VALUE))
         );
 
         jSplitPane.setLeftComponent(ControlPane);
@@ -167,14 +156,14 @@ public class SystemAdminActionsForm extends javax.swing.JFrame {
         WorkArea.setLayout(WorkAreaLayout);
         WorkAreaLayout.setHorizontalGroup(
             WorkAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1204, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1093, Short.MAX_VALUE)
         );
         WorkAreaLayout.setVerticalGroup(
             WorkAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(WorkAreaLayout.createSequentialGroup()
                 .addGap(221, 221, 221)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(452, Short.MAX_VALUE))
+                .addContainerGap(391, Short.MAX_VALUE))
         );
 
         jSplitPane.setRightComponent(WorkArea);
@@ -183,11 +172,11 @@ public class SystemAdminActionsForm extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane)
+            .addComponent(jSplitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1315, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(jSplitPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 659, Short.MAX_VALUE)
         );
 
         pack();
@@ -209,12 +198,6 @@ public class SystemAdminActionsForm extends javax.swing.JFrame {
         UpdatePersonSystemAdminJPanel updatePersonSystemAdminJPanel = new UpdatePersonSystemAdminJPanel(createPersonHistory);
         jSplitPane.setRightComponent(updatePersonSystemAdminJPanel);
     }//GEN-LAST:event_btnUpdateActionPerformed
-
-    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
-        // TODO add your handling code here:
-        SearchJPanel searchPane = new SearchJPanel(patientDirectory);
-        jSplitPane.setRightComponent(searchPane);
-    }//GEN-LAST:event_btnSearchActionPerformed
 
     private void BtnCreateHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCreateHospitalActionPerformed
         // TODO add your handling code here:
@@ -247,7 +230,6 @@ public class SystemAdminActionsForm extends javax.swing.JFrame {
     private javax.swing.JButton SysAdminMainPageBtn;
     private javax.swing.JPanel WorkArea;
     private javax.swing.JButton btnCreatePerson;
-    private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JButton btnUpdateHospital;
     private javax.swing.JLabel jLabel1;

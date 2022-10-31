@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 
 /**
  *
- * @author Dhaval
+ * @author Chaitanya
  */
 public class Encounter {
     private VitalSigns vs;

@@ -72,7 +72,7 @@ public class HospitalAdminActionsForm extends javax.swing.JFrame {
             }
         });
 
-        HospAdminMainPageBtn.setText("Main Page");
+        HospAdminMainPageBtn.setText("Log Out");
         HospAdminMainPageBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 HospAdminMainPageBtnActionPerformed(evt);
@@ -140,7 +140,7 @@ public class HospitalAdminActionsForm extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1309, Short.MAX_VALUE)
+            .addComponent(jSplitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1315, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

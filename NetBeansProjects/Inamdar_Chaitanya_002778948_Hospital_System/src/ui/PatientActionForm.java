@@ -56,6 +56,7 @@ public class PatientActionForm extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1315, 659));
 
         ControlPane.setBackground(new java.awt.Color(191, 191, 156));
 
@@ -73,7 +74,7 @@ public class PatientActionForm extends javax.swing.JFrame {
             }
         });
 
-        btnSearch.setText("Search");
+        btnSearch.setText("View Personal Details");
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSearchActionPerformed(evt);
@@ -123,7 +124,7 @@ public class PatientActionForm extends javax.swing.JFrame {
         WorkArea.setLayout(WorkAreaLayout);
         WorkAreaLayout.setHorizontalGroup(
             WorkAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1262, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1236, Short.MAX_VALUE)
         );
         WorkAreaLayout.setVerticalGroup(
             WorkAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -164,6 +165,8 @@ public class PatientActionForm extends javax.swing.JFrame {
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         // TODO add your handling code here:
+        ViewUpdatePatientPersonalDataPanel viewUpdatePatientPersonalDataPanel = new ViewUpdatePatientPersonalDataPanel(createPersonHistory);
+        jSplitPane.setRightComponent(viewUpdatePatientPersonalDataPanel);
 
     }//GEN-LAST:event_btnSearchActionPerformed
 

@@ -7,7 +7,7 @@ package Model;
 
 /**
  *
- * @author Dhaval
+ * @author Chaitanya
  */
 public class Patient extends CreatePerson{
     

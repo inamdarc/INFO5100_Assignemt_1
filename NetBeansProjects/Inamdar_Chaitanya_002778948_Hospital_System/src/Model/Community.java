@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Dhaval
+ * @author Chaitanya
  */
 public class Community {
     

@@ -6,7 +6,6 @@ package ui;
 
 import Model.CreateCommunityHistory;
 import Model.CreateHospitalHistory;
-import Model.CreatePerson;
 import Model.CreatePersonHistory;
 import Model.EncounterHistory;
 import Model.PatientDirectory;
@@ -63,6 +62,7 @@ public class DoctorLoginForm extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(158, 174, 204));
         jPanel1.setPreferredSize(new java.awt.Dimension(1309, 720));
         jPanel1.setRequestFocusEnabled(false);
         jPanel1.setSize(new java.awt.Dimension(1309, 720));
@@ -91,7 +91,7 @@ public class DoctorLoginForm extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Back");
+        jButton2.setText("Main Page");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -123,7 +123,7 @@ public class DoctorLoginForm extends javax.swing.JFrame {
                                     .addComponent(FieldDocAdminUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(FieldDocAdminPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jButton2))
-                        .addGap(0, 396, Short.MAX_VALUE)))
+                        .addGap(0, 402, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -143,18 +143,18 @@ public class DoctorLoginForm extends javax.swing.JFrame {
                     .addComponent(FieldDocAdminPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(79, 79, 79)
                 .addComponent(BtnDocAdminLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(313, Short.MAX_VALUE))
+                .addContainerGap(252, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1315, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 659, Short.MAX_VALUE)
         );
 
         pack();
@@ -170,11 +170,20 @@ public class DoctorLoginForm extends javax.swing.JFrame {
     private void BtnDocAdminLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnDocAdminLoginActionPerformed
         // TODO add your handling code here:
         
+       if (FieldDocAdminUsername.getText().equals("999") && FieldDocAdminPassword.getText().equals("pass")){
 
         
          DoctorActionsForm SAAF = new DoctorActionsForm(createPersonHistory,patientDirectory,encounterHistory,createHospitalHistory,createCommunityHistory);
          SAAF.setVisible(true);
          this.dispose();
+         
+         }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "Please enter correct username and password", "Error", JOptionPane.ERROR_MESSAGE);
+
+        }
+        
         
         
         

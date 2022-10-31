@@ -60,6 +60,8 @@ public class PatietBookAppointment extends javax.swing.JPanel {
         lblHouseNo1 = new javax.swing.JLabel();
         FieldDoctor = new javax.swing.JComboBox<>();
 
+        setBackground(new java.awt.Color(158, 174, 204));
+
         CreatePanel.setBackground(new java.awt.Color(158, 174, 204));
 
         lblCity.setText("City:");
@@ -216,7 +218,7 @@ public class PatietBookAppointment extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1397, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1315, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

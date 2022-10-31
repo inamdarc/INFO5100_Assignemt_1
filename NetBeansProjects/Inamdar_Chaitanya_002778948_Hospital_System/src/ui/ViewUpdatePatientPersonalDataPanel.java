@@ -7,11 +7,7 @@ package ui;
 import Model.CreatePerson;
 import Model.CreatePersonHistory;
 import Model.Housing;
-import Model.UserDirectory;
-import java.util.List;
-import java.util.stream.Collectors;
 import javax.swing.DefaultComboBoxModel;
-import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
@@ -21,22 +17,18 @@ import javax.swing.table.TableRowSorter;
  *
  * @author chaitanya
  */
-
-public class UpdatePersonSystemAdminJPanel extends javax.swing.JPanel {
+public class ViewUpdatePatientPersonalDataPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form UpdatePersonSystemAdminJPanel
-     *
+     * Creates new form ViewUpdatePatientPersonalDataPanel
      */
+        CreatePersonHistory createPersonHistory;
 
-    CreatePersonHistory createPersonHistory;
-    
-
-    public UpdatePersonSystemAdminJPanel(CreatePersonHistory createPersonHistory) {
+    public ViewUpdatePatientPersonalDataPanel(CreatePersonHistory createPersonHistory) {
         initComponents();
         this.createPersonHistory = createPersonHistory;
-        
         displayPersonTableInformation();
+
 
     }
 
@@ -55,8 +47,8 @@ public class UpdatePersonSystemAdminJPanel extends javax.swing.JPanel {
         btnUpdate = new javax.swing.JButton();
         btnView = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
-        FieldSearch = new javax.swing.JTextField();
-        btnSearch = new javax.swing.JButton();
+        SearchField = new javax.swing.JTextField();
+        btnCheck = new javax.swing.JButton();
         lblCity = new javax.swing.JLabel();
         lblCommunity = new javax.swing.JLabel();
         lblHouseNo = new javax.swing.JLabel();
@@ -83,6 +75,7 @@ public class UpdatePersonSystemAdminJPanel extends javax.swing.JPanel {
         jHousingCombo = new javax.swing.JComboBox<>();
 
         setBackground(new java.awt.Color(158, 174, 204));
+        setPreferredSize(new java.awt.Dimension(1315, 659));
 
         PersonTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -131,16 +124,16 @@ public class UpdatePersonSystemAdminJPanel extends javax.swing.JPanel {
             }
         });
 
-        FieldSearch.addActionListener(new java.awt.event.ActionListener() {
+        SearchField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FieldSearchActionPerformed(evt);
+                SearchFieldActionPerformed(evt);
             }
         });
 
-        btnSearch.setText("Search");
-        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+        btnCheck.setText("Search");
+        btnCheck.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSearchActionPerformed(evt);
+                btnCheckActionPerformed(evt);
             }
         });
 
@@ -241,17 +234,19 @@ public class UpdatePersonSystemAdminJPanel extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jCommunityCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblCity, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel2))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jCityCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(FieldZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(FieldGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(FieldZipCode, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
+                                    .addComponent(FieldGender)))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(FieldRole, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(lblCity, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jCityCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(112, 112, 112)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -284,26 +279,18 @@ public class UpdatePersonSystemAdminJPanel extends javax.swing.JPanel {
                                 .addComponent(lblEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(FieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(311, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblCity1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(FieldRole, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblCity1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btnDelete)
                                 .addGap(231, 231, 231)
-                                .addComponent(FieldSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(SearchField, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(btnCheck, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
-
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {FieldAge, FieldEmail, FieldFName, FieldLName, FieldPassword, FieldUniqueID});
-
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {FieldGender, FieldRole, FieldZipCode, jCityCombo, jCommunityCombo, jHousingCombo, jLabel2, lblCity, lblCommunity, lblHouseNo, lblZipCode});
-
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -316,8 +303,8 @@ public class UpdatePersonSystemAdminJPanel extends javax.swing.JPanel {
                     .addComponent(btnUpdate)
                     .addComponent(btnView)
                     .addComponent(btnDelete)
-                    .addComponent(FieldSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSearch))
+                    .addComponent(SearchField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCheck))
                 .addGap(65, 65, 65)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -355,44 +342,39 @@ public class UpdatePersonSystemAdminJPanel extends javax.swing.JPanel {
                             .addComponent(jCityCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lblCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jCommunityCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(8, 8, 8)
+                                .addComponent(lblCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lblHouseNo, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jHousingCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(46, 46, 46))
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lblZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(FieldZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(jCommunityCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblHouseNo, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jHousingCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(FieldZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
                             .addComponent(FieldGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(174, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {FieldGender, FieldRole, FieldZipCode, jCityCombo, jCommunityCombo, jHousingCombo, jLabel2, lblCity, lblCommunity, lblHouseNo, lblZipCode});
-
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-            // TODO add your handling code here:
-       int selectedRowIndex = PersonTable.getSelectedRow();
-        
+        // TODO add your handling code here:
+        int selectedRowIndex = PersonTable.getSelectedRow();
+
         if (selectedRowIndex<0) {
             JOptionPane.showMessageDialog(this, "Please select a row to update");
             return;
-                
+
         }
-        
-       
-        
+
         if (selectedRowIndex>=0) {
-            
+
             CreatePerson selectedPerson=createPersonHistory.getHistory().get(selectedRowIndex);
             DefaultComboBoxModel model = new DefaultComboBoxModel();
             model.addElement("Boston");
@@ -408,22 +390,22 @@ public class UpdatePersonSystemAdminJPanel extends javax.swing.JPanel {
 
             DefaultComboBoxModel Housingmodel = new DefaultComboBoxModel();
             if(jCommunityCombo.getSelectedItem().toString() == "Rural")
-            { 
+            {
                 Housingmodel.addElement("1011");
                 Housingmodel.addElement("1012");
-                Housingmodel.addElement("1013"); 
+                Housingmodel.addElement("1013");
             }
             else if("Urban".equals(jCommunityCombo.getSelectedItem().toString()))
             {
                 Housingmodel.addElement("2011");
                 Housingmodel.addElement("2012");
-                Housingmodel.addElement("2013"); 
+                Housingmodel.addElement("2013");
             }
             else if(jCommunityCombo.getSelectedItem().toString() == "Suburban")
             {
                 Housingmodel.addElement("3011");
                 Housingmodel.addElement("3012");
-                Housingmodel.addElement("3013"); 
+                Housingmodel.addElement("3013");
             }
             jHousingCombo.setModel(Housingmodel);
             jHousingCombo.setSelectedItem(String.valueOf(selectedPerson.getHousing().getHouseNo()));
@@ -445,8 +427,8 @@ public class UpdatePersonSystemAdminJPanel extends javax.swing.JPanel {
             displayPersonTableInformation();
 
         }
-        
-            JOptionPane.showMessageDialog(this, "Person Information Updated");
+
+        JOptionPane.showMessageDialog(this, "Person Information Updated");
 
         FieldFName.setText("");
         FieldLName.setText("");
@@ -459,10 +441,8 @@ public class UpdatePersonSystemAdminJPanel extends javax.swing.JPanel {
         jCommunityCombo.setSelectedItem(null);
         FieldRole.setText("");
         FieldPassword.setText("");
-        FieldZipCode.setText(""); 
+        FieldZipCode.setText("");
 
-
-        
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
@@ -485,46 +465,41 @@ public class UpdatePersonSystemAdminJPanel extends javax.swing.JPanel {
 
             DefaultComboBoxModel Housingmodel = new DefaultComboBoxModel();
             if(jCommunityCombo.getSelectedItem().toString() == "Rural")
-            { 
+            {
                 Housingmodel.addElement("1011");
                 Housingmodel.addElement("1012");
-                Housingmodel.addElement("1013"); 
+                Housingmodel.addElement("1013");
             }
             else if(jCommunityCombo.getSelectedItem().toString() == "Urban")
             {
                 Housingmodel.addElement("2011");
                 Housingmodel.addElement("2012");
-                Housingmodel.addElement("2013"); 
+                Housingmodel.addElement("2013");
             }
             else if(jCommunityCombo.getSelectedItem().toString() == "Suburban")
             {
                 Housingmodel.addElement("3011");
                 Housingmodel.addElement("3012");
-                Housingmodel.addElement("3013"); 
+                Housingmodel.addElement("3013");
             }
             jHousingCombo.setModel(Housingmodel);
             jHousingCombo.setSelectedItem(String.valueOf(selectedPerson.getHousing().getHouseNo()));
-            
-            
+
             FieldFName.setText(String.valueOf(selectedPerson.getFName()));
             FieldLName.setText(String.valueOf(selectedPerson.getLName()));
             FieldEmail.setText(selectedPerson.getEmail());
             FieldAge.setText(String.valueOf(selectedPerson.getAge()));
             FieldGender.setText(selectedPerson.getGender());
             FieldUniqueID.setText(String.valueOf(selectedPerson.getUniqueId()));
-            FieldZipCode.setText(String.valueOf(selectedPerson.getZipCode())); 
+            FieldZipCode.setText(String.valueOf(selectedPerson.getZipCode()));
             FieldRole.setText(selectedPerson.getRole());
             FieldPassword.setText(selectedPerson.getPassword());
-            
-            }
+
+        }
         else
         {
             JOptionPane.showMessageDialog(this, "Please select one Person Information to view all details");
         }
-
-
-        
-        
 
     }//GEN-LAST:event_btnViewActionPerformed
 
@@ -534,35 +509,25 @@ public class UpdatePersonSystemAdminJPanel extends javax.swing.JPanel {
         if(selectedRowIndex >= 0)
         {
             CreatePerson selectedPerson=createPersonHistory.getHistory().get(selectedRowIndex);
-        
+
             createPersonHistory.deleteRecords(selectedRowIndex);
             displayPersonTableInformation();
-            
+
         }
         else
         {
             JOptionPane.showMessageDialog(this, "Please select one Person to Delete all details");
         }
 
-        
-        
-   
-        
     }//GEN-LAST:event_btnDeleteActionPerformed
 
-    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+    private void btnCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckActionPerformed
         // TODO add your handling code here:
-        DefaultTableModel defaultTableModel = (DefaultTableModel)PersonTable.getModel();
-        TableRowSorter<DefaultTableModel> tableRowSorter = new TableRowSorter<DefaultTableModel>(defaultTableModel);
-        PersonTable.setRowSorter(tableRowSorter);
-        tableRowSorter.setRowFilter(RowFilter.regexFilter(FieldSearch.getText().trim()));
-       
 
-    }//GEN-LAST:event_btnSearchActionPerformed
+    }//GEN-LAST:event_btnCheckActionPerformed
 
     private void FieldEmailKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_FieldEmailKeyReleased
         // TODO add your handling code here:
-
     }//GEN-LAST:event_FieldEmailKeyReleased
 
     private void FieldRoleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FieldRoleActionPerformed
@@ -605,14 +570,16 @@ public class UpdatePersonSystemAdminJPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jCommunityComboActionPerformed
 
-    private void FieldSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FieldSearchActionPerformed
+    private void SearchFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchFieldActionPerformed
         // TODO add your handling code here:
+        
         DefaultTableModel defaultTableModel = (DefaultTableModel)PersonTable.getModel();
         TableRowSorter<DefaultTableModel> tableRowSorter = new TableRowSorter<DefaultTableModel>(defaultTableModel);
         PersonTable.setRowSorter(tableRowSorter);
-        tableRowSorter.setRowFilter(RowFilter.regexFilter(FieldSearch.getText().trim()));
-    }//GEN-LAST:event_FieldSearchActionPerformed
-
+        tableRowSorter.setRowFilter(RowFilter.regexFilter(SearchField.getText().trim()));
+        
+        
+    }//GEN-LAST:event_SearchFieldActionPerformed
 private void displayPersonTableInformation() {
         //btnSave.setVisible(false);
         DefaultTableModel model=(DefaultTableModel) PersonTable.getModel();
@@ -635,6 +602,7 @@ private void displayPersonTableInformation() {
             model.addRow(row);
         }
 }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField FieldAge;
     private javax.swing.JTextField FieldEmail;
@@ -643,12 +611,12 @@ private void displayPersonTableInformation() {
     private javax.swing.JTextField FieldLName;
     private javax.swing.JTextField FieldPassword;
     private javax.swing.JTextField FieldRole;
-    private javax.swing.JTextField FieldSearch;
     private javax.swing.JTextField FieldUniqueID;
     private javax.swing.JTextField FieldZipCode;
     private javax.swing.JTable PersonTable;
+    private javax.swing.JTextField SearchField;
+    private javax.swing.JButton btnCheck;
     private javax.swing.JButton btnDelete;
-    private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JButton btnView;
     private javax.swing.JComboBox<String> jCityCombo;

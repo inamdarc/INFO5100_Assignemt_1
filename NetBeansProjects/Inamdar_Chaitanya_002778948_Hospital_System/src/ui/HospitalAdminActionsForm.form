@@ -148,7 +148,7 @@
                   <Font name="Tahoma" size="24" style="1"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="WELCOME SYSTEM ADMIN"/>
+                <Property name="text" type="java.lang.String" value="WELCOME HOSPITAL ADMIN!"/>
               </Properties>
             </Component>
           </SubComponents>

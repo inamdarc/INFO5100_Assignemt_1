@@ -53,7 +53,6 @@ public class CommunityAdminActionsForm extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1315, 659));
 
         ControlPane.setBackground(new java.awt.Color(191, 191, 156));
 
@@ -107,7 +106,7 @@ public class CommunityAdminActionsForm extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("WELCOME SYSTEM ADMIN");
+        jLabel1.setText("WELCOME COMMUNITY ADMIN!");
 
         javax.swing.GroupLayout WorkAreaLayout = new javax.swing.GroupLayout(WorkArea);
         WorkArea.setLayout(WorkAreaLayout);

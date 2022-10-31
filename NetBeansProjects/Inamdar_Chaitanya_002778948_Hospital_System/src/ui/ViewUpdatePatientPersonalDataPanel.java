@@ -585,6 +585,8 @@ private void displayPersonTableInformation() {
         DefaultTableModel model=(DefaultTableModel) PersonTable.getModel();
         model.setRowCount(0);
         for(CreatePerson e : createPersonHistory.getHistory()){
+            if("Patient".equals(e.getRole()))
+            {
             Object[] row =new Object[12];
             row[0]=e;
             row[1]=e.getFName() ;
@@ -601,7 +603,7 @@ private void displayPersonTableInformation() {
             
             model.addRow(row);
         }
-}
+}}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField FieldAge;

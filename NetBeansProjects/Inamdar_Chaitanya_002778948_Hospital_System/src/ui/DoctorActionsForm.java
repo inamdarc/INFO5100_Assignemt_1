@@ -48,14 +48,12 @@ public class DoctorActionsForm extends javax.swing.JFrame {
         jSplitPane = new javax.swing.JSplitPane();
         ControlPane = new javax.swing.JPanel();
         btnCreate = new javax.swing.JButton();
-        btnUpdate = new javax.swing.JButton();
         btnSearch = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         WorkArea = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1315, 659));
 
         ControlPane.setBackground(new java.awt.Color(191, 191, 156));
 
@@ -63,13 +61,6 @@ public class DoctorActionsForm extends javax.swing.JFrame {
         btnCreate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCreateActionPerformed(evt);
-            }
-        });
-
-        btnUpdate.setText("Update");
-        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUpdateActionPerformed(evt);
             }
         });
 
@@ -92,7 +83,6 @@ public class DoctorActionsForm extends javax.swing.JFrame {
         ControlPaneLayout.setHorizontalGroup(
             ControlPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(btnCreate, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
-            .addComponent(btnUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(ControlPaneLayout.createSequentialGroup()
                 .addContainerGap()
@@ -106,11 +96,9 @@ public class DoctorActionsForm extends javax.swing.JFrame {
                 .addComponent(jButton1)
                 .addGap(60, 60, 60)
                 .addComponent(btnCreate)
-                .addGap(38, 38, 38)
-                .addComponent(btnUpdate)
-                .addGap(51, 51, 51)
+                .addGap(56, 56, 56)
                 .addComponent(btnSearch)
-                .addContainerGap(473, Short.MAX_VALUE))
+                .addContainerGap(529, Short.MAX_VALUE))
         );
 
         jSplitPane.setLeftComponent(ControlPane);
@@ -161,11 +149,6 @@ public class DoctorActionsForm extends javax.swing.JFrame {
           
     }//GEN-LAST:event_btnCreateActionPerformed
 
-    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-        // TODO add your handling code here:
-       
-    }//GEN-LAST:event_btnUpdateActionPerformed
-
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         // TODO add your handling code here:
         DoctorAdminSearchJPanel doctorAdminSearchJPanel = new DoctorAdminSearchJPanel(patientDirectory);
@@ -188,7 +171,6 @@ public class DoctorActionsForm extends javax.swing.JFrame {
     private javax.swing.JPanel WorkArea;
     private javax.swing.JButton btnCreate;
     private javax.swing.JButton btnSearch;
-    private javax.swing.JButton btnUpdate;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JSplitPane jSplitPane;

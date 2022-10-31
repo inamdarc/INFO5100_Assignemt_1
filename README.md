@@ -1,6 +1,40 @@
 # Inamdar_Chaitanya_002778948
 
 
+Description of the project - 
+
+1. System Admin - 
+
+System Admin can do CRUD functionalities on the persons with different roles.
+System Admin can do CRUD functionalities on the Hospitals with different roles.
+All the data updated by the respected roles will get reflected in the system admin.
+
+2. Hospital Admin - 
+
+Hospital Admin can create Hospitals based on the city, community.
+hospital admin can view the doctors and patients encounter histories.
+
+
+
+3. Community Admin - 
+
+Community Admin can create communities based on the city, community and house no.
+persons will be able to updated their community status based on the newly added commnunities.
+
+4. Doctor - 
+
+Doctor can add vitals signs to the person who has booked the appointment.
+doctors will be check if the patients are normal or abnormal based on the vitals signs such as blood group, blood pressure, tempreture and pulse.
+doctors will be able to update the encounter history of a perticular patient.
+
+5. Patient - 
+
+Patients will be able to look for the doctors based on the hospitals they are looking for.
+one booked the appointment doctors will be able to see the patients in their directory.
+Patients can updated their personal details and those details will get reflected to the system admin.
+
+
+
 Sequence Diagrams based on the View of System Admin, Doctor and Patient - 
 
 **System Admin Sequence Diagram** - 
